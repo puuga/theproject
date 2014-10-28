@@ -1,4 +1,4 @@
-<?php //main_menu.php ?>
+<?php //admin_manager.php ?>
 <?php include 'login_control.php'; ?>
 <?php include 'db_connect.php'; ?>
 <?php include "class_import.php"; ?>
@@ -18,7 +18,7 @@
     <?php include 'navbar.php'; ?>
 
     <h1>
-      Main Menu
+      admin manager
     </h1>
   </body>
 </html>

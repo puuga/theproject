@@ -1,12 +1,14 @@
-<?php //main_menu.php ?>
+<?php //profile.php ?>
 <?php include 'login_control.php'; ?>
 <?php include 'db_connect.php'; ?>
 <?php include "class_import.php"; ?>
-
+<?php
+  needAdminLevel(100);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><?php echo String::system_title ?></title>
+    <title>Profile</title>
 
     <?php include 'head_tag.php'; ?>
 
@@ -18,7 +20,7 @@
     <?php include 'navbar.php'; ?>
 
     <h1>
-      Main Menu
+      Profile
     </h1>
   </body>
 </html>

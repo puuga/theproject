@@ -5,7 +5,7 @@
 
   $username = $_POST["username"];
   $password = $_POST["password"];
-  $sql = "SELECT * FROM user WHERE username like '$username' and password like '$password'" ;
+  $sql = "SELECT * FROM user WHERE email = '$username' and password = '$password'" ;
   $result = mysqli_query($con, $sql);
   if (!$result) {
     die('Error: ' . mysqli_error($con));
@@ -16,8 +16,10 @@
     } else {
 
       while($row = mysqli_fetch_array($result)) {
-        $_SESSION['current_user_username'] = $row["username"];
-        $_SESSION['current_user_name'] = $row["name"];
+        $_SESSION['current_user_person_id'] = $row["person_id"];
+        $_SESSION['current_user_firstname'] = $row["firstname"];
+        $_SESSION['current_user_lastname'] = $row["lastname"];
+        $_SESSION['current_user_email'] = $row["email"];
         $_SESSION['current_user_admin_level'] = $row["admin_level"];
       }
 

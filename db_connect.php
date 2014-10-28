@@ -1,7 +1,7 @@
 <?php //db_connect.php ?>
 <?php
   // Create connection
-  $con = mysqli_connect("localhost","researchdba","123456","research");
+  $con = mysqli_connect("localhost","theproject","1234567890","theproject");
 
   //mysqli_query("SET NAMES 'UTF-8'");
   mysqli_set_charset($con , "UTF8");

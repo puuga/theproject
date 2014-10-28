@@ -10,25 +10,31 @@
   }
 
   $current_user_name = "";
-  $current_user_admin_level = 10;
+  $current_user_admin_level = 1000;
 
-  if (empty($_SESSION['current_user_name']) || $_SESSION['current_user_name']=="") {
+  if (empty($_SESSION['current_user_email']) || $_SESSION['current_user_email']=="") {
     //header( 'Location: login.php' );
     //exit();
-    $current_user_name = "";
-    $current_user_admin_level = 10;
+    $current_user_person_id = "";
+    $current_user_firstname = "";
+    $current_user_lastname = "";
+    $current_user_email = "";
+    $current_user_admin_level = 1000;
     //echo "check";
   } else {
-    $current_user_name = $_SESSION['current_user_name'];
+    $current_user_person_id = $_SESSION['current_user_person_id'];
+    $current_user_firstname = $_SESSION['current_user_firstname'];
+    $current_user_lastname = $_SESSION['current_user_lastname'];
+    $current_user_email = $_SESSION['current_user_email'];
     $current_user_admin_level = $_SESSION['current_user_admin_level'];
     //echo "check2";
   }
 
   function needAdminLevel($requireLevel) {
-    if (empty($_SESSION['current_user_name']) || $_SESSION['current_user_name']=="") {
+    if (empty($_SESSION['current_user_email']) || $_SESSION['current_user_email']=="") {
       redirect('login.php?message=Need admin permission', false);
     }
-    if (0+$_SESSION['current_user_admin_level'] > 0+$requireLevel) {
+    if (0+$current_user_admin_level > 0+$requireLevel) {
       redirect('login.php?message=Need admin permission'.$_SESSION['current_user_admin_level'].",".$requireLevel, false);
     }
   }
