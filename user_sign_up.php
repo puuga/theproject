@@ -29,7 +29,7 @@ code by siwawes wongcharoen
 
 
     <?php
-      //read researcher
+      //read user
       $sql = "SELECT * FROM user";
       $result = mysqli_query($con, $sql);
 

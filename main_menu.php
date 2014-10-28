@@ -6,11 +6,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><?php echo String::system_title ?></title>
+    <title><?php echo String::system_title_full ?></title>
 
     <?php include 'head_tag.php'; ?>
 
+    <script>
+      var notices;
 
+      function setDataForDetail(id) {
+        console.log("notices.length:"+notices.length);
+        console.log("id:"+id);
+
+        var notice;
+        for (var i=0; i<notices.length; i++) {
+          if (notices[i].auto_id == id) {
+            notice = notices[i];
+            break;
+          }
+        }
+
+        $("#detailTitle").html(notice.title);detailDate,detailDescription
+        $("#detailDate").html(notice.date_published);
+        $("#detailDescription").html(notice.description);
+
+      }
+    </script>
 
   </head>
 
@@ -18,36 +38,108 @@
     <?php include 'navbar.php'; ?>
 
 
+    <div class="jumbotron">
+      <div class="container">
+        <h1><?php echo String::system_title_full ?></h1>
+      </div>
+    </div>
 
     <div class="container">
 
+
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
           <h1>
-            Notices
+            <?php echo String::notice ?>
           </h1>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-12 bg-info">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-      </div>
+      <?php
+        //read notices
+        $sql = "SELECT * FROM notice order by date_published desc";
+        $result = mysqli_query($con, $sql);
 
-      <br/>
+        $notices = array();
 
-      <div class="row">
-        <div class="col-md-12 bg-info">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
-      </div>
+        while($row = mysqli_fetch_array($result)) {
+          $notice = array();
+          $notice["auto_id"] = $row['auto_id'];
+          $notice["title"] = $row['title'];
+          $notice["description"] = $row['description'];
+          $notice["date_published"] = $row['date_published'];
+
+          $notices[] = $notice;
+
+          $phpdate = strtotime( $row['date_published'] );
+          $mysqldate = date( 'Y-m-d H:i:s', $phpdate );
+          ?>
+          <div class="row">
+            <div class="col-md-2">
+            </div>
+
+            <div class="col-md-8 bg-info">
+              <h2>
+                <?php echo $row['title']; ?>
+                <small>
+                  <?php echo $row['date_published']; ?>
+                </small>
+              </h2>
+              <p>
+                <?php echo substr($row['description'], 0, 100); ?>
+              </p>
+              <p>
+                <button class='btn btn-xs btn-default' data-toggle='modal' data-target='#myModalDetail' onclick='setDataForDetail("<?php echo $row['auto_id']; ?>")'>
+                  <?php echo String::detail ?> &raquo;
+                </button>
+              </p>
+            </div>
+          </div>
+          <br/>
+          <?php
+        }
+
+      ?>
+      <script>
+        notices = JSON.parse('<?php echo json_encode($notices); ?>');
+        console.log("notices count:"+notices.length);
+      </script>
+
 
     </div>
+
+    <!-- Detail Modal -->
+    <div class="modal fade bs-example-modal-lg" id="myModalDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabelDetail" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabelDetail"><?php echo String::detail ?></h4>
+          </div>
+          <div class="modal-body" id="mySmallModalBodyDetail">
+
+            <div>
+              <p>
+                <strong><span id="detailTitle"></span></strong><br/>
+                <span id="detailDate"></span>
+              </p>
+            </div>
+
+            <div>
+              <p>
+                <span id="detailDescription"></span>
+              </p>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div> <!-- end Detail Modal -->
 
   </body>
 </html>
