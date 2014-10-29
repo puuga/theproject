@@ -8,7 +8,8 @@
       const system_document = "เอกสาร";
       const detail = "รายละเอียด";
       const notice = "ประกาศ";
-	  const notice2 = "ประกาศ2";
+      const notice2 = "ประกาศ2";
+      const notice3 = "ประกาศ3";
 
   }
 ?>
