@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title><?php echo String::system_title_full ?></title>
+    <title><?php echo String::system_document; ?></title>
 
     <?php include 'head_tag.php'; ?>
 
@@ -19,7 +19,7 @@
 
     <div class="jumbotron">
       <div class="container">
-        <h1><?php echo String::system_document ?></h1>
+        <h1><?php echo String::system_document; ?></h1>
       </div>
     </div>
 
@@ -30,7 +30,7 @@
           <table class="table table-striped table-hover">
             <thead>
               <tr class="info">
-                <th><?php echo String::system_document ?></th>
+                <th><?php echo String::system_document; ?></th>
                 <th>#</th>
               </tr>
             </thead>
@@ -41,7 +41,32 @@
                   <a
                     class="btn btn-primary"
                     href="https://docs.google.com/forms/d/1qhJ-gS96pQHUBefjthomK2Km-qEwHbxRHM_erwMYKBg/viewform?edit_requested=true">
-                    link
+                    <span class="glyphicon glyphicon-download"></span> link
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr class="info">
+                <th><?php echo String::system_document; ?></th>
+                <th>#</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>แบบทดสอบหลังการอบรม</td>
+                <td>
+                  <a
+                    class="btn btn-primary"
+                    href="https://docs.google.com/forms/d/1qhJ-gS96pQHUBefjthomK2Km-qEwHbxRHM_erwMYKBg/viewform?edit_requested=true">
+                    <span class="glyphicon glyphicon-download"></span> link
                   </a>
                 </td>
               </tr>

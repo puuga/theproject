@@ -24,13 +24,12 @@
       VALUES ('$person_id', '$firstname', '$lastname', '$email', '$password', '$upper_person_id', '$admin_level')";
   } else {
     $sql = "UPDATE user
-      SET person_id = '$person_id',
+      SET 
       firstname = '$firstname',
       lastname = '$lastname',
       email = '$email',
-      password = '$password',
-      upper_person_id = '$upper_person_id'
-      WHERE id = $post_id;";
+      password = '$password'
+      WHERE auto_id = $post_id;";
   }
 
   // echo $sql;

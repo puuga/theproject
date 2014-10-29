@@ -17,6 +17,7 @@
       <ul class="nav navbar-nav">
         <li><a href="system_description.php"><span class="glyphicon glyphicon-th"></span> <?php echo String::system_description ?></a></li>
         <li><a href="system_document.php"><span class="glyphicon glyphicon-file"></span> <?php echo String::system_document ?></a></li>
+        <li><a href="system_schedule.php"><span class="glyphicon glyphicon glyphicon-list-alt"></span> <?php echo String::system_schedule ?></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">

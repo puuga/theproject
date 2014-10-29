@@ -99,14 +99,14 @@ code by siwawes wongcharoen
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label for="person_id">Person ID:</label>
+              <label for="person_id"><?php echo String::person_personal_id; ?> :</label>
               <input type="text"
                 class="form-control"
                 name="person_id"
                 id="person_id"
                 placeholder="xxxxxxxxxxxxx"
                 <?php echo $mode=="edit"?"value='".$_GET['person_id']."'":""; ?>
-                required/>
+                <?php echo $mode=="edit"?"disabled":"required"; ?>/>
             </div>
           </div>
         </div>
@@ -114,7 +114,7 @@ code by siwawes wongcharoen
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label for="firstname">Firstname:</label>
+              <label for="firstname"><?php echo String::person_firstname; ?> :</label>
               <input type="text"
                 class="form-control"
                 name="firstname"
@@ -129,7 +129,7 @@ code by siwawes wongcharoen
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label for="lastname">Lastname:</label>
+              <label for="lastname"><?php echo String::person_lastname; ?> :</label>
               <input type="text"
                 class="form-control"
                 name="lastname"
@@ -144,7 +144,7 @@ code by siwawes wongcharoen
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label for="email">E-mail:</label>
+              <label for="email"><?php echo String::person_email; ?> :</label>
               <input type="email"
                 class="form-control"
                 name="email"
@@ -159,7 +159,7 @@ code by siwawes wongcharoen
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label for="password">Password:</label>
+              <label for="password"><?php echo String::person_password; ?> :</label>
               <input type="password"
                 class="form-control"
                 name="password"
@@ -174,13 +174,13 @@ code by siwawes wongcharoen
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label for="confirm_password">Confirm Password:</label>
+              <label for="confirm_password"><?php echo String::person_confirm_password; ?> :</label>
               <input type="password"
                 class="form-control"
                 name="confirm_password"
                 id="confirm_password"
                 placeholder="********"
-                <?php echo $mode=="edit" ? "value='".$_GET['confirm_password']."'" : ""; ?>
+                <?php echo $mode=="edit" ? "value='".$_GET['password']."'" : ""; ?>
                 required/>
             </div>
           </div>
@@ -199,12 +199,13 @@ code by siwawes wongcharoen
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label for="upper_person">Root:</label>
+              <label for="upper_person"><?php echo String::person_mentor; ?> :</label>
               <input list="upper_persons"
                 class="form-control"
                 name="upper_person"
                 id="upper_person"
-                oninput="setUpperPersonId(this.value)" >
+                oninput="setUpperPersonId(this.value)"
+                <?php echo $mode=="edit"?"disabled":"required"; ?> >
               <datalist id="upper_persons"></datalist>
 
               <input type="hidden"
