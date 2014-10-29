@@ -1,6 +1,6 @@
 <?php
   class String {
-      const system_title = "edu.NU";
+      const system_title = "NU.edu";
       const system_title_full = "โครงการพัฒนาครูและบุคลากรทางการศึกษาโดยใช้เทคโนโลยีสารสนเทศ";
       const system_description = "โครงการ";
       const system_objective = "วัตถุประสงค์";
