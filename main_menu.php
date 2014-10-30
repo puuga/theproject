@@ -42,6 +42,12 @@
         text-shadow: white 0em 0.2em 1em;
       }
 
+      .vcenter {
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+      }
+
     </style>
 
   </head>

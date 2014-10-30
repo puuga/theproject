@@ -9,12 +9,19 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="main_menu.php"><?php echo String::system_title; ?></a>
+      <a class="navbar-brand" href="main_menu.php">
+        <img src="image/header_logo.png">
+      </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <li>
+          <a href="main_menu.php">
+            <?php echo String::system_title; ?>
+          </a>
+        </li>
         <li>
           <a href="system_description.php">
             <span class="glyphicon glyphicon-th"></span> <?php echo String::system_description ?>

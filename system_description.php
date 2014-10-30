@@ -17,9 +17,13 @@
   <body>
     <?php include 'navbar.php'; ?>
 
+    <div class="container">
+      <center><img src="image/banner3.png"></center>
+    </div>
+
     <div class="jumbotron">
       <div class="container">
-        <h1><?php echo String::system_title_full ?></h1>
+        <h1><center><?php echo String::system_title_full ?></center></h1>
       </div>
     </div>
 
