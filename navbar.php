@@ -34,17 +34,36 @@
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <span class="glyphicon glyphicon glyphicon-list-alt"></span> <?php echo String::system_schedule ?> <span class="caret"></span>
+            <span class="glyphicon glyphicon-list-alt"></span> <?php echo String::system_schedule ?> <span class="caret"></span>
           </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="https://drive.google.com/open?id=0B9bzy3S3TMGRQm52SUk1ZGJWRVk&authuser=0">
-              สำหรับผู้อำนวยการเขตพื้นที่การศึกษาและผู้อำนวยการโรงเรียน</a></li>
+            <li><a href="https://drive.google.com/open?id=0B9bzy3S3TMGRZzdyREZOY0RoT3c&authuser=0">
+              สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</a></li>
             <li><a href="https://drive.google.com/open?id=0B9bzy3S3TMGRaFpQV2NpaXFuYlE&authuser=0">
               สำหรับรองผู้อำนวยการเขตพื้นที่การศึกษา</a></li>
-            <li><a href="https://drive.google.com/open?id=0B9bzy3S3TMGRUk1TX1Q1MW02Y00&authuser=0">
-              สำหรับครูแกนนำ</a></li>
             <li><a href="https://drive.google.com/open?id=0B9bzy3S3TMGRZk9UQk43aXZzZkE&authuser=0">
               สำหรับศึกษานิเทศก์</a></li>
+            <li><a href="https://drive.google.com/open?id=0B9bzy3S3TMGRekRUNkozX1pncVU&authuser=0">
+              สำหรับผู้อำนวยการโรงเรียน</a></li>
+            <li><a href="https://drive.google.com/open?id=0B9bzy3S3TMGRUk1TX1Q1MW02Y00&authuser=0">
+              สำหรับครูแกนนำ</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-calendar"></span> <?php echo String::system_schedule_date ?> <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">
+              สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</a></li>
+            <li><a href="#">
+              สำหรับรองผู้อำนวยการเขตพื้นที่การศึกษา</a></li>
+            <li><a href="#">
+              สำหรับศึกษานิเทศก์</a></li>
+            <li><a href="#">
+              สำหรับผู้อำนวยการโรงเรียน</a></li>
+            <li><a href="#">
+              สำหรับครูแกนนำ</a></li>
           </ul>
         </li>
       </ul>

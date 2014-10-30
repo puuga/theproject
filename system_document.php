@@ -31,7 +31,7 @@
           <table class="table table-striped table-hover">
             <thead>
               <tr class="info">
-                <th>เอกสารประกอบการอบรม</th>
+                <th><h4>เอกสารประกอบการอบรม</h4></th>
                 <th>&nbsp;</th>
               </tr>
             </thead>
@@ -90,7 +90,7 @@
           <table class="table table-striped table-hover">
             <thead>
               <tr class="info">
-                <th>แบบทดสอบก่อนการอบรม</th>
+                <th><h4>แบบทดสอบก่อนการอบรม</h4></th>
                 <th>&nbsp;</th>
               </tr>
             </thead>
@@ -150,7 +150,7 @@
           <table class="table table-striped table-hover">
             <thead>
               <tr class="info">
-                <th>แบบทดสอบหลังการอบรม</th>
+                <th><h4>แบบทดสอบหลังการอบรม</h4></th>
                 <th>&nbsp;</th>
               </tr>
             </thead>

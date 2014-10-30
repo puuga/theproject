@@ -6,7 +6,8 @@
       const system_objective = "วัตถุประสงค์";
       const system_target = "เป้าหมายโครงการ";
       const system_document = "เอกสาร";
-      const system_schedule = "กำหนดการ";
+      const system_schedule = "ตารางการอบรม";
+      const system_schedule_date = "กำหนดการอบรม";
       const system_paper_test = "แบบสดสอบ";
       const system_questionnaire = "แบบสอบถามประเมิณโครงการ";
       const system_register = "ลงทะเบียน";

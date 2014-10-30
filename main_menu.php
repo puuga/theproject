@@ -135,15 +135,35 @@
           </div>
 
           <div class="list-group">
-            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRQm52SUk1ZGJWRVk&authuser=0">
-              สำหรับผู้อำนวยการเขตพื้นที่การศึกษาและผู้อำนวยการโรงเรียน</a>
+            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRZzdyREZOY0RoT3c&authuser=0">
+              สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</a>
             <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRaFpQV2NpaXFuYlE&authuser=0">
               สำหรับรองผู้อำนวยการเขตพื้นที่การศึกษา</a>
-            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRUk1TX1Q1MW02Y00&authuser=0">
-              สำหรับครูแกนนำ</a>
             <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRZk9UQk43aXZzZkE&authuser=0">
               สำหรับศึกษานิเทศก์</a>
+            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRekRUNkozX1pncVU&authuser=0">
+              สำหรับผู้อำนวยการโรงเรียน</a>
+            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRUk1TX1Q1MW02Y00&authuser=0">
+              สำหรับครูแกนนำ</a>
           </div>
+
+          <div class="page-header">
+            <h1><?php echo String::system_schedule_date ?></h1>
+          </div>
+
+          <div class="list-group">
+            <a class="list-group-item" href="#">
+              สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</a>
+            <a class="list-group-item" href="#">
+              สำหรับรองผู้อำนวยการเขตพื้นที่การศึกษา</a>
+            <a class="list-group-item" href="#">
+              สำหรับศึกษานิเทศก์</a>
+            <a class="list-group-item" href="#">
+              สำหรับผู้อำนวยการโรงเรียน</a>
+            <a class="list-group-item" href="#">
+              สำหรับครูแกนนำ</a>
+          </div>
+
         </div>
       </div>
 
