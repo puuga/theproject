@@ -35,11 +35,15 @@
     <style>
 
       .jumbotron {
-        background: url('image/banner2.png') no-repeat center center;
+        background: url('image/banner4.jpg') no-repeat center center;
         margin-bottom: 0px;
         height: 300px;
         color: black;
         text-shadow: white 0em 0.2em 1em;
+        -webkit-background-size: 100% 100%;
+        -moz-background-size: 100% 100%;
+        -o-background-size: 100% 100%;
+        background-size: 100% 100%;
       }
 
       .vcenter {
@@ -58,7 +62,7 @@
 
     <div class="jumbotron">
       <div class="container">
-        <center><h1><?php echo String::system_title_full ?></h1></center>
+        <!--<center><h1><?php echo String::system_title_full ?></h1></center>-->
       </div>
     </div>
 
