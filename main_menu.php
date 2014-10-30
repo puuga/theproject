@@ -46,62 +46,90 @@
 
     <div class="container">
 
-
       <div class="row">
-        <div class="col-md-2">
-        </div>
         <div class="col-md-8">
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="page-header">
+                <h1><?php echo String::notice ?></h1>
+              </div>
+            </div>
+          </div>
+
+          <?php
+            //read notices
+            $sql = "SELECT * FROM notice order by date_published desc";
+            $result = mysqli_query($con, $sql);
+
+            $notices = array();
+
+            while($row = mysqli_fetch_array($result)) {
+              $notice = array();
+              $notice["auto_id"] = $row['auto_id'];
+              $notice["title"] = $row['title'];
+              $notice["description"] = $row['description'];
+              $notice["date_published"] = $row['date_published'];
+
+              $notices[] = $notice;
+
+              $phpdate = strtotime( $row['date_published'] );
+              $mysqldate = date( 'Y-m-d H:i:s', $phpdate );
+              ?>
+              <div class="row">
+
+                <div class="col-md-12 bg-info">
+                  <h2>
+                    <?php echo $row['title']; ?>
+                    <small>
+                      <?php echo $row['date_published']; ?>
+                    </small>
+                  </h2>
+                  <p>
+                    <?php echo substr($row['description'], 0, 100); ?>
+                  </p>
+                  <p>
+                    <button class='btn btn-xs btn-default' data-toggle='modal' data-target='#myModalDetail' onclick='setDataForDetail("<?php echo $row['auto_id']; ?>")'>
+                      <?php echo String::detail ?> &raquo;
+                    </button>
+                  </p>
+                </div>
+              </div>
+              <br/>
+              <?php
+            }
+          ?>
+
+        </div>
+
+        <div class="col-md-4">
           <div class="page-header">
-            <h1><?php echo String::notice ?></h1>
+            <h1><?php echo String::system_register ?></h1>
+          </div>
+
+          <div>
+            <a class="btn btn-primary" href="#">ลงทะเบียนเข้าอบรม</a>
+          </div>
+
+
+          <div class="page-header">
+            <h1><?php echo String::system_schedule ?></h1>
+          </div>
+
+          <div class="list-group">
+            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRQm52SUk1ZGJWRVk&authuser=0">
+              สำหรับผู้อำนวยการเขตพื้นที่การศึกษาและผู้อำนวยการโรงเรียน</a>
+            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRaFpQV2NpaXFuYlE&authuser=0">
+              สำหรับรองผู้อำนวยการเขตพื้นที่การศึกษา</a>
+            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRUk1TX1Q1MW02Y00&authuser=0">
+              สำหรับครูแกนนำ</a>
+            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRZk9UQk43aXZzZkE&authuser=0">
+              สำหรับศึกษานิเทศก์</a>
           </div>
         </div>
       </div>
 
-      <?php
-        //read notices
-        $sql = "SELECT * FROM notice order by date_published desc";
-        $result = mysqli_query($con, $sql);
 
-        $notices = array();
-
-        while($row = mysqli_fetch_array($result)) {
-          $notice = array();
-          $notice["auto_id"] = $row['auto_id'];
-          $notice["title"] = $row['title'];
-          $notice["description"] = $row['description'];
-          $notice["date_published"] = $row['date_published'];
-
-          $notices[] = $notice;
-
-          $phpdate = strtotime( $row['date_published'] );
-          $mysqldate = date( 'Y-m-d H:i:s', $phpdate );
-          ?>
-          <div class="row">
-            <div class="col-md-2">
-            </div>
-
-            <div class="col-md-8 bg-info">
-              <h2>
-                <?php echo $row['title']; ?>
-                <small>
-                  <?php echo $row['date_published']; ?>
-                </small>
-              </h2>
-              <p>
-                <?php echo substr($row['description'], 0, 100); ?>
-              </p>
-              <p>
-                <button class='btn btn-xs btn-default' data-toggle='modal' data-target='#myModalDetail' onclick='setDataForDetail("<?php echo $row['auto_id']; ?>")'>
-                  <?php echo String::detail ?> &raquo;
-                </button>
-              </p>
-            </div>
-          </div>
-          <br/>
-          <?php
-        }
-
-      ?>
       <script>
         notices = JSON.parse('<?php echo json_encode($notices); ?>');
         console.log("notices count:"+notices.length);

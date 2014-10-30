@@ -15,9 +15,31 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="system_description.php"><span class="glyphicon glyphicon-th"></span> <?php echo String::system_description ?></a></li>
-        <li><a href="system_document.php"><span class="glyphicon glyphicon-file"></span> <?php echo String::system_document ?></a></li>
-        <li><a href="system_schedule.php"><span class="glyphicon glyphicon glyphicon-list-alt"></span> <?php echo String::system_schedule ?></a></li>
+        <li>
+          <a href="system_description.php">
+            <span class="glyphicon glyphicon-th"></span> <?php echo String::system_description ?>
+          </a>
+        </li>
+        <li>
+          <a href="system_document.php">
+            <span class="glyphicon glyphicon-file"></span> <?php echo String::system_document ?>
+          </a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="glyphicon glyphicon glyphicon-list-alt"></span> <?php echo String::system_schedule ?> <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="https://drive.google.com/open?id=0B9bzy3S3TMGRQm52SUk1ZGJWRVk&authuser=0">
+              สำหรับผู้อำนวยการเขตพื้นที่การศึกษาและผู้อำนวยการโรงเรียน</a></li>
+            <li><a href="https://drive.google.com/open?id=0B9bzy3S3TMGRaFpQV2NpaXFuYlE&authuser=0">
+              สำหรับรองผู้อำนวยการเขตพื้นที่การศึกษา</a></li>
+            <li><a href="https://drive.google.com/open?id=0B9bzy3S3TMGRUk1TX1Q1MW02Y00&authuser=0">
+              สำหรับครูแกนนำ</a></li>
+            <li><a href="https://drive.google.com/open?id=0B9bzy3S3TMGRZk9UQk43aXZzZkE&authuser=0">
+              สำหรับศึกษานิเทศก์</a></li>
+          </ul>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">

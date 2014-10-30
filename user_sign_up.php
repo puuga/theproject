@@ -75,7 +75,7 @@ code by siwawes wongcharoen
       <!--title row-->
       <div class="row bg-info">
         <div class="col-md-10">
-          <h2><?php echo $mode=="add"?"Add New":"Edit"; ?> User</h2>
+          <h2><?php echo $mode=="add"?"เพิ่ม":"แก้ไขข้อมูล"; ?>ผู้ใช้</h2>
         </div>
         <div class="col-md-2 text-right">
           <p></p>
@@ -206,6 +206,7 @@ code by siwawes wongcharoen
                 id="upper_person"
                 oninput="setUpperPersonId(this.value)"
                 <?php echo $mode=="edit"?"disabled":"required"; ?> >
+              <span class="help-block">โปรดตรวจสอบ ชื่อ-สกุลของผู้แนะนำให้ถูกต้อง เพราะไม่สามารถแกไขได้</span>
               <datalist id="upper_persons"></datalist>
 
               <input type="hidden"
@@ -239,7 +240,7 @@ code by siwawes wongcharoen
           //alert( "Handler for .submit() called." );
           //event.preventDefault();
           if ( $("#password").val() != $("#confirm_password").val() ) {
-            alert("Sorry\nPlease, check password again.");
+            alert("มีปัญหา\nกรุณาใช้รหัสผ่านให้ตรงกัน.");
             event.preventDefault();
             //return;
           }
