@@ -23,7 +23,7 @@
         $_SESSION['current_user_admin_level'] = $row["admin_level"];
       }
 
-      header( 'Location: index.php' );
+      header( 'Location: profile.php' );
       //http_redirect('Location: index.php');
     }
 

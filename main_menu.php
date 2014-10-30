@@ -32,6 +32,18 @@
       }
     </script>
 
+    <style>
+
+      .jumbotron {
+        background: url('image/banner2.png') no-repeat center center;
+        margin-bottom: 0px;
+        height: 300px;
+        color: black;
+        text-shadow: white 0em 0.2em 1em;
+      }
+
+    </style>
+
   </head>
 
   <body>
@@ -40,7 +52,7 @@
 
     <div class="jumbotron">
       <div class="container">
-        <h1><?php echo String::system_title_full ?></h1>
+        <center><h1><?php echo String::system_title_full ?></h1></center>
       </div>
     </div>
 

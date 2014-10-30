@@ -17,6 +17,11 @@
   <body>
     <?php include 'navbar.php'; ?>
 
+    <div class="jumbotron">
+      <div class="container">
+        <h1>admin manager</h1>
+      </div>
+    </div>
     <h1>
       admin manager
     </h1>
