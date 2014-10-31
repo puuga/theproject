@@ -35,11 +35,12 @@
     <style>
 
       .jumbotron {
-        background: url('image/banner4.jpg') no-repeat center center;
+        background: url('image/main_banner_v1.jpg') no-repeat center center;
         margin-bottom: 0px;
+        padding-top: 100px;
         height: 300px;
-        color: black;
-        text-shadow: white 0em 0.2em 1em;
+        color: #eeeeee;
+        text-shadow:  0px 0px 10px #000000;
         -webkit-background-size: 100% 100%;
         -moz-background-size: 100% 100%;
         -o-background-size: 100% 100%;
@@ -62,7 +63,7 @@
 
     <div class="jumbotron">
       <div class="container">
-        <!--<center><h1><?php echo String::system_title_full ?></h1></center>-->
+        <center><h1><?php echo String::system_title_full ?></h1></center>
       </div>
     </div>
 
@@ -156,15 +157,15 @@
           </div>
 
           <div class="list-group">
-            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRdjJNaFMwam9La28&authuser=0">
+            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRRXNBaHRzbVl4b1k&authuser=0">
               สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</a>
-            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRdjJNaFMwam9La28&authuser=0">
+            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRTTgwcVIyRU5zMzQ&authuser=0">
               สำหรับรองผู้อำนวยการเขตพื้นที่การศึกษา</a>
-            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRdjJNaFMwam9La28&authuser=0">
+            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRZzB2OVp6SkxtV3c&authuser=0">
               สำหรับศึกษานิเทศก์</a>
-            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRdjJNaFMwam9La28&authuser=0">
+            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRYlJILTVfX0pzQ1U&authuser=0">
               สำหรับผู้อำนวยการโรงเรียน</a>
-            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRdjJNaFMwam9La28&authuser=0">
+            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRbk5kR3BNXy1COVE&authuser=0">
               สำหรับครูแกนนำ</a>
           </div>
 

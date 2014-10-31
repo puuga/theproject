@@ -79,7 +79,7 @@
           <p class="text-right"><strong><?php echo String::person_personal_id ?></strong><p>
         </div>
         <div class="col-md-9">
-          <?php echo $user["person_id"]; ?>
+          <?php echo $current_user_person_id; ?>
         </div>
       </div>
 
@@ -88,7 +88,7 @@
           <p class="text-right"><strong><?php echo String::person_name ?></strong><p>
         </div>
         <div class="col-md-9">
-          <?php echo $user["firstname"]; ?> <?php echo $user["lastname"]; ?>
+          <?php echo $current_user_firstname; ?> <?php echo $current_user_lastname; ?>
         </div>
       </div>
 
@@ -97,7 +97,7 @@
           <p class="text-right"><strong><?php echo String::person_email ?></strong><p>
         </div>
         <div class="col-md-9">
-          <?php echo $user["email"]; ?>
+          <?php echo $current_user_email; ?>
         </div>
       </div>
 
