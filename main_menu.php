@@ -35,12 +35,12 @@
     <style>
 
       .jumbotron {
-        background: url('image/main_banner_v1.jpg') no-repeat center center;
+        background: url('image/main_banner_v3.jpg') no-repeat center center;
         margin-bottom: 0px;
-        padding-top: 100px;
+        padding-top: 130px;
         height: 300px;
-        color: #eeeeee;
-        text-shadow:  0px 0px 10px #000000;
+        color: #212121;
+        text-shadow:  2px -2px 5px #9e9e9e;
         -webkit-background-size: 100% 100%;
         -moz-background-size: 100% 100%;
         -o-background-size: 100% 100%;

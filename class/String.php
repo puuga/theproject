@@ -11,6 +11,9 @@
       const system_paper_test = "แบบสดสอบ";
       const system_questionnaire = "แบบสอบถามประเมินโครงการ";
       const system_register = "ลงทะเบียน";
+      const system_sign_in = "เข้าสู่ระบบ";
+      const system_sign_out = "ออกจากระบบ";
+      const system_sign_up = "ลงทะเบียน";
       const detail = "รายละเอียด";
       const notice = "ประกาศ";
       const profile = "ประวัติส่วนตัว";
