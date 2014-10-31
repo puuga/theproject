@@ -37,7 +37,7 @@
             </thead>
             <tbody>
               <tr>
-                <td>สำหรับผู้อำนวยการเขตพื้นที่การศึกษา และผู้อำนวยการโรงเรียน</td>
+                <td>สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</td>
                 <td>
                   <a
                     class="btn btn-primary"
@@ -59,6 +59,28 @@
               </tr>
 
               <tr>
+                <td>สำหรับศึกษานิเทศก์</td>
+                <td>
+                  <a
+                    class="btn btn-primary"
+                    href="https://drive.google.com/open?id=0B9bzy3S3TMGRTUdQVjdEV2k0d3M&authuser=0">
+                    <span class="glyphicon glyphicon-download"></span> link
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <td>สำหรับผู้อำนวยการโรงเรียน</td>
+                <td>
+                  <a
+                    class="btn btn-primary"
+                    href="https://drive.google.com/open?id=0B9bzy3S3TMGRbENpS3poRkpqVHM&authuser=0">
+                    <span class="glyphicon glyphicon-download"></span> link
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
                 <td>สำหรับครูแกนนำ</td>
                 <td>
                   <a
@@ -69,16 +91,7 @@
                 </td>
               </tr>
 
-              <tr>
-                <td>สำหรับศึกษานิเทศก์</td>
-                <td>
-                  <a
-                    class="btn btn-primary"
-                    href="https://drive.google.com/open?id=0B9bzy3S3TMGRTUdQVjdEV2k0d3M&authuser=0">
-                    <span class="glyphicon glyphicon-download"></span> link
-                  </a>
-                </td>
-              </tr>
+
             </tbody>
           </table>
         </div>
@@ -97,7 +110,7 @@
             <tbody>
 
               <tr>
-                <td>สำหรับผู้อำนวยการเขตพื้นที่การศึกษา และผู้อำนวยการโรงเรียน</td>
+                <td>สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</td>
                 <td>
                   <a
                     class="btn btn-primary"
@@ -119,6 +132,28 @@
               </tr>
 
               <tr>
+                <td>สำหรับศึกษานิเทศก์</td>
+                <td>
+                  <a
+                    class="btn btn-primary"
+                    href="https://docs.google.com/forms/d/1u2bK_tNdeFhKEwVpS_eHjyj_TuTLChI2OVZw7pZNX80/viewform">
+                    <span class="glyphicon glyphicon-download"></span> link
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <td>สำหรับผู้อำนวยการโรงเรียน</td>
+                <td>
+                  <a
+                    class="btn btn-primary"
+                    href="https://docs.google.com/forms/d/1L8426lFZNxluce3YTn5YwxmDQqAgTA8MumnEFZgQWak/viewform">
+                    <span class="glyphicon glyphicon-download"></span> link
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
                 <td>สำหรับครูแกนนำ</td>
                 <td>
                   <a
@@ -129,16 +164,7 @@
                 </td>
               </tr>
 
-              <tr>
-                <td>สำหรับศึกษานิเทศก์</td>
-                <td>
-                  <a
-                    class="btn btn-primary"
-                    href="https://docs.google.com/forms/d/1u2bK_tNdeFhKEwVpS_eHjyj_TuTLChI2OVZw7pZNX80/viewform">
-                    <span class="glyphicon glyphicon-download"></span> link
-                  </a>
-                </td>
-              </tr>
+
             </tbody>
           </table>
         </div>
@@ -157,7 +183,7 @@
             <tbody>
 
               <tr>
-                <td>สำหรับผู้อำนวยการเขตพื้นที่การศึกษา และผู้อำนวยการโรงเรียน</td>
+                <td>สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</td>
                 <td>
                   <a
                     class="btn btn-primary"
@@ -179,6 +205,28 @@
               </tr>
 
               <tr>
+                <td>สำหรับศึกษานิเทศก์</td>
+                <td>
+                  <a
+                    class="btn btn-primary"
+                    href="https://docs.google.com/forms/d/1KjfsdSUODdYGny0Wp8OrrbmrMd5-fDhDye47jLNM4-U/viewform">
+                    <span class="glyphicon glyphicon-download"></span> link
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <td>สำหรับผู้อำนวยการโรงเรียน</td>
+                <td>
+                  <a
+                    class="btn btn-primary"
+                    href="https://docs.google.com/forms/d/1O0wTbsqWaw3v12ZREDuH4lGOeGl0qQZP-EOuwAoSG00/viewform">
+                    <span class="glyphicon glyphicon-download"></span> link
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
                 <td>สำหรับครูแกนนำ</td>
                 <td>
                   <a
@@ -189,16 +237,80 @@
                 </td>
               </tr>
 
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- แบบสอบถามประเมินโครงการ -->
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr class="info">
+                <th><h4><?php echo String::system_questionnaire; ?></h4></th>
+                <th>&nbsp;</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr>
+                <td>สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</td>
+                <td>
+                  <a
+                    class="btn btn-primary"
+                    href="https://docs.google.com/forms/d/1JAde_BULIBSwGojJd7InjqEE21C7iWTQ69xux3TNLP4/viewform">
+                    <span class="glyphicon glyphicon-download"></span> link
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <td>สำหรับรองผู้อำนวยการเขตพื้นที่การศึกษา</td>
+                <td>
+                  <a
+                    class="btn btn-primary"
+                    href="https://docs.google.com/forms/d/1zwa7a-1R6dTaP7szDrewtOIo21r-I-r04NAK1QlLmKc/viewform">
+                    <span class="glyphicon glyphicon-download"></span> link
+                  </a>
+                </td>
+              </tr>
+
               <tr>
                 <td>สำหรับศึกษานิเทศก์</td>
                 <td>
                   <a
                     class="btn btn-primary"
-                    href="https://docs.google.com/forms/d/1KjfsdSUODdYGny0Wp8OrrbmrMd5-fDhDye47jLNM4-U/viewform">
+                    href="https://docs.google.com/forms/d/1ppF9kNVaW2do6spB-slSZvhZPQtEbwdYVKXvieO8nSA/viewform">
                     <span class="glyphicon glyphicon-download"></span> link
                   </a>
                 </td>
               </tr>
+
+              <tr>
+                <td>สำหรับผู้อำนวยการโรงเรียน</td>
+                <td>
+                  <a
+                    class="btn btn-primary"
+                    href="https://docs.google.com/forms/d/1JAde_BULIBSwGojJd7InjqEE21C7iWTQ69xux3TNLP4/viewform">
+                    <span class="glyphicon glyphicon-download"></span> link
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <td>สำหรับครูแกนนำ</td>
+                <td>
+                  <a
+                    class="btn btn-primary"
+                    href="https://docs.google.com/forms/d/15UK3teaHeaAYNZbKQVLfaldFknaDrf4kNQKTrBaFxy8/viewform">
+                    <span class="glyphicon glyphicon-download"></span> link
+                  </a>
+                </td>
+              </tr>
+
+
             </tbody>
           </table>
         </div>

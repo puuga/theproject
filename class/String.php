@@ -9,7 +9,7 @@
       const system_schedule = "ตารางการอบรม";
       const system_schedule_date = "กำหนดการอบรม";
       const system_paper_test = "แบบสดสอบ";
-      const system_questionnaire = "แบบสอบถามประเมิณโครงการ";
+      const system_questionnaire = "แบบสอบถามประเมินโครงการ";
       const system_register = "ลงทะเบียน";
       const detail = "รายละเอียด";
       const notice = "ประกาศ";
