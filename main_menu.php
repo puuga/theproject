@@ -175,7 +175,7 @@
 
       <script>
         notices = JSON.parse('<?php echo json_encode($notices); ?>');
-        console.log("notices count:"+notices.length);
+        //console.log("notices count:"+notices.length);
       </script>
 
 
