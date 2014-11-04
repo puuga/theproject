@@ -102,12 +102,12 @@
               <div class="row">
 
                 <div class="col-md-12 bg-info">
-                  <h2>
+                  <h3>
                     <?php echo $row['title']; ?>
                     <small>
                       <?php echo $row['date_published']; ?>
                     </small>
-                  </h2>
+                  </h3>
                   <p>
                     <?php echo $row['description']; ?>
                   </p>
