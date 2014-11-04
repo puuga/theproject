@@ -35,7 +35,7 @@
     <style>
 
       .jumbotron {
-        background: url('image/main_banner_v3.jpg') no-repeat center center;
+        background: url('image/main_banner_v4.jpg') no-repeat center center;
         margin-bottom: 0px;
         padding-top: 130px;
         height: 300px;
@@ -109,13 +109,15 @@
                     </small>
                   </h2>
                   <p>
-                    <?php echo substr($row['description'], 0, 100); ?>
+                    <?php echo $row['description']; ?>
                   </p>
+                  <!--
                   <p>
                     <button class='btn btn-xs btn-default' data-toggle='modal' data-target='#myModalDetail' onclick='setDataForDetail("<?php echo $row['auto_id']; ?>")'>
                       <?php echo String::detail ?> &raquo;
                     </button>
                   </p>
+                -->
                 </div>
               </div>
               <br/>
@@ -131,8 +133,16 @@
           </div>
 
           <div>
-            <a class="btn btn-primary" href="https://docs.google.com/forms/d/1ZSPZm6QMbygtfcu3YX35zsavx03bVIGAWKhBScY86L8/viewform">ลงทะเบียนเข้าอบรม</a>
+            <p>
+              <a class="btn btn-primary" href="https://docs.google.com/forms/d/1ZSPZm6QMbygtfcu3YX35zsavx03bVIGAWKhBScY86L8/viewform">ลงทะเบียนเข้าอบรม</a>
+            </p>
+
+            <p>
+              <a class="btn btn-success" href="https://drive.google.com/open?id=1fxvh054r0MXcaMkxiKOEcRjkELAbDw3mSwbcYbpFulE&authuser=0">รายชื่อผู้ลงทะเบียน</a>
+            </p>
+
           </div>
+
 
 
           <div class="page-header">
