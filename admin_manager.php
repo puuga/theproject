@@ -17,10 +17,95 @@
       });
     </script>
 
+    <?php
+      function findMentorInArray($arr, $mentor_id) {
+        if ( count($arr)==0 ) {
+          return -1;
+        }
+        for ( $i=0; $i<count($arr); $i++ ) {
+          if ( $mentor_id == $arr[$i]->auto_id ) {
+            return $i;
+          }
+        }
+        return -1;
+      }
+
+      function numberOfCompletedMentor($arr) {
+        $count = 0;
+        for ( $i=0; $i<count($arr); $i++ ) {
+          if ( count($arr[$i]->clients)>=7 ) {
+            $count++;
+          }
+        }
+        return $count;
+      }
+
+      function numberOfIncompletedMentor($arr) {
+        $count = 0;
+        for ( $i=0; $i<count($arr); $i++ ) {
+          if ( count($arr[$i]->clients)<7 ) {
+            $count++;
+          }
+        }
+        return $count;
+      }
+
+      //read mentors and clients
+      $sql = "SELECT * FROM user_with_lower_view order by firstname";
+      $result = mysqli_query($con, $sql);
+
+      $mentors = array();
+      while($row = mysqli_fetch_array($result)) {
+        $index = findMentorInArray($mentors,$row["auto_id"]);
+        if ( $index == -1 ) {
+          $mentor = new Mentor;
+          $mentor->auto_id = $row["auto_id"];
+          $mentor->firstname = $row["firstname"];
+          $mentor->lastname = $row["lastname"];
+          $mentor->person_id = $row["upper_person_id"];
+
+          $client = new Client;
+          $client->firstname = $row["lower_firstname"];
+          $client->lastname = $row["lower_lastname"];
+          $client->web = $row["lower_web"];
+
+          $mentor->clients[] = $client;
+
+          $mentors[] = $mentor;
+        } else {
+
+          $client = new Client;
+          $client->firstname = $row["lower_firstname"];
+          $client->lastname = $row["lower_lastname"];
+          $client->web = $row["lower_web"];
+
+          $mentors[$index]->clients[] = $client;
+
+        }
+
+      }
+
+      //read mentors has 0 client
+      $sql = "SELECT * FROM user_with_out_lower_view order by firstname";
+      $result = mysqli_query($con, $sql);
+
+      while($row = mysqli_fetch_array($result)) {
+        $mentor = new Mentor;
+        $mentor->auto_id = $row["auto_id"];
+        $mentor->firstname = $row["firstname"];
+        $mentor->lastname = $row["lastname"];
+        $mentor->person_id = $row["upper_person_id"];
+
+        $mentors[] = $mentor;
+
+      }
+    ?>
+
   </head>
 
   <body>
     <?php include 'navbar.php'; ?>
+
 
     <div class="jumbotron">
       <div class="container">
@@ -34,10 +119,10 @@
         <div class="col-md-12">
           <ul class="nav nav-tabs" role="tablist">
             <li id="tab_1" role="presentation" class="active">
-              <a href="javascript:activeTab(1)">Completed mentor <span class="badge">4</span></a>
+              <a href="javascript:activeTab(1)">Completed mentor <span class="badge"><?php echo numberOfCompletedMentor($mentors); ?></span></a>
             </li>
             <li id="tab_2" role="presentation">
-              <a href="javascript:activeTab(2)">Uncompleted mentor <span class="badge">2000</span></a>
+              <a href="javascript:activeTab(2)">Incompleted mentor <span class="badge"><?php echo numberOfIncompletedMentor($mentors); ?></span></a>
             </li>
           </ul>
         </div>
@@ -48,74 +133,41 @@
           <h1>Completed mentor</h1>
           <div class="panel-group" id="data1Accordion" role="tablist" aria-multiselectable="true">
 
+            <?php
+              for ( $i=0; $i<count($mentors); $i++ ) {
+                if ( count($mentors[$i]->clients)>=7 ) {
+            ?>
             <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="data1Heading1">
+              <div class="panel-heading" role="tab" id="data1Heading<?php echo $mentors[$i]->auto_id; ?>">
                 <h4 class="panel-title">
-                  <a class="collapsed" data-toggle="collapse" data-parent="#data1Accordion" href="#data1Collapse1" aria-expanded="false" aria-controls="data1Collapse1">
-                    mentor 1
+                  <a class="collapsed" data-toggle="collapse" data-parent="#data1Accordion" href="#data1Collapse<?php echo $mentors[$i]->auto_id; ?>" aria-expanded="false" aria-controls="data1Collapse<?php echo $mentors[$i]->auto_id; ?>">
+                    <?php echo $mentors[$i]->firstname." ".$mentors[$i]->lastname ?>
                   </a>
                 </h4>
               </div>
-              <div id="data1Collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="data1Heading1">
+              <div id="data1Collapse<?php echo $mentors[$i]->auto_id; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="data1Heading<?php echo $mentors[$i]->auto_id; ?>">
                 <div class="panel-body">
                   <ol>
-                    <li>person 1</li>
-                    <li>person 2</li>
-                    <li>person 3</li>
-                    <li>person 4</li>
-                    <li>person 5</li>
-                    <li>person 6</li>
-                    <li>person 7</li>
+                    <?php
+                      for ( $j=0; $j<count($mentors[$i]->clients); $j++ ) {
+                    ?>
+                    <li>
+                      <?php echo $mentors[$i]->clients[$j]->firstname?>
+                      <?php echo $mentors[$i]->clients[$j]->lastname?>
+                      <a href="<?php echo $mentors[$i]->clients[$j]->web==""?"#":$mentors[$i]->clients[$j]->web ?>">[ web ]</a>
+                    </li>
+                    <?php
+                      }
+                    ?>
                   </ol>
                 </div>
               </div>
             </div>
 
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="data1Heading2">
-                <h4 class="panel-title">
-                  <a class="collapsed" data-toggle="collapse" data-parent="#data1Accordion" href="#data1Collapse2" aria-expanded="false" aria-controls="data1Collapse2">
-                    mentor 2
-                  </a>
-                </h4>
-              </div>
-              <div id="data1Collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="data1Heading2">
-                <div class="panel-body">
-                  <ol>
-                    <li>person 1</li>
-                    <li>person 2</li>
-                    <li>person 3</li>
-                    <li>person 4</li>
-                    <li>person 5</li>
-                    <li>person 6</li>
-                    <li>person 7</li>
-                  </ol>
-                </div>
-              </div>
-            </div>
-
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="data1Heading3">
-                <h4 class="panel-title">
-                  <a class="collapsed" data-toggle="collapse" data-parent="#data1Accordion" href="#data1Collapse3" aria-expanded="false" aria-controls="data1Collapse3">
-                    mentor 3
-                  </a>
-                </h4>
-              </div>
-              <div id="data1Collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="data1Heading3">
-                <div class="panel-body">
-                  <ol>
-                    <li>person 1</li>
-                    <li>person 2</li>
-                    <li>person 3</li>
-                    <li>person 4</li>
-                    <li>person 5</li>
-                    <li>person 6</li>
-                    <li>person 7</li>
-                  </ol>
-                </div>
-              </div>
-            </div>
+            <?php
+                }
+              }
+            ?>
 
           </div>
         </div>
@@ -123,67 +175,55 @@
 
       <div class="row" id="data_2">
         <div class="col-md-12">
-          <h1>Uncompleted mentor</h1>
+          <h1>Incompleted mentor</h1>
           <div class="panel-group" id="data2Accordion" role="tablist" aria-multiselectable="true">
 
+            <?php
+              for ( $i=0; $i<count($mentors); $i++ ) {
+                if ( count($mentors[$i]->clients)<7 ) {
+            ?>
             <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="data2Heading1">
+              <div class="panel-heading" role="tab" id="data2Heading<?php echo $mentors[$i]->auto_id; ?>">
                 <h4 class="panel-title">
-                  <a class="collapsed" data-toggle="collapse" data-parent="#data2Accordion" href="#data2Collapse1" aria-expanded="false" aria-controls="data2Collapse1">
-                    mentor 1 <span class="label label-warning">2</span>
+                  <a class="collapsed" data-toggle="collapse" data-parent="#data2Accordion" href="#data2Collapse<?php echo $mentors[$i]->auto_id; ?>" aria-expanded="false" aria-controls="data2Collapse<?php echo $mentors[$i]->auto_id; ?>">
+                    <?php echo $mentors[$i]->firstname." ".$mentors[$i]->lastname ?>
+                    <span class="label label-warning"><?php echo count($mentors[$i]->clients) ?></span>
                   </a>
                 </h4>
               </div>
-              <div id="data2Collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="data2Heading1">
+              <div id="data2Collapse<?php echo $mentors[$i]->auto_id; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="data2Heading<?php echo $mentors[$i]->auto_id; ?>">
                 <div class="panel-body">
                   <ol>
-                    <li>person 1</li>
-                    <li>person 2</li>
+                    <?php
+                      for ( $j=0; $j<count($mentors[$i]->clients); $j++ ) {
+                    ?>
+                    <li>
+                      <?php echo $mentors[$i]->clients[$j]->firstname?>
+                      <?php echo $mentors[$i]->clients[$j]->lastname?>
+                      <a href="<?php echo $mentors[$i]->clients[$j]->web==""?"#":$mentors[$i]->clients[$j]->web ?>">[ web ]</a>
+                    </li>
+                    <?php
+                      }
+                    ?>
                   </ol>
                 </div>
               </div>
             </div>
-
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="data2Heading2">
-                <h4 class="panel-title">
-                  <a class="collapsed" data-toggle="collapse" data-parent="#data2Accordion" href="#data2Collapse2" aria-expanded="false" aria-controls="data2Collapse2">
-                    mentor 2 <span class="label label-danger">0</span>
-                  </a>
-                </h4>
-              </div>
-              <div id="data2Collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="data2Heading2">
-                <div class="panel-body">
-                </div>
-              </div>
-            </div>
-
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="data2Heading3">
-                <h4 class="panel-title">
-                  <a class="collapsed" data-toggle="collapse" data-parent="#data2Accordion" href="#data2Collapse3" aria-expanded="false" aria-controls="data2Collapse3">
-                    mentor 3 <span class="label label-warning">5</span>
-                  </a>
-                </h4>
-              </div>
-              <div id="data2Collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="data2Heading3">
-                <div class="panel-body">
-                  <ol>
-                    <li>person 1</li>
-                    <li>person 2</li>
-                    <li>person 3</li>
-                    <li>person 4</li>
-                    <li>person 5</li>
-                  </ol>
-                </div>
-              </div>
-            </div>
+            <?php
+                }
+              }
+            ?>
 
           </div>
         </div>
       </div>
 
     </div>
+
+
+        <?php
+          //print_r($mentors);
+        ?>
 
     <script>
       function activeTab(number) {

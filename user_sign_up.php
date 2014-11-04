@@ -186,6 +186,21 @@ code by siwawes wongcharoen
           </div>
         </div>
 
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="web"><?php echo String::person_web; ?> :</label>
+              <input type="text"
+                class="form-control"
+                name="web"
+                id="web"
+                placeholder="http://www.google.com"
+                <?php echo $mode=="edit" ? "value='".$_GET['web']."'" : ""; ?>
+                required/>
+            </div>
+          </div>
+        </div>
+
         <script>
           function setUpperPersonId(val) {
             for (i=0; i<users.length; i++) {
@@ -204,7 +219,9 @@ code by siwawes wongcharoen
                 class="form-control"
                 name="upper_person"
                 id="upper_person"
+                placeholder="ขยัน ขันแข็ง"
                 oninput="setUpperPersonId(this.value)"
+                value="<?php echo empty($_GET["upper_name"])?"":$_GET["upper_name"]; ?>"
                 <?php echo $mode=="edit"?"disabled":"required"; ?> >
               <span class="help-block">โปรดตรวจสอบ ชื่อ-สกุลของผู้แนะนำให้ถูกต้อง เพราะไม่สามารถแกไขได้</span>
               <datalist id="upper_persons"></datalist>

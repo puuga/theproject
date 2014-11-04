@@ -24,6 +24,7 @@
       const person_email = "E-mail";
       const person_password = "รหัสผ่าน";
       const person_confirm_password = "ยืนยันรหัสผ่าน";
+      const person_web = "Web site";
       const person_mentor = "ชื่อ-สกุล ผู้แนะนำ";
       const edit = "แก้ไข";
       const person_network = "เครือข่าย";
