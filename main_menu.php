@@ -134,7 +134,7 @@
 
           <div>
             <p>
-              <a class="btn btn-primary" href="https://docs.google.com/forms/d/1ZSPZm6QMbygtfcu3YX35zsavx03bVIGAWKhBScY86L8/viewform" target ="_blank">ลงทะเบียนเข้าอบรม</a>
+              <a class="btn btn-primary" href="https://docs.google.com/forms/d/1ZSPZm6QMbygtfcu3YX35zsavx03bVIGAWKhBScY86L8/viewform">ลงทะเบียนเข้าอบรม</a>
             </p>
 
             <p>
