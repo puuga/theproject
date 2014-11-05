@@ -134,11 +134,19 @@
 
           <div>
             <p>
-              <a class="btn btn-primary" href="https://docs.google.com/forms/d/1ZSPZm6QMbygtfcu3YX35zsavx03bVIGAWKhBScY86L8/viewform">ลงทะเบียนเข้าอบรม</a>
+              <a
+                class="btn btn-primary"
+                target="_blank"
+                href="https://docs.google.com/forms/d/1ZSPZm6QMbygtfcu3YX35zsavx03bVIGAWKhBScY86L8/viewform">
+                ลงทะเบียนเข้าอบรม</a>
             </p>
 
             <p>
-              <a class="btn btn-success" href="https://drive.google.com/open?id=1fxvh054r0MXcaMkxiKOEcRjkELAbDw3mSwbcYbpFulE&authuser=0">รายชื่อผู้ลงทะเบียน</a>
+              <a
+                class="btn btn-success"
+                target="_blank"
+                href="https://drive.google.com/open?id=1fxvh054r0MXcaMkxiKOEcRjkELAbDw3mSwbcYbpFulE&authuser=0">
+                รายชื่อผู้ลงทะเบียน</a>
             </p>
 
           </div>
