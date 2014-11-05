@@ -37,7 +37,7 @@
       .jumbotron {
         background: url('image/main_banner_v4.jpg') no-repeat center center;
         margin-bottom: 0px;
-        padding-top: 130px;
+        
         height: 300px;
         color: #212121;
         text-shadow:  2px -2px 5px #9e9e9e;
