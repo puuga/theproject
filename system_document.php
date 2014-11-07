@@ -310,6 +310,17 @@
                 </td>
               </tr>
 
+              <tr>
+                <td>สำหรับวิทยากรและผู้ช่วยวิทยากร</td>
+                <td>
+                  <a
+                    class="btn btn-primary"
+                    href="https://docs.google.com/forms/d/1ghBt_7yyLkG7CtonbebqF6Q3Bke-q5UtXL6BqDwNrd0/viewform">
+                    <span class="glyphicon glyphicon-download"></span> link
+                  </a>
+                </td>
+              </tr>
+
 
             </tbody>
           </table>
