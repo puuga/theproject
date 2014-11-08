@@ -30,7 +30,7 @@
       const person_mentor = "ชื่อ-สกุล ผู้แนะนำ";
       const person_prifix = "คำนำหน้าชื่อ";
       const person_title = "ตำแหน่ง";
-      const edit = "แก้ไข";
+      const edit = "แก้ไขประวัติส่วนตัว";
       const person_network = "เครือข่าย";
 
   }

@@ -13,47 +13,38 @@
     <?php include 'head_tag.php'; ?>
 
 
-
+    <script>
+      function disableButton(buttonID) {
+        $("#"+buttonID).hide();
+      }
+    </script>
   </head>
 
   <body>
     <?php include 'navbar.php'; ?>
 
     <?php
-      // user_with_upper_view
-      $sql = "SELECT * FROM user_with_upper_view WHERE person_id='$current_user_person_id'";
+      // course
+      $sql = "SELECT * FROM course_count_view";
       $result = mysqli_query($con, $sql);
 
-      $user = array();
+      $courses = array();
 
       while($row = mysqli_fetch_array($result)) {
 
-        $user["auto_id"] = $row['auto_id'];
-        $user["person_id"] = $row['person_id'];
-        $user["firstname"] = $row['firstname'];
-        $user["lastname"] = $row['lastname'];
-        $user["email"] = $row['email'];
-        $user["password"] = $row['password'];
-        $user["web"] = $row['web'];
-        $user["upper_firstname"] = $row['upper_firstname'];
-        $user["upper_lastname"] = $row['upper_lastname'];
-        $user["upper_person_id"] = $row['upper_person_id'];
+        $course["auto_id"] = $row['auto_id'];
+        $course["name"] = $row['name'];
+        $course["description"] = $row['description'];
+        $course["location"] = $row['location'];
+        $course["start_date"] = $row['start_date'];
+        $course["end_date"] = $row['end_date'];
+        $course["level"] = $row['level'];
+        $course["num"] = $row['num'];
+        $course["people_count"] = $row['people_count'];
+
+        $courses[] = $course;
       }
-      //print_r($user);
-
-      // user_with_upper_view
-      $sql = "SELECT * FROM user_with_lower_view WHERE upper_person_id='$current_user_person_id'";
-      $result = mysqli_query($con, $sql);
-
-      $user_lowers = array();
-
-      while($row = mysqli_fetch_array($result)) {
-        $user_lower["firstname"] = $row['lower_firstname'];
-        $user_lower["lastname"] = $row['lower_lastname'];
-        $user_lower["web"] = $row['lower_web'];
-        $user_lowers[] = $user_lower;
-      }
-      // echo count($user_lowers);
+      //print_r($courses);
 
     ?>
 
@@ -71,28 +62,38 @@
 
     <div class="container">
 
+      <?php
+        if ( $current_user_admin_level == 110 ) {
+      ?>
       <!-- สำหรับผู้อำนวยการเขตพื้นที่การศึกษา -->
       <div class="row">
         <div class="col-md-12">
           <table class="table table-striped table-hover">
             <thead>
               <tr class="info">
-                <th>สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</th>
+                <th>รุ่นการอบรม</th>
                 <th>ระยะเวลา</th>
+                <th>สถานที่</th>
                 <th>จำนวนผู้เข้าอบรม</th>
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
               </tr>
             </thead>
             <tbody>
+              <?php
+                foreach ( $courses as $course ) {
+                  if ( $course["level"] == 110 ) {
+              ?>
               <tr>
-                <td>สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</td>
-                <td>2014/12/1 - 2014/12/5</td>
-                <td>0/160</td>
+                <td><?php echo $course["name"] ?></td>
+                <td><?php echo $course["start_date"]." - ".$course["end_date"] ?></td>
+                <td><?php echo $course["location"] ?></td>
+                <td><?php echo $course["people_count"] ?>/160</td>
                 <td>
                   <a
                     class="btn btn-success"
-                    href="#">
+                    id="booking_button_<?php echo $course["auto_id"] ?>"
+                    href="javascript:disableButton('booking_button_<?php echo $course["auto_id"] ?>')">
                     <span class="glyphicon glyphicon-map-marker"></span> จอง
                   </a>
                 </td>
@@ -104,34 +105,52 @@
                   </a>
                 </td>
               </tr>
+              <?php
+                  }
+                }
+              ?>
+
 
             </tbody>
           </table>
         </div>
       </div>
+      <?php
+        }
+      ?>
 
+      <?php
+        if ( $current_user_admin_level == 120 ) {
+      ?>
       <!-- สำหรับรองผู้อำนวยการเขตพื้นที่การศึกษา -->
       <div class="row">
         <div class="col-md-12">
           <table class="table table-striped table-hover">
             <thead>
               <tr class="info">
-                <th>สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</th>
+                <th>รุ่นการอบรม</th>
                 <th>ระยะเวลา</th>
+                <th>สถานที่</th>
                 <th>จำนวนผู้เข้าอบรม</th>
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
               </tr>
             </thead>
             <tbody>
+              <?php
+                foreach ( $courses as $course ) {
+                  if ( $course["level"] == 120 ) {
+              ?>
               <tr>
-                <td>สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</td>
-                <td>2014/12/1 - 2014/12/5</td>
-                <td>0/160</td>
+                <td><?php echo $course["name"] ?></td>
+                <td><?php echo $course["start_date"]." - ".$course["end_date"] ?></td>
+                <td><?php echo $course["location"] ?></td>
+                <td><?php echo $course["people_count"] ?>/160</td>
                 <td>
                   <a
                     class="btn btn-success"
-                    href="#">
+                    id="booking_button_<?php echo $course["auto_id"] ?>"
+                    href="javascript:disableButton('booking_button_<?php echo $course["auto_id"] ?>')">
                     <span class="glyphicon glyphicon-map-marker"></span> จอง
                   </a>
                 </td>
@@ -143,34 +162,52 @@
                   </a>
                 </td>
               </tr>
+              <?php
+                  }
+                }
+              ?>
+
 
             </tbody>
           </table>
         </div>
       </div>
+      <?php
+        }
+      ?>
 
+      <?php
+        if ( $current_user_admin_level == 130 ) {
+      ?>
       <!-- สำหรับศึกษานิเทศก์ -->
       <div class="row">
         <div class="col-md-12">
           <table class="table table-striped table-hover">
             <thead>
               <tr class="info">
-                <th>สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</th>
+                <th>รุ่นการอบรม</th>
                 <th>ระยะเวลา</th>
+                <th>สถานที่</th>
                 <th>จำนวนผู้เข้าอบรม</th>
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
               </tr>
             </thead>
             <tbody>
+              <?php
+                foreach ( $courses as $course ) {
+                  if ( $course["level"] == 130 ) {
+              ?>
               <tr>
-                <td>สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</td>
-                <td>2014/12/1 - 2014/12/5</td>
-                <td>0/160</td>
+                <td><?php echo $course["name"] ?></td>
+                <td><?php echo $course["start_date"]." - ".$course["end_date"] ?></td>
+                <td><?php echo $course["location"] ?></td>
+                <td><?php echo $course["people_count"] ?>/160</td>
                 <td>
                   <a
                     class="btn btn-success"
-                    href="#">
+                    id="booking_button_<?php echo $course["auto_id"] ?>"
+                    href="javascript:disableButton('booking_button_<?php echo $course["auto_id"] ?>')">
                     <span class="glyphicon glyphicon-map-marker"></span> จอง
                   </a>
                 </td>
@@ -182,34 +219,52 @@
                   </a>
                 </td>
               </tr>
+              <?php
+                  }
+                }
+              ?>
+
 
             </tbody>
           </table>
         </div>
       </div>
+      <?php
+        }
+      ?>
 
+      <?php
+        if ( $current_user_admin_level == 140 ) {
+      ?>
       <!-- สำหรับผู้อำนวยการโรงเรียน -->
       <div class="row">
         <div class="col-md-12">
           <table class="table table-striped table-hover">
             <thead>
               <tr class="info">
-                <th>สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</th>
+                <th>รุ่นการอบรม</th>
                 <th>ระยะเวลา</th>
+                <th>สถานที่</th>
                 <th>จำนวนผู้เข้าอบรม</th>
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
               </tr>
             </thead>
             <tbody>
+              <?php
+                foreach ( $courses as $course ) {
+                  if ( $course["level"] == 140 ) {
+              ?>
               <tr>
-                <td>สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</td>
-                <td>2014/12/1 - 2014/12/5</td>
-                <td>0/160</td>
+                <td><?php echo $course["name"] ?></td>
+                <td><?php echo $course["start_date"]." - ".$course["end_date"] ?></td>
+                <td><?php echo $course["location"] ?></td>
+                <td><?php echo $course["people_count"] ?>/160</td>
                 <td>
                   <a
                     class="btn btn-success"
-                    href="#">
+                    id="booking_button_<?php echo $course["auto_id"] ?>"
+                    href="javascript:disableButton('booking_button_<?php echo $course["auto_id"] ?>')">
                     <span class="glyphicon glyphicon-map-marker"></span> จอง
                   </a>
                 </td>
@@ -221,34 +276,52 @@
                   </a>
                 </td>
               </tr>
+              <?php
+                  }
+                }
+              ?>
+
 
             </tbody>
           </table>
         </div>
       </div>
+      <?php
+        }
+      ?>
 
+      <?php
+        if ( $current_user_admin_level == 150 ) {
+      ?>
       <!-- สำหรับครูแกนนำ -->
       <div class="row">
         <div class="col-md-12">
           <table class="table table-striped table-hover">
             <thead>
               <tr class="info">
-                <th>สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</th>
+                <th>รุ่นการอบรม</th>
                 <th>ระยะเวลา</th>
+                <th>สถานที่</th>
                 <th>จำนวนผู้เข้าอบรม</th>
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
               </tr>
             </thead>
             <tbody>
+              <?php
+                foreach ( $courses as $course ) {
+                  if ( $course["level"] == 150 ) {
+              ?>
               <tr>
-                <td>สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</td>
-                <td>2014/12/1 - 2014/12/5</td>
-                <td>0/160</td>
+                <td><?php echo $course["name"] ?></td>
+                <td><?php echo $course["start_date"]." - ".$course["end_date"] ?></td>
+                <td><?php echo $course["location"] ?></td>
+                <td><?php echo $course["people_count"] ?>/160</td>
                 <td>
                   <a
                     class="btn btn-success"
-                    href="#">
+                    id="booking_button_<?php echo $course["auto_id"] ?>"
+                    href="javascript:disableButton('booking_button_<?php echo $course["auto_id"] ?>')">
                     <span class="glyphicon glyphicon-map-marker"></span> จอง
                   </a>
                 </td>
@@ -260,12 +333,19 @@
                   </a>
                 </td>
               </tr>
+              <?php
+                  }
+                }
+              ?>
+
 
             </tbody>
           </table>
         </div>
       </div>
-
+      <?php
+        }
+      ?>
 
 
 
