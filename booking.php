@@ -14,8 +14,22 @@
 
 
     <script>
-      function disableButton(buttonID) {
-        $("#"+buttonID).hide();
+      function doBooking(courseID) {
+        ///alert("asd");
+        $.ajax({
+          type: "POST",
+          url: "booking_do.php",
+          dataType: 'json',
+          data: { user_id: "<?php echo $current_user_id ?>", course_id: courseID },
+          success: function(data) {
+            if (!data.success) { //If fails
+              alert("error");
+            } else {
+              //alert("#success");
+              location.reload();
+            }
+          }
+        });
       }
     </script>
   </head>
@@ -24,6 +38,16 @@
     <?php include 'navbar.php'; ?>
 
     <?php
+      // course of current user
+      $sql = "SELECT * FROM user WHERE auto_id='$current_user_id'";
+      $result = mysqli_query($con, $sql);
+
+      while($row = mysqli_fetch_array($result)) {
+        $user["course_id"] = $row['course_id'];
+      }
+      //print_r($user);
+
+
       // course
       $sql = "SELECT * FROM course_count_view";
       $result = mysqli_query($con, $sql);
@@ -88,19 +112,43 @@
                 <td><?php echo $course["name"] ?></td>
                 <td><?php echo $course["start_date"]." - ".$course["end_date"] ?></td>
                 <td><?php echo $course["location"] ?></td>
-                <td><?php echo $course["people_count"] ?>/160</td>
+                <td><?php echo $course["people_count"] ?>/<?php echo $course["num"] ?></td>
                 <td>
+                  <?php
+                    if ( $user["course_id"]==$course["auto_id"] ) {
+                  ?>
+                  <a
+                    class="btn btn-success disabled"
+                    id="booking_button_<?php echo $course["auto_id"] ?>"
+                    href="javascript:doBooking('<?php echo $course["auto_id"] ?>')">
+                    <span class="glyphicon glyphicon-map-marker"></span> จอง
+                  </a>
+                  <?php
+                    } else if ( $course["people_count"]==$course["num"] ) {
+                  ?>
+                  <a
+                    class="btn btn-success disabled"
+                    id="booking_button_<?php echo $course["auto_id"] ?>"
+                    href="javascript:doBooking('<?php echo $course["auto_id"] ?>')">
+                    <span class="glyphicon glyphicon-map-marker"></span> จอง
+                  </a>
+                  <?php
+                    } else {
+                  ?>
                   <a
                     class="btn btn-success"
                     id="booking_button_<?php echo $course["auto_id"] ?>"
-                    href="javascript:disableButton('booking_button_<?php echo $course["auto_id"] ?>')">
+                    href="javascript:doBooking('<?php echo $course["auto_id"] ?>')">
                     <span class="glyphicon glyphicon-map-marker"></span> จอง
                   </a>
+                  <?php
+                    }
+                  ?>
                 </td>
                 <td>
                   <a
                     class="btn btn-primary"
-                    href="#">
+                    href="booking_list.php?course_id=<?php echo $course["auto_id"] ?>">
                     <span class="glyphicon glyphicon-list-alt"></span> รายชื่อผู้ลงทะเบียน
                   </a>
                 </td>
@@ -145,19 +193,43 @@
                 <td><?php echo $course["name"] ?></td>
                 <td><?php echo $course["start_date"]." - ".$course["end_date"] ?></td>
                 <td><?php echo $course["location"] ?></td>
-                <td><?php echo $course["people_count"] ?>/160</td>
+                <td><?php echo $course["people_count"] ?>/<?php echo $course["num"] ?></td>
                 <td>
+                  <?php
+                    if ( $user["course_id"]==$course["auto_id"] ) {
+                  ?>
+                  <a
+                    class="btn btn-success disabled"
+                    id="booking_button_<?php echo $course["auto_id"] ?>"
+                    href="javascript:doBooking('<?php echo $course["auto_id"] ?>')">
+                    <span class="glyphicon glyphicon-map-marker"></span> จอง
+                  </a>
+                  <?php
+                    } else if ( $course["people_count"]==$course["num"] ) {
+                  ?>
+                  <a
+                    class="btn btn-success disabled"
+                    id="booking_button_<?php echo $course["auto_id"] ?>"
+                    href="javascript:doBooking('<?php echo $course["auto_id"] ?>')">
+                    <span class="glyphicon glyphicon-map-marker"></span> จอง
+                  </a>
+                  <?php
+                    } else {
+                  ?>
                   <a
                     class="btn btn-success"
                     id="booking_button_<?php echo $course["auto_id"] ?>"
-                    href="javascript:disableButton('booking_button_<?php echo $course["auto_id"] ?>')">
+                    href="javascript:doBooking('<?php echo $course["auto_id"] ?>')">
                     <span class="glyphicon glyphicon-map-marker"></span> จอง
                   </a>
+                  <?php
+                    }
+                  ?>
                 </td>
                 <td>
                   <a
                     class="btn btn-primary"
-                    href="#">
+                    href="booking_list.php?course_id=<?php echo $course["auto_id"] ?>">
                     <span class="glyphicon glyphicon-list-alt"></span> รายชื่อผู้ลงทะเบียน
                   </a>
                 </td>
@@ -202,19 +274,43 @@
                 <td><?php echo $course["name"] ?></td>
                 <td><?php echo $course["start_date"]." - ".$course["end_date"] ?></td>
                 <td><?php echo $course["location"] ?></td>
-                <td><?php echo $course["people_count"] ?>/160</td>
+                <td><?php echo $course["people_count"] ?>/<?php echo $course["num"] ?></td>
                 <td>
+                  <?php
+                    if ( $user["course_id"]==$course["auto_id"] ) {
+                  ?>
+                  <a
+                    class="btn btn-success disabled"
+                    id="booking_button_<?php echo $course["auto_id"] ?>"
+                    href="javascript:doBooking('<?php echo $course["auto_id"] ?>')">
+                    <span class="glyphicon glyphicon-map-marker"></span> จอง
+                  </a>
+                  <?php
+                    } else if ( $course["people_count"]==$course["num"] ) {
+                  ?>
+                  <a
+                    class="btn btn-success disabled"
+                    id="booking_button_<?php echo $course["auto_id"] ?>"
+                    href="javascript:doBooking('<?php echo $course["auto_id"] ?>')">
+                    <span class="glyphicon glyphicon-map-marker"></span> จอง
+                  </a>
+                  <?php
+                    } else {
+                  ?>
                   <a
                     class="btn btn-success"
                     id="booking_button_<?php echo $course["auto_id"] ?>"
-                    href="javascript:disableButton('booking_button_<?php echo $course["auto_id"] ?>')">
+                    href="javascript:doBooking('<?php echo $course["auto_id"] ?>')">
                     <span class="glyphicon glyphicon-map-marker"></span> จอง
                   </a>
+                  <?php
+                    }
+                  ?>
                 </td>
                 <td>
                   <a
                     class="btn btn-primary"
-                    href="#">
+                    href="booking_list.php?course_id=<?php echo $course["auto_id"] ?>">
                     <span class="glyphicon glyphicon-list-alt"></span> รายชื่อผู้ลงทะเบียน
                   </a>
                 </td>
@@ -259,19 +355,43 @@
                 <td><?php echo $course["name"] ?></td>
                 <td><?php echo $course["start_date"]." - ".$course["end_date"] ?></td>
                 <td><?php echo $course["location"] ?></td>
-                <td><?php echo $course["people_count"] ?>/160</td>
+                <td><?php echo $course["people_count"] ?>/<?php echo $course["num"] ?></td>
                 <td>
+                  <?php
+                    if ( $user["course_id"]==$course["auto_id"] ) {
+                  ?>
+                  <a
+                    class="btn btn-success disabled"
+                    id="booking_button_<?php echo $course["auto_id"] ?>"
+                    href="javascript:doBooking('<?php echo $course["auto_id"] ?>')">
+                    <span class="glyphicon glyphicon-map-marker"></span> จอง
+                  </a>
+                  <?php
+                    } else if ( $course["people_count"]==$course["num"] ) {
+                  ?>
+                  <a
+                    class="btn btn-success disabled"
+                    id="booking_button_<?php echo $course["auto_id"] ?>"
+                    href="javascript:doBooking('<?php echo $course["auto_id"] ?>')">
+                    <span class="glyphicon glyphicon-map-marker"></span> จอง
+                  </a>
+                  <?php
+                    } else {
+                  ?>
                   <a
                     class="btn btn-success"
                     id="booking_button_<?php echo $course["auto_id"] ?>"
-                    href="javascript:disableButton('booking_button_<?php echo $course["auto_id"] ?>')">
+                    href="javascript:doBooking('<?php echo $course["auto_id"] ?>')">
                     <span class="glyphicon glyphicon-map-marker"></span> จอง
                   </a>
+                  <?php
+                    }
+                  ?>
                 </td>
                 <td>
                   <a
                     class="btn btn-primary"
-                    href="#">
+                    href="booking_list.php?course_id=<?php echo $course["auto_id"] ?>">
                     <span class="glyphicon glyphicon-list-alt"></span> รายชื่อผู้ลงทะเบียน
                   </a>
                 </td>
@@ -316,19 +436,43 @@
                 <td><?php echo $course["name"] ?></td>
                 <td><?php echo $course["start_date"]." - ".$course["end_date"] ?></td>
                 <td><?php echo $course["location"] ?></td>
-                <td><?php echo $course["people_count"] ?>/160</td>
+                <td><?php echo $course["people_count"] ?>/<?php echo $course["num"] ?></td>
                 <td>
+                  <?php
+                    if ( $user["course_id"]==$course["auto_id"] ) {
+                  ?>
+                  <a
+                    class="btn btn-success disabled"
+                    id="booking_button_<?php echo $course["auto_id"] ?>"
+                    href="javascript:doBooking('<?php echo $course["auto_id"] ?>')">
+                    <span class="glyphicon glyphicon-map-marker"></span> จอง
+                  </a>
+                  <?php
+                    } else if ( $course["people_count"]==$course["num"] ) {
+                  ?>
+                  <a
+                    class="btn btn-success disabled"
+                    id="booking_button_<?php echo $course["auto_id"] ?>"
+                    href="javascript:doBooking('<?php echo $course["auto_id"] ?>')">
+                    <span class="glyphicon glyphicon-map-marker"></span> จอง
+                  </a>
+                  <?php
+                    } else {
+                  ?>
                   <a
                     class="btn btn-success"
                     id="booking_button_<?php echo $course["auto_id"] ?>"
-                    href="javascript:disableButton('booking_button_<?php echo $course["auto_id"] ?>')">
+                    href="javascript:doBooking('<?php echo $course["auto_id"] ?>')">
                     <span class="glyphicon glyphicon-map-marker"></span> จอง
                   </a>
+                  <?php
+                    }
+                  ?>
                 </td>
                 <td>
                   <a
                     class="btn btn-primary"
-                    href="#">
+                    href="booking_list.php?course_id=<?php echo $course["auto_id"] ?>">
                     <span class="glyphicon glyphicon-list-alt"></span> รายชื่อผู้ลงทะเบียน
                   </a>
                 </td>

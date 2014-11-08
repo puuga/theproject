@@ -41,6 +41,7 @@
       }
       //print_r($user);
 
+
       // user_with_upper_view
       $sql = "SELECT * FROM user_with_lower_view WHERE upper_person_id='$current_user_person_id'";
       $result = mysqli_query($con, $sql);
@@ -66,21 +67,9 @@
           </div>
           <div class="col-md-3"><br/>
             <p class="text-right">
-              <?php
-                if ( $user["person_id"] == $user["upper_person_id"]) {
-                  echo '<a class="btn btn-warning" role="button"';
-                  echo 'href="mentor_sign_up.php?action=edit&id='.$user["auto_id"].'&person_id='.$user["person_id"].'&firstname='.$user["firstname"].'&lastname='.$user["lastname"].'&email='.$user["email"].'&password='.$user["password"].'"';
-                  echo '>';
-                } else {
-                  echo '<a class="btn btn-warning" role="button"';
-                  echo 'href="user_sign_up.php?action=edit&id='.$user["auto_id"].'&person_id='.$user["person_id"].'&firstname='.$user["firstname"].'&lastname='.$user["lastname"].'&email='.$user["email"].'&password='.$user["password"].'"';
-                  echo '>';
-                }
-              ?>
-                <span class="glyphicon glyphicon-edit"></span> <?php echo String::edit ?>
-              </a>
 
-              <a href="booking.php" class="btn btn-primary">
+
+              <a href="booking.php" class="btn btn-primary btn-lg">
                 <span class="glyphicon glyphicon-map-marker"></span> <?php echo String::booking ?>
               </a>
             </p>
@@ -90,20 +79,6 @@
     </div>
 
     <div class="container">
-
-      <div class="row">
-
-        <div class="col-md-9">
-
-
-
-        </div>
-
-        <div class="col-md-3">
-
-        </div>
-
-      </div>
 
       <div class="row">
         <div class="col-md-3">
@@ -154,6 +129,29 @@
           ?>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          
+        </div>
+        <div class="col-md-9">
+          <?php
+            if ( $user["person_id"] == $user["upper_person_id"]) {
+              echo '<a class="btn btn-warning" role="button"';
+              echo 'href="mentor_sign_up.php?action=edit&id='.$user["auto_id"].'&person_id='.$user["person_id"].'&firstname='.$user["firstname"].'&lastname='.$user["lastname"].'&email='.$user["email"].'&password='.$user["password"].'"';
+              echo '>';
+            } else {
+              echo '<a class="btn btn-warning" role="button"';
+              echo 'href="user_sign_up.php?action=edit&id='.$user["auto_id"].'&person_id='.$user["person_id"].'&firstname='.$user["firstname"].'&lastname='.$user["lastname"].'&email='.$user["email"].'&password='.$user["password"].'"';
+              echo '>';
+            }
+          ?>
+            <span class="glyphicon glyphicon-edit"></span> <?php echo String::edit ?>
+          </a>
+        </div>
+      </div>
+
+
           <?php
         }
       ?>

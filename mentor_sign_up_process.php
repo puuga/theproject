@@ -14,13 +14,16 @@
   $firstname = $_POST["firstname"];
   $lastname = $_POST["lastname"];
   $email = $_POST["email"];
-  $password = $_POST["password"];
+  $password = $person_id;
   $upper_person_id = $person_id;
   $admin_level = $_POST["admin_level"];
   $title = $_POST["title"];
   $belong_to = $_POST["belong_to"];
   $district = $_POST["district"];
   $province = $_POST["province"];
+  $transport = $_POST["transport"];
+  $transport_car_id = $_POST["transport_car_id"];
+  $transport_distance = $_POST["transport_distance"];
 
   if ( $title == "ผู้อำนวยการเขตการศึกษา" ) {
     $admin_level += 10;
@@ -65,6 +68,7 @@
   // echo $sql;
 
   $result = mysqli_query($con, $sql);
+
   if (!$result) {
     header('Location: mentor_sign_up.php?message=Cannot add or edit User because of duplicate username&message_type=error');
 
@@ -72,6 +76,12 @@
 
   }
   $last_id = mysqli_insert_id($con);
+
+  if( $post_action=="add") {
+    $sql = "INSERT INTO transport (auto_id, user_id, transport_id, car_id, car_distance, cost1, cost2)
+      VALUES (NULL, '$last_id', '$transport', '$transport_car_id', '$transport_distance', '0', '0');";
+    mysqli_query($con, $sql);
+  }
 
 
 

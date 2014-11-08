@@ -27,9 +27,9 @@
             }
           ?>
         </div>
-        <input type="text" name="username" class="form-control" placeholder="Email" required autofocus>
-        <input type="password" name="password" class="form-control" placeholder="Password" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <input type="text" name="username" class="form-control" placeholder="<?php echo String::person_email ?>" required autofocus>
+        <input type="password" name="password" class="form-control" placeholder="<?php echo String::person_personal_id ?>" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo String::system_sign_in ?></button>
       </form>
 
     </div> <!-- /container -->

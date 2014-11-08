@@ -78,31 +78,43 @@
           <div class="row">
             <div class="col-md-12">
               <div class="page-header">
-                <h1><?php echo String::system_register ?></h1>
+                <h1>ระบบ<?php echo String::system_register ?></h1>
               </div>
 
               <div>
+                <?php
+                  if ( $current_user_admin_level>=1000 ) {
+                ?>
                 <p>
-                  <a
-                    class="btn btn-primary"
-                    target="_blank"
-                    href="https://docs.google.com/forms/d/1ZSPZm6QMbygtfcu3YX35zsavx03bVIGAWKhBScY86L8/viewform">
-                    <span class="glyphicon glyphicon-log-in"></span> ลงทะเบียนเข้าอบรม</a>
-
-                  <a
-                    class="btn btn-primary"
-                    target="_blank"
+                  สำหรับผู้ที่ยังไม่ได้ลงทะเบียน
+                  <br/><a
+                    class="btn btn-primary btn-lg"
                     href="mentor_sign_up.php">
-                    <span class="glyphicon glyphicon-log-in"></span> ลงทะเบียนเข้าอบรม new</a>
+                    <span class="glyphicon glyphicon-edit"></span> ลงทะเบียนเข้าอบรม</a>
                 </p>
-
                 <p>
-                  <a
-                    class="btn btn-success"
-                    target="_blank"
-                    href="https://drive.google.com/open?id=1fxvh054r0MXcaMkxiKOEcRjkELAbDw3mSwbcYbpFulE&authuser=0">
-                    <span class="glyphicon glyphicon-align-justify"></span> รายชื่อผู้ลงทะเบียน</a>
+                  สำหรับผู้ที่ลงทะเบียนแล้ว สามารถเข้าสู่ระบบ เพื่อจองและตรวจสอบรอบการอบรมได้
+                  <br/><a
+                    class="btn btn-success btn-lg"
+                    href="login.php">
+                    <span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ</a>
                 </p>
+                <?php
+                  } else {
+                ?>
+                <p>
+                  สำหรับผู้ที่ลงทะเบียนแล้ว สามารถจองและตรวจสอบรอบการอบรมได้
+                  <br/><a
+                    class="btn btn-success btn-lg"
+                    href="profile.php">
+                    <span class="glyphicon glyphicon-list"></span> <?php echo String::profile ?></a>
+                </p>
+                <?php
+                  }
+                ?>
+
+
+
 
               </div>
             </div>

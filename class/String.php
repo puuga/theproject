@@ -19,10 +19,12 @@
       const notice = "ประกาศ";
       const profile = "ประวัติส่วนตัว";
       const booking = "เลือกรุ่นการอบรม";
+      const booking_list = "รายชื่อผู้เข้าร่วมการอบรม";
       const person_name = "ชื่อ-สกุล";
       const person_firstname = "ชื่อ";
       const person_lastname = "สกุล";
       const person_personal_id = "หมายเลขประจำตัวประชาชน";
+      const person_confirm_personal_id = "ยืนยันหมายเลขประจำตัวประชาชน";
       const person_email = "E-mail";
       const person_password = "รหัสผ่าน";
       const person_confirm_password = "ยืนยันรหัสผ่าน";
@@ -30,6 +32,7 @@
       const person_mentor = "ชื่อ-สกุล ผู้แนะนำ";
       const person_prifix = "คำนำหน้าชื่อ";
       const person_title = "ตำแหน่ง";
+      const person_transport = "การเดินทาง";
       const edit = "แก้ไขประวัติส่วนตัว";
       const person_network = "เครือข่าย";
 
