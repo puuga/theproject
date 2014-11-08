@@ -66,9 +66,17 @@
           </div>
           <div class="col-md-3"><br/><br/>
             <p class="text-right">
-              <a class="btn btn-warning" role="button"
-                href="user_sign_up.php?action=edit&id=<?php echo $user["auto_id"]?>&person_id=<?php echo $user["person_id"]?>&firstname=<?php echo $user["firstname"]?>&lastname=<?php echo $user["lastname"]?>&email=<?php echo $user["email"]?>&password=<?php echo $user["password"]?>&web=<?php echo $user["web"]?>&upper_name=<?php echo $user["upper_firstname"]." ".$user["upper_lastname"]?>"
-              >
+              <?php
+                if ( $user["person_id"] == $user["upper_person_id"]) {
+                  echo '<a class="btn btn-warning" role="button"';
+                  echo 'href="mentor_sign_up.php?action=edit&id='.$user["auto_id"].'&person_id='.$user["person_id"].'&firstname='.$user["firstname"].'&lastname='.$user["lastname"].'&email='.$user["email"].'&password='.$user["password"].'"';
+                  echo '>';
+                } else {
+                  echo '<a class="btn btn-warning" role="button"';
+                  echo 'href="user_sign_up.php?action=edit&id='.$user["auto_id"].'&person_id='.$user["person_id"].'&firstname='.$user["firstname"].'&lastname='.$user["lastname"].'&email='.$user["email"].'&password='.$user["password"].'"';
+                  echo '>';
+                }
+              ?>
                 <span class="glyphicon glyphicon-edit"></span> <?php echo String::edit ?>
               </a>
             </p>
@@ -106,7 +114,55 @@
       </div>
 
       <?php
-        if ( $user["person_id"] != $user["upper_person_id"]) {
+        // read google account
+        if ( $user["person_id"] == $user["upper_person_id"]) {
+
+          // read google account
+          $sql_user_google = "SELECT * FROM google_account WHERE auto_id='$current_user_id'";
+          $result = mysqli_query($con, $sql_user_google);
+
+          $user_googles = array();
+
+          while($row = mysqli_fetch_array($result)) {
+            $user_google["auto_id"] = $row['auto_id'];
+            $user_google["google_email"] = $row['google_email'];
+            $user_google["google_password"] = $row['google_password'];
+            $user_google["user_id"] = $row['user_id'];
+            $user_googles[] = $user_google;
+          }
+      ?>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong>google id</strong><p>
+        </div>
+        <div class="col-md-9">
+          <?php echo $user_googles[0]["google_email"]; ?>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong>google password</strong><p>
+        </div>
+        <div class="col-md-9">
+          <?php echo $user_googles[0]["google_password"]; ?>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong>book conference</strong><p>
+        </div>
+        <div class="col-md-9">
+          <a href="booking.php" class="btn btn-primary"><span class="glyphicon glyphicon-map-marker"></span> <?php echo String::booking ?></a>
+        </div>
+      </div>
+
+      <?php
+        } else {
       ?>
       <div class="row">
         <div class="col-md-3">
@@ -183,7 +239,6 @@
 
       <div class="row">
         <div class="col-md-offset-3 col-md-9">
-
         </div>
       </div>
     </div>

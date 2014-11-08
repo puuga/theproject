@@ -34,10 +34,10 @@
 
     <style>
 
-      .jumbotron {
+      .jumbotron_mod {
         background: url('image/main_banner_v4.jpg') no-repeat center center;
         margin-bottom: 0px;
-        
+
         height: 300px;
         color: #212121;
         text-shadow:  2px -2px 5px #9e9e9e;
@@ -61,16 +61,52 @@
     <?php include 'navbar.php'; ?>
 
 
-    <div class="jumbotron">
+    <div class="jumbotron jumbotron_mod">
       <div class="container">
         <center><h1><?php echo String::system_title_full ?></h1></center>
       </div>
     </div>
-
+<br>
     <div class="container">
+
+
+
 
       <div class="row">
         <div class="col-md-8">
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="page-header">
+                <h1><?php echo String::system_register ?></h1>
+              </div>
+
+              <div>
+                <p>
+                  <a
+                    class="btn btn-primary"
+                    target="_blank"
+                    href="https://docs.google.com/forms/d/1ZSPZm6QMbygtfcu3YX35zsavx03bVIGAWKhBScY86L8/viewform">
+                    <span class="glyphicon glyphicon-log-in"></span> ลงทะเบียนเข้าอบรม</a>
+
+                  <a
+                    class="btn btn-primary"
+                    target="_blank"
+                    href="mentor_sign_up.php">
+                    <span class="glyphicon glyphicon-log-in"></span> ลงทะเบียนเข้าอบรม new</a>
+                </p>
+
+                <p>
+                  <a
+                    class="btn btn-success"
+                    target="_blank"
+                    href="https://drive.google.com/open?id=1fxvh054r0MXcaMkxiKOEcRjkELAbDw3mSwbcYbpFulE&authuser=0">
+                    <span class="glyphicon glyphicon-align-justify"></span> รายชื่อผู้ลงทะเบียน</a>
+                </p>
+
+              </div>
+            </div>
+          </div>
 
           <div class="row">
             <div class="col-md-12">
@@ -125,31 +161,50 @@
             }
           ?>
 
+          <!-- project image -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="page-header">
+                <h1><?php echo String::system_project_image ?></h1>
+              </div>
+            </div>
+          </div>
+
+          <!-- project image train of the trainer -->
+          <div class="row">
+            <div class="col-md-12">
+              <h3>Train of the Trainer</h3>
+            </div>
+
+            <?php
+              //read photo
+              $sql = "SELECT * FROM image where activity_name='train of the trainer' order by auto_id desc";
+              $result = mysqli_query($con, $sql);
+
+              while($row = mysqli_fetch_array($result)) {
+                ?>
+                  <div class="col-md-4">
+                    <p class="text-center">
+                      <a href="<?php echo ImageHelper::makeURL($row["url"]); ?>" target="_blank">
+                        <img
+                          src="<?php echo ImageHelper::makeURL($row["url"]); ?>"
+                          alt="<?php echo $row["description"]; ?>"
+                          class="img-thumbnail">
+                      </a><br/>
+                      <!--<strong><?php echo $row["name"]; ?></strong><br/>
+                      <?php echo $row["description"]; ?>-->
+                    </p>
+                  </div>
+                <?php
+              }
+            ?>
+
+          </div>
+
         </div>
 
         <div class="col-md-4">
-          <div class="page-header">
-            <h1><?php echo String::system_register ?></h1>
-          </div>
 
-          <div>
-            <p>
-              <a
-                class="btn btn-primary"
-                target="_blank"
-                href="https://docs.google.com/forms/d/1ZSPZm6QMbygtfcu3YX35zsavx03bVIGAWKhBScY86L8/viewform">
-                ลงทะเบียนเข้าอบรม</a>
-            </p>
-
-            <p>
-              <a
-                class="btn btn-success"
-                target="_blank"
-                href="https://drive.google.com/open?id=1fxvh054r0MXcaMkxiKOEcRjkELAbDw3mSwbcYbpFulE&authuser=0">
-                รายชื่อผู้ลงทะเบียน</a>
-            </p>
-
-          </div>
 
 
 
@@ -183,7 +238,7 @@
               สำหรับศึกษานิเทศก์</a>
             <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRYlJILTVfX0pzQ1U&authuser=0">
               สำหรับผู้อำนวยการโรงเรียน</a>
-            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRbk5kR3BNXy1COVE&authuser=0">
+            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRd0tpQlNwbFZWc1U&authuser=0">
               สำหรับครูแกนนำ</a>
           </div>
 

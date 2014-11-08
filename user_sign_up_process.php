@@ -43,10 +43,12 @@
     die('Error: ' . mysqli_error($con));
 
   }
+  $last_id = mysqli_insert_id($con);
 
 
 
   if ($post_action=="add"){
+    $_SESSION['current_user_id'] = $last_id;
     $_SESSION['current_user_person_id'] = $person_id;
     $_SESSION['current_user_firstname'] = $firstname;
     $_SESSION['current_user_lastname'] = $lastname;

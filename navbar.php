@@ -85,7 +85,7 @@
               } else {
                 echo '<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> '.String::system_sign_in.'</a></li>';
                 echo '<li class="divider"></li>';
-                echo '<li><a href="user_sign_up.php"><span class="glyphicon glyphicon-edit"></span> '.String::system_sign_up.'</a></li>';
+                //echo '<li><a href="user_sign_up.php"><span class="glyphicon glyphicon-edit"></span> '.String::system_sign_up.'</a></li>';
               }
             ?>
 

@@ -16,6 +16,7 @@
     } else {
 
       while($row = mysqli_fetch_array($result)) {
+        $_SESSION['current_user_id'] = $row["auto_id"];
         $_SESSION['current_user_person_id'] = $row["person_id"];
         $_SESSION['current_user_firstname'] = $row["firstname"];
         $_SESSION['current_user_lastname'] = $row["lastname"];

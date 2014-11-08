@@ -22,6 +22,7 @@
     $current_user_admin_level = 1000;
     //echo "check";
   } else {
+    $current_user_id = $_SESSION['current_user_id'];
     $current_user_person_id = $_SESSION['current_user_person_id'];
     $current_user_firstname = $_SESSION['current_user_firstname'];
     $current_user_lastname = $_SESSION['current_user_lastname'];
