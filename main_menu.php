@@ -75,50 +75,7 @@
       <div class="row">
         <div class="col-md-8">
 
-          <div class="row">
-            <div class="col-md-12">
-              <div class="page-header">
-                <h1>ระบบ<?php echo String::system_register ?></h1>
-              </div>
-
-              <div>
-                <?php
-                  if ( $current_user_admin_level>=1000 ) {
-                ?>
-                <p>
-                  สำหรับผู้ที่ยังไม่ได้ลงทะเบียน
-                  <br/><a
-                    class="btn btn-primary btn-lg"
-                    href="mentor_sign_up.php">
-                    <span class="glyphicon glyphicon-edit"></span> ลงทะเบียนเข้าอบรม</a>
-                </p>
-                <p>
-                  สำหรับผู้ที่ลงทะเบียนแล้ว สามารถเข้าสู่ระบบ เพื่อจองและตรวจสอบรอบการอบรมได้
-                  <br/><a
-                    class="btn btn-success btn-lg"
-                    href="login.php">
-                    <span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ</a>
-                </p>
-                <?php
-                  } else {
-                ?>
-                <p>
-                  สำหรับผู้ที่ลงทะเบียนแล้ว สามารถจองและตรวจสอบรอบการอบรมได้
-                  <br/><a
-                    class="btn btn-success btn-lg"
-                    href="profile.php">
-                    <span class="glyphicon glyphicon-list"></span> <?php echo String::profile ?></a>
-                </p>
-                <?php
-                  }
-                ?>
-
-
-
-
-              </div>
-            </div>
-          </div>
+          
 
           <div class="row">
             <div class="col-md-12">
@@ -217,7 +174,42 @@
 
         <div class="col-md-4">
 
+          <div class="page-header">
+            <h1>ระบบ<?php echo String::system_register ?></h1>
+          </div>
 
+          <div>
+            <?php
+              if ( $current_user_admin_level>=1000 ) {
+            ?>
+            <p>
+              สำหรับผู้ที่ยังไม่ได้ลงทะเบียน
+              <br/><a
+                class="btn btn-primary btn-lg"
+                href="mentor_sign_up.php">
+                <span class="glyphicon glyphicon-edit"></span> ลงทะเบียนเข้าอบรม</a>
+            </p>
+            <p>
+              สำหรับผู้ที่ลงทะเบียนแล้ว สามารถเข้าสู่ระบบ<br/>เพื่อจองและตรวจสอบรอบการอบรมได้
+              <br/><a
+                class="btn btn-success btn-lg"
+                href="login.php">
+                <span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ</a>
+            </p>
+            <?php
+              } else {
+            ?>
+            <p>
+              สำหรับผู้ที่ลงทะเบียนแล้ว สามารถจองและตรวจสอบรอบการอบรมได้
+              <br/><a
+                class="btn btn-success btn-lg"
+                href="profile.php">
+                <span class="glyphicon glyphicon-list"></span> <?php echo String::profile ?></a>
+            </p>
+            <?php
+              }
+            ?>
+          </div>
 
 
           <div class="page-header">
