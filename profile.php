@@ -64,15 +64,6 @@
         <div class="row">
           <div class="col-md-9">
             <h1><?php echo String::profile; ?></h1>
-            <p class="text-danger">
-              <?php
-                if ( $current_user_admin_level>=100 && $current_user_admin_level<500 ) {
-                  if ( $user["course_id"]==0 ) {
-                    echo "*ท่านยังไม่ได้เลือกรุ่นการอบรม";
-                  }
-                }
-              ?>
-            </p>
           </div>
           <div class="col-md-3"><br/>
             <p class="text-right">
@@ -86,6 +77,39 @@
     </div>
 
     <div class="container">
+
+      <?php
+        if ( $current_user_admin_level>=100 && $current_user_admin_level<500 ) {
+          if ( $user["course_id"]==0 ) {
+      ?>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 alert alert-danger" role="alert">
+          <ul>
+            <li>
+              ท่านยังไม่ได้เลือกรุ่นการอบรม
+            </li>
+          </ul>
+        </div>
+      </div>
+      <?php
+          }
+        }
+      ?>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 alert alert-warning" role="alert">
+          <ul>
+            <li>
+              กรุณานำคอมพิวเตอร์โน๊ตบุคส่วนตัว และอุปกรณ์พวกต่อ ของท่านมาใช้ในการอบรม
+            </li>
+            <li>
+              ในกรณีที่ท่านเลือกวิธีการเดินทางมาโดยรถไฟหรือรถประจำทาง กรุณานำใบเสร็จมาแสดงในวันอบรม เพื่อใช้เบิกค่าเดินทาง
+            </li>
+          </ul>
+        </div>
+      </div>
 
       <div class="row">
         <div class="col-md-3">
