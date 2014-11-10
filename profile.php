@@ -27,7 +27,6 @@
       $user = array();
 
       while($row = mysqli_fetch_array($result)) {
-
         $user["auto_id"] = $row['auto_id'];
         $user["person_id"] = $row['person_id'];
         $user["firstname"] = $row['firstname'];
@@ -38,6 +37,7 @@
         $user["upper_firstname"] = $row['upper_firstname'];
         $user["upper_lastname"] = $row['upper_lastname'];
         $user["upper_person_id"] = $row['upper_person_id'];
+        $user["course_id"] = $row['course_id'];
       }
       //print_r($user);
 
@@ -64,11 +64,18 @@
         <div class="row">
           <div class="col-md-9">
             <h1><?php echo String::profile; ?></h1>
+            <p class="text-danger">
+              <?php
+                if ( $current_user_admin_level>=100 && $current_user_admin_level<500 ) {
+                  if ( $user["course_id"]==0 ) {
+                    echo "*ท่านยังไม่ได้เลือกรุ่นการอบรม";
+                  }
+                }
+              ?>
+            </p>
           </div>
           <div class="col-md-3"><br/>
             <p class="text-right">
-
-
               <a href="booking.php" class="btn btn-primary btn-lg">
                 <span class="glyphicon glyphicon-map-marker"></span> <?php echo String::booking ?>
               </a>
@@ -108,6 +115,21 @@
       </div>
 
       <?php
+
+      ?>
+      <?php
+        $course_name = "";
+        $course_location = "";
+        // read course
+        $sql_course = "SELECT name , course.location
+          FROM user inner join course on user.course_id=course.auto_id
+          WHERE user.auto_id='$current_user_id'";
+        $result = mysqli_query($con, $sql_course);
+        while($row = mysqli_fetch_array($result)) {
+          $course_name = $row['name'];
+          $course_location = $row['location'];
+        }
+
         // read google account
         if ( $user["person_id"] == $user["upper_person_id"]) {
           ?>
@@ -116,23 +138,22 @@
           <p class="text-right"><strong>รุ่นการอบรม</strong><p>
         </div>
         <div class="col-md-9">
-          <?php
-            // read course
-            $sql_course = "SELECT name
-              FROM user inner join course on user.course_id=course.auto_id
-              WHERE user.auto_id='$current_user_id'";
-            $result = mysqli_query($con, $sql_course);
-            while($row = mysqli_fetch_array($result)) {
-              $course_name = $row['name'];
-            }
-            echo $course_name;
-          ?>
+          <?php echo $course_name; ?>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-3">
-          
+          <p class="text-right"><strong>สถานที่อบรม</strong><p>
+        </div>
+        <div class="col-md-9">
+          <?php echo $course_location; ?>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+
         </div>
         <div class="col-md-9">
           <?php

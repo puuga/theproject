@@ -289,10 +289,10 @@
                     } else if ( $course["people_count"]==$course["num"] ) {
                   ?>
                   <a
-                    class="btn btn-success disabled"
+                    class="btn btn-danger disabled"
                     id="booking_button_<?php echo $course["auto_id"] ?>"
                     href="javascript:doBooking('<?php echo $course["auto_id"] ?>')">
-                    <span class="glyphicon glyphicon-map-marker"></span> จอง
+                    <span class="glyphicon glyphicon glyphicon-remove-sign"></span> เต็ม
                   </a>
                   <?php
                     } else {

@@ -19,7 +19,7 @@
       </div>
 
       <form class="form-signin" role="form" method="post" action="login_process.php">
-        <h2 class="form-signin-heading">Please sign in</h2>
+        <h4 class="form-signin-heading">ใส่ Email และ <?php echo String::person_personal_id ?> เพื่อเข้าสู่ระบบ</h4>
         <div class="text-danger">
           <?php
             if (!empty($_GET["message"])) {

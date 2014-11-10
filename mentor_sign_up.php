@@ -104,7 +104,7 @@ code by siwawes wongcharoen
                 class="form-control"
                 name="firstname"
                 id="firstname"
-                placeholder="Firstname"
+                placeholder="ชื่อ"
                 <?php echo $mode=="edit"?"value='".$_GET['firstname']."'":""; ?>
                 required/>
             </div>
@@ -119,7 +119,7 @@ code by siwawes wongcharoen
                 class="form-control"
                 name="lastname"
                 id="lastname"
-                placeholder="Lastname"
+                placeholder="นามสกุล"
                 <?php echo $mode=="edit" ? "value='".$_GET['lastname']."'" : ""; ?>
                 required/>
             </div>
@@ -139,7 +139,7 @@ code by siwawes wongcharoen
                 <?php echo $mode=="edit"?"disabled":""; ?>
                 required/>
               <p class="help-block">ใส่ตัวเลขติดกัน 13 หลัก เช่น 1640200064123<br/>
-                กรุณาตรวจสอบให้ถูกต้อง เนื่องจากใช้เป็นหลักฐานในการเข้าอบรม
+                กรุณาตรวจสอบให้ถูกต้อง เนื่องจากใช้เป็นหลักฐานในการเข้าอบรมและรหัสผ่านสำหรับตรวจสอบข้อมูล
               </p>
             </div>
           </div>
@@ -193,7 +193,7 @@ code by siwawes wongcharoen
                 <?php echo $mode=="edit"?"value='".$_GET['belong_to']."'":""; ?>
                 <?php echo $mode=="edit"?"disabled":""; ?>
                 required/>
-              <p class="help-block">โรงเรียน ที่ท่านปฏิบัติหน้าที่ เช่น โรงเรียนเฉลิมขัญสตรี หรือ เขตพื้นที่การศึกษาที่ท่านปฏิบัติหน้าที่ เช่น เขตพื้นที่การศึกษาที่ 39</p>
+              <p class="help-block">โรงเรียนที่ท่านปฏิบัติหน้าที่ เช่น โรงเรียนเฉลิมขัญสตรี หรือ เขตพื้นที่การศึกษาที่ท่านปฏิบัติหน้าที่ เช่น เขตพื้นที่การศึกษาที่ 39</p>
             </div>
           </div>
         </div>
@@ -201,7 +201,7 @@ code by siwawes wongcharoen
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label for="district">อำเภอ :</label>
+              <label for="district">อำเภอ (อำเภอที่ท่านปฏิบัติหน้าที่) :</label>
               <input list="districts"
                 class="form-control"
                 name="district"
@@ -209,7 +209,7 @@ code by siwawes wongcharoen
                 <?php echo $mode=="edit" ? "value='".$_GET['district']."'" : ""; ?>
                 <?php echo $mode=="edit"?"disabled":""; ?>
                 required/>
-              <p class="help-block">อำเภอที่ท่านปฏิบัติหน้าที่</p>
+              <p class="help-block">พิมพ์ชื่ออำเภอ (ไม่ต้องพิมพ์คำว่าอำเภอ) ระบบจะแสดงชื่ออำเภอที่ตรงกับอักษรที่ท่านพิมพ์</p>
               <datalist id="districts">
                 <option value="เมืองกำแพงเพชร">
                 <option value="ขาณุวรลักษบุรี">
@@ -481,12 +481,12 @@ code by siwawes wongcharoen
                   <p class="help-block">จากสังกัดถึงจังหวัดพิษณุโลก เช่น 120 กิโลเมตร (ใส่เฉพาะตัวเลข)</p>
               </label>
             </div>
-            <div class="radio">
+            <!--<div class="radio">
               <label>
                 <input type="radio" name="transport" id="transport_options_radios2" value="2" <?php echo $mode=="edit"?"disabled":""; ?>>
                 เครื่องบิน
               </label>
-            </div>
+            </div>-->
             <div class="radio">
               <label>
                 <input type="radio" name="transport" id="transport_options_radios3" value="3" <?php echo $mode=="edit"?"disabled":""; ?>>
@@ -496,16 +496,17 @@ code by siwawes wongcharoen
             <div class="radio">
               <label>
                 <input type="radio" name="transport" id="transport_options_radios4" value="4" <?php echo $mode=="edit"?"disabled":""; ?> >
-                รถประจำทาง <div class="form-group">
-
-                </div>
+                รถประจำทาง
               </label>
+              <p class="help-block">ท่านที่เดินทางมาโดยรถไฟหรือรถประจำทาง กรุณาเก็บใบเสร็จไว้เพื่อใช้เบิกค่าเดินทาง</p>
+            </div>
+            <div>
 
             </div>
           </div>
         </div>
 
-
+        <br/><br/>
 
         <input type="hidden"
           name="admin_level"
@@ -513,13 +514,23 @@ code by siwawes wongcharoen
           value="100"
           />
 
+        <div class="row">
+          <div class="col-md-12">
+            <p class="text-warning">
+              *หลังจากส่งข้อมูลลงทะเบียนแล้ว ขอให้ท่านเลือกรอบการอมรม
+            </p>
+          </div>
+        </div>
+
 
         <div class="row">
           <div class="col-md-12">
-              <input type="submit" class="btn btn-primary" >
-              <input type="reset" class="btn btn-warning" />
+              <input type="submit" class="btn btn-primary" value="ลงทะเบียน" >
+              <input type="reset" class="btn btn-warning" value="ล้างข้อมูล"/>
           </div>
         </div>
+
+        <br/><br/>
 
       </form>
 

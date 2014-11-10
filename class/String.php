@@ -22,7 +22,7 @@
       const booking_list = "รายชื่อผู้เข้าร่วมการอบรม";
       const person_name = "ชื่อ-สกุล";
       const person_firstname = "ชื่อ";
-      const person_lastname = "สกุล";
+      const person_lastname = "นามสกุล";
       const person_personal_id = "หมายเลขประจำตัวประชาชน";
       const person_confirm_personal_id = "ยืนยันหมายเลขประจำตัวประชาชน";
       const person_email = "E-mail";
