@@ -147,7 +147,7 @@
 
             <?php
               //read photo
-              $sql = "SELECT * FROM image where activity_name='train of the trainer' order by auto_id desc";
+              $sql = "SELECT * FROM image where activity_name='train of the trainer' order by auto_id desc limit 0,3";
               $result = mysqli_query($con, $sql);
 
               while($row = mysqli_fetch_array($result)) {
