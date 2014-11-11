@@ -154,7 +154,7 @@
                 ?>
                   <div class="col-md-4">
                     <p class="text-center">
-                      <a href="<?php echo ImageHelper::makeURL($row["url"]); ?>" target="_blank">
+                      <a href="show_image.php?activity_name=<?php echo $row["activity_name"];?>" target="_blank">
                         <img
                           src="<?php echo ImageHelper::makeURL($row["url"]); ?>"
                           alt="<?php echo $row["description"]; ?>"
