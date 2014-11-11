@@ -19,7 +19,7 @@
       <ul class="nav navbar-nav">
         <li>
           <a href="main_menu.php">
-            <?php echo String::system_title; ?>
+            <span class="glyphicon glyphicon-home"></span> หน้าแรก
           </a>
         </li>
         <li>

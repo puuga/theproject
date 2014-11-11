@@ -106,7 +106,7 @@
             echo "<a ";
             echo "class='btn btn-success disabled' ";
             echo "id='booking_button_".$course["auto_id"]."' ";
-            echo "href=\"javascript:doBooking(\'".$course["auto_id"]."\')\">";
+            echo "href=\"javascript:doBooking('".$course["auto_id"]."')\">";
             echo "<span class='glyphicon glyphicon-map-marker'></span> จอง";
             echo "</a>";
           } else if ( $course["people_count"]==$course["num"] ) {
@@ -120,7 +120,7 @@
             echo "<a ";
             echo "class='btn btn-success' ";
             echo "id='booking_button_".$course["auto_id"]."' ";
-            echo "href=\"javascript:doBooking(\'".$course["auto_id"]."\')\">";
+            echo "href=\"javascript:doBooking('".$course["auto_id"]."')\">";
             echo "<span class='glyphicon glyphicon-map-marker'></span> จอง";
             echo "</a>";
           }
