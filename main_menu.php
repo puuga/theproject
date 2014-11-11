@@ -217,15 +217,15 @@
           </div>
 
           <div class="list-group">
-            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRZzdyREZOY0RoT3c&authuser=0">
+            <a class="list-group-item" href="<?php echo String::schedule_level_1; ?>">
               สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</a>
-            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRaFpQV2NpaXFuYlE&authuser=0">
+            <a class="list-group-item" href="<?php echo String::schedule_level_2; ?>">
               สำหรับรองผู้อำนวยการเขตพื้นที่การศึกษา</a>
-            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRZk9UQk43aXZzZkE&authuser=0">
+            <a class="list-group-item" href="<?php echo String::schedule_level_3; ?>">
               สำหรับศึกษานิเทศก์</a>
-            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRekRUNkozX1pncVU&authuser=0">
+            <a class="list-group-item" href="<?php echo String::schedule_level_4; ?>">
               สำหรับผู้อำนวยการโรงเรียน</a>
-            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRUk1TX1Q1MW02Y00&authuser=0">
+            <a class="list-group-item" href="<?php echo String::schedule_level_5; ?>">
               สำหรับครูแกนนำ</a>
           </div>
 
@@ -234,15 +234,15 @@
           </div>
 
           <div class="list-group">
-            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRRXNBaHRzbVl4b1k&authuser=0">
+            <a class="list-group-item" href="<?php echo String::schedule_level_date_1; ?>">
               สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</a>
-            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRTTgwcVIyRU5zMzQ&authuser=0">
+            <a class="list-group-item" href="<?php echo String::schedule_level_date_2; ?>">
               สำหรับรองผู้อำนวยการเขตพื้นที่การศึกษา</a>
-            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRZzB2OVp6SkxtV3c&authuser=0">
+            <a class="list-group-item" href="<?php echo String::schedule_level_date_3; ?>">
               สำหรับศึกษานิเทศก์</a>
-            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRYlJILTVfX0pzQ1U&authuser=0">
+            <a class="list-group-item" href="<?php echo String::schedule_level_date_4; ?>">
               สำหรับผู้อำนวยการโรงเรียน</a>
-            <a class="list-group-item" href="https://drive.google.com/open?id=0B9bzy3S3TMGRd0tpQlNwbFZWc1U&authuser=0">
+            <a class="list-group-item" href="<?php echo String::schedule_level_date_5; ?>">
               สำหรับครูแกนนำ</a>
           </div>
 
