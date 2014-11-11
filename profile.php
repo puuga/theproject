@@ -175,26 +175,6 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-3">
-
-        </div>
-        <div class="col-md-9">
-          <?php
-            if ( $user["person_id"] == $user["upper_person_id"]) {
-              echo '<a class="btn btn-warning" role="button"';
-              echo 'href="mentor_sign_up.php?action=edit&id='.$user["auto_id"].'&person_id='.$user["person_id"].'&firstname='.$user["firstname"].'&lastname='.$user["lastname"].'&email='.$user["email"].'&password='.$user["password"].'"';
-              echo '>';
-            } else {
-              echo '<a class="btn btn-warning" role="button"';
-              echo 'href="user_sign_up.php?action=edit&id='.$user["auto_id"].'&person_id='.$user["person_id"].'&firstname='.$user["firstname"].'&lastname='.$user["lastname"].'&email='.$user["email"].'&password='.$user["password"].'"';
-              echo '>';
-            }
-          ?>
-            <span class="glyphicon glyphicon-edit"></span> <?php echo String::edit ?>
-          </a>
-        </div>
-      </div>
 
 
           <?php
@@ -321,6 +301,44 @@
 
       <div class="row">
         <div class="col-md-offset-3 col-md-9">
+          <?php
+            if ( $user["person_id"] == $user["upper_person_id"]) {
+              echo '<a class="btn btn-warning" role="button"';
+              echo 'href="mentor_sign_up.php?action=edit&id='.$user["auto_id"].'&person_id='.$user["person_id"].'&firstname='.$user["firstname"].'&lastname='.$user["lastname"].'&email='.$user["email"].'&password='.$user["password"].'"';
+              echo '>';
+            } else {
+              echo '<a class="btn btn-warning" role="button"';
+              echo 'href="user_sign_up.php?action=edit&id='.$user["auto_id"].'&person_id='.$user["person_id"].'&firstname='.$user["firstname"].'&lastname='.$user["lastname"].'&email='.$user["email"].'&password='.$user["password"].'"';
+              echo '>';
+            }
+            echo '<span class="glyphicon glyphicon-edit"></span> '.String::edit.'</a>';
+          ?>
+          <a href="javascript:myPrint()" class="btn btn-info">
+            <span class="glyphicon glyphicon-print"></span> พิมพ์
+          </a>
+          <script>
+            function myPrint() {
+              var mywindow = window.open('', 'my div', 'left=100,height=400,width=600');
+              mywindow.document.write('<html><body>');
+              mywindow.document.write("<h1>ใบยืนยันการลงทะเบียน</h1>");
+              mywindow.document.write("<?php echo String::person_personal_id ?> : <strong><?php echo $current_user_person_id; ?></strong><br/>");
+              mywindow.document.write("<?php echo String::person_name ?> : <strong><?php echo $current_user_firstname; ?> <?php echo $current_user_lastname; ?></strong><br/>");
+              mywindow.document.write("<?php echo String::person_email ?> : <strong><?php echo $current_user_email; ?></strong><br/><br/>");
+              mywindow.document.write("รุ่นการอบรม : <strong><?php echo $course_name; ?></strong><br/>");
+              mywindow.document.write("สถานที่อบรม : <strong><?php echo $course_location; ?></strong><br/>");
+              mywindow.document.write("<hr/>");
+              mywindow.document.write("Google account : <strong><?php echo $user_googles[0]["google_email"]; ?></strong><br/>");
+              mywindow.document.write("Google password : <strong><?php echo $user_googles[0]["google_password"]; ?></strong><br/>");
+              mywindow.document.write("<br/><br/>");
+              mywindow.document.write("*กรุณานำคอมพิวเตอร์โน๊ตบุคส่วนตัว และอุปกรณ์พวกต่อ ของท่านมาใช้ในการอบรม<br/>");
+              mywindow.document.write("*ในกรณีที่ท่านเลือกวิธีการเดินทางมาโดยรถไฟหรือรถประจำทาง กรุณานำใบเสร็จมาแสดงในวันอบรม เพื่อใช้เบิกค่าเดินทาง<br/>");
+
+              mywindow.document.write('</body></html>');
+              mywindow.document.close();
+              mywindow.print();
+              mywindow.close();
+            }
+          </script>
         </div>
       </div>
     </div>
