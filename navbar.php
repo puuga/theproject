@@ -53,7 +53,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <span class="glyphicon glyphicon-calendar"></span> <?php echo String::system_schedule_date ?> <span class="caret"></span>
           </a>
-          <ul class="dropdown-menu" role="menu">schedule_level_date_1
+          <ul class="dropdown-menu" role="menu">
             <li><a href="<?php echo String::schedule_level_date_1; ?>">
               สำหรับผู้อำนวยการเขตพื้นที่การศึกษา</a></li>
             <li><a href="<?php echo String::schedule_level_date_2; ?>">
