@@ -482,7 +482,7 @@ code by siwawes wongcharoen
                   id="transport_distance"
                   placeholder="ระยะทาง"
                   <?php echo $mode=="edit"?"disabled":""; ?>>
-                  <p class="help-block">จากสังกัดถึงจังหวัดพิษณุโลก เช่น 120 กิโลเมตร (ใส่เฉพาะตัวเลข)</p>
+                  <p class="help-block">จากสังกัดถึงจังหวัดพิษณุโลก เช่น 120 กิโลเมตร (ใส่เฉพาะตัวเลข) นับระยะทางเฉพาะเส้นทางขาเดียว</p>
               </label>
             </div>
             <!--<div class="radio">

@@ -25,9 +25,9 @@
   $transport_car_id = $_POST["transport_car_id"];
   $transport_distance = $_POST["transport_distance"];
 
-  if ( $title == "ผู้อำนวยการเขตการศึกษา" ) {
+  if ( $title == "ผู้อำนวยการสำนักงานเขตการศึกษา" ) {
     $admin_level += 10;
-  } else if ( $title == "รองผู้อำนวยการเขตการศึกษา" ) {
+  } else if ( $title == "รองผู้อำนวยการสำนักงานเขตการศึกษา" ) {
     $admin_level += 20;
   } else if ( $title == "ศึกษานิเทศก์" ) {
     $admin_level += 30;
