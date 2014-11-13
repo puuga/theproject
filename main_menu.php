@@ -162,13 +162,16 @@
               ?>
               <div class="row">
 
-                <div class="col-md-12 bg-info">
-                  <h3>
-                    <?php echo $row['title']; ?>
-                    <small>
-                      <?php echo $row['date_published']; ?>
-                    </small>
-                  </h3>
+                <div class="col-md-12 alert alert-info" role="alert">
+                  <div class="page-header">
+                    <h3>
+                      <?php echo $row['title']; ?>
+                      <small>
+                        <?php echo $row['date_published']; ?>
+                      </small>
+                    </h3>
+                  </div>
+
                   <p>
                     <?php echo $row['description']; ?>
                   </p>
@@ -196,7 +199,7 @@
           </div>
 
           <?php
-            $sql = "SELECT * FROM image where activity_name='train of the trainer' order by auto_id ";
+            $sql = "SELECT * FROM image order by auto_id ";
             $result = mysqli_query($con, $sql);
             while($row = mysqli_fetch_array($result)) {
               $image["auto_id"] = $row["auto_id"];
@@ -230,14 +233,14 @@
             }
           ?>
 
-          <!-- project image train of the trainer -->
+          <!-- project image train for the trainer -->
           <div class="row">
             <div class="col-md-12">
-              <h3>Train of the Trainer</h3>
+              <h3>Train for the Trainer</h3>
             </div>
             <?php
               //read album and photo
-              showImageOfAlbum($images, "train of the trainer");
+              showImageOfAlbum($images, "train for the trainer");
             ?>
           </div>
 
