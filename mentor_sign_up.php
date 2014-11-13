@@ -107,6 +107,7 @@ code by siwawes wongcharoen
                 placeholder="ชื่อ"
                 <?php echo $mode=="edit"?"value='".$_GET['firstname']."'":""; ?>
                 required/>
+              <p class="help-block">ไม่ต้องใส่คำนำหน้าชื่อ</p>
             </div>
           </div>
         </div>
