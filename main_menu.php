@@ -75,6 +75,62 @@
       <div class="row">
         <div class="col-md-8">
 
+          <div class="row">
+            <div class="col-md-12 alert alert-warning" role="alert">
+              <div class="page-header">
+                <h1><?php echo String::seminar_description ?></h1>
+              </div>
+              <div>
+                <ul>
+                  <li>
+                    ผู้อำนวยการเขตพื้นที่การศึกษา จำนวน 1 ท่าน
+                  </li>
+                  <li>
+                    รองผู้อำนวยการเขตพื้นที่การศึกษา ที่รับผิดชอบทางด้าน ICT จำนวน 1 ท่าน
+                  </li>
+                  <li>
+                    ศึกษานิเทศก์ ทางด้าน ICT จำนวน 1 ท่าน
+                  </li>
+                  <li>
+                    ผู้อำนวยการโรงเรียนทุกโรงเรียนในเขตพื้นที่ที่รับผิดชอบ
+                  </li>
+                  <li>
+                    ครูแกนนำในโรงเรียนขนาดเล็กและกลางทุกโรงเรียน จำนวน 1 ท่านต่อโรงเรียน (ให้เลือกจากครูในกลุ่ม 8 สาระ)
+                  </li>
+                  <li>
+                    ครูแกนนำในโรงเรียนขนาดใหญทุกโรงเรียน จำนวน 1-2 ท่านต่อโรงเรียน (ให้เลือกจากครูในกลุ่ม 8 สาระ)
+                  </li>
+                </ul>
+                <hr>
+                <ul>
+                  <li>
+                    <u>ที่พัก</u><br/>
+                    เข้าพักตามโรงแรมที่กำหนดไว้ในการลงทะเบียน (<strong>ไม่ต้องเสียค่าใช้จ่าย</strong>)
+                  </li>
+                  <li>
+                    <u>ค่าเดินทาง</u><br/>
+                    สามารถเบิกได้หน้างานอบรมโดยเบิกได้เฉพาะการเดินทางโดยรถส่วนตัว, รถโดยสารประจำทาง หรือรถไฟ (เบิกจ่ายตามใบเสร็จค่าเดินทาง)
+                  </li>
+                </ul>
+                <hr/>
+                <ul>
+                  <li>
+                    กรุณานำคอมพิวเตอร์โน๊ตบุคส่วนตัว และอุปกรณ์พวกต่อ ของท่านมาใช้ในการอบรม
+                  </li>
+                  <li>
+                    ในกรณีที่ท่านเลือกวิธีการเดินทางมาโดยรถไฟหรือรถประจำทาง กรุณานำใบเสร็จมาแสดงในวันอบรม เพื่อใช้เบิกค่าเดินทาง
+                  </li>
+                  <li>
+                    สถานที่อบรมและที่พัก ทางผู้จัดจะแจ้งให้ทราบก่อนวันเข้ารับการอบรม(อยู่ระหว่างดำเนินการ)
+                  </li>
+                  <li>
+                    กรุณาพิมพ์หน้าประวัติส่วนตัว เพื่อนำมายืนยันในวันเข้ารับการอบรม
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
 
 
           <div class="row">
@@ -139,35 +195,50 @@
             </div>
           </div>
 
+          <?php
+            $sql = "SELECT * FROM image where activity_name='train of the trainer' order by auto_id ";
+            $result = mysqli_query($con, $sql);
+            while($row = mysqli_fetch_array($result)) {
+              $image["auto_id"] = $row["auto_id"];
+              $image["name"] = $row["name"];
+              $image["description"] = $row["description"];
+              $image["url"] = ImageHelper::makeURL($row["url"]);
+              $image["activity_name"] = $row["activity_name"];
+
+              $images[] = $image;
+            }
+
+            function showImageOfAlbum($images, $albumName) {
+              foreach ( $images as $image ) {
+                $i=0;
+                if ( $image["activity_name"]==$albumName && $i<3) {
+                  echo '<div class="col-md-4">';
+                  echo '<p class="text-center">';
+                  echo '<a href="show_image.php?activity_name='.$image["activity_name"].'" target="_blank">';
+                  echo '<img ';
+                  echo 'src="'.$image["url"].'" ';
+                  echo 'alt="'.$image["description"].'" ';
+                  echo 'class="img-thumbnail">';
+                  echo '</a>';
+                  echo '<!--<strong>'.$image["name"].'</strong><br/>';
+                  echo $image["description"].'-->';
+                  echo '</p>';
+                  echo '</div>';
+                  $i++;
+                }
+              }
+            }
+          ?>
+
           <!-- project image train of the trainer -->
           <div class="row">
             <div class="col-md-12">
               <h3>Train of the Trainer</h3>
             </div>
-
             <?php
-              //read photo
-              $sql = "SELECT * FROM image where activity_name='train of the trainer' order by auto_id desc limit 0,3";
-              $result = mysqli_query($con, $sql);
-
-              while($row = mysqli_fetch_array($result)) {
-                ?>
-                  <div class="col-md-4">
-                    <p class="text-center">
-                      <a href="show_image.php?activity_name=<?php echo $row["activity_name"];?>" target="_blank">
-                        <img
-                          src="<?php echo ImageHelper::makeURL($row["url"]); ?>"
-                          alt="<?php echo $row["description"]; ?>"
-                          class="img-thumbnail">
-                      </a><br/>
-                      <!--<strong><?php echo $row["name"]; ?></strong><br/>
-                      <?php echo $row["description"]; ?>-->
-                    </p>
-                  </div>
-                <?php
-              }
+              //read album and photo
+              showImageOfAlbum($images, "train of the trainer");
             ?>
-
           </div>
 
         </div>

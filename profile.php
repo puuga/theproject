@@ -177,9 +177,16 @@
           <p class="text-right"><strong>สถานที่อบรม</strong><p>
         </div>
         <div class="col-md-9">
-          <?php echo $course_location; ?>
+          <?php
+            if ( $course_location=="-" ) {
+              echo "อยู่ระหว่างดำเนินการ โปรดเข้าสู่ระบบเพื่อตรวจสอบก่อนวันเดินทาง";
+            } else {
+              echo $course_location;
+            }
+          ?>
         </div>
       </div>
+
 
 
 
