@@ -554,6 +554,11 @@ code by siwawes wongcharoen
             event.preventDefault();
             //return;
           }
+          if ( $("#email").val().length == 0 ) {
+            alert("มีปัญหา\nกรุณาตรวจสอบ Email ของท่าน");
+            event.preventDefault();
+            //return;
+          }
           $( "#btnSubmit" ).attr("disabled", "disabled");
           //event.preventDefault();
         });
