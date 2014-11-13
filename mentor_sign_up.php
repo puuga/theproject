@@ -168,8 +168,8 @@ code by siwawes wongcharoen
             <div class="form-group">
               <label for="title"><?php echo String::person_title; ?></label>
               <select class="form-control" id="title" name="title" <?php echo $mode=="edit"?"disabled":""; ?> required >
-                <option>ผู้อำนวยการเขตการศึกษา</option>
-                <option>รองผู้อำนวยการเขตการศึกษา</option>
+                <option>ผู้อำนวยการสำนักงานเขตการศึกษา</option>
+                <option>รองผู้อำนวยการสำนักงานเขตการศึกษา</option>
                 <option>ศึกษานิเทศก์</option>
                 <option>ผู้อำนวยการโรงเรียน</option>
                 <option>ครูเชี่ยวชาญพิเศษ (ครู ค.ศ. 5)</option>
