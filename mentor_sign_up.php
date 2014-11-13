@@ -523,9 +523,6 @@ code by siwawes wongcharoen
             <p class="text-warning">
               *หลังจากส่งข้อมูลลงทะเบียนแล้ว ขอให้ท่านเลือกรอบการอมรม
             </p>
-            <p class="text-warning">
-              *หากพบปัญหาในการลงทะเบียน สามารถติดต่อได้ที่ 084-048-0947
-            </p>
           </div>
         </div>
 
