@@ -94,7 +94,7 @@
         function printTableHeader() {
           echo "<th>รุ่นการอบรม</th>";
           echo "<th>ระยะเวลา</th>";
-          echo "<th>สถานที่</th>";
+          echo "<th>สถานที่อบรม</th>";
           echo "<th>จำนวนผู้เข้าอบรม</th>";
           echo "<th>&nbsp;</th>";
           echo "<th>&nbsp;</th>";

@@ -454,7 +454,10 @@ code by siwawes wongcharoen
                 placeholder="email@domain.com"
                 <?php echo $mode=="edit" ? "value='".$_GET['email']."'" : ""; ?>
                 required/>
-              <p class="help-block">ใช้ในการลงชื่อเข้าใช้งานระบบ</p>
+              <p class="help-block">
+                ใช้ในการลงชื่อเข้าใช้งานระบบ เพื่อจองรุ่นการอบรมและตรวจสอบข้อมูลเท่านั้น<br/>
+                ระบบจะไม่อนุญาตให้ใช้ Email ซ้ำกันในการลงทะเบียน
+              </p>
             </div>
           </div>
         </div>
