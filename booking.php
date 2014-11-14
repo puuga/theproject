@@ -115,7 +115,7 @@
             echo "href=\"javascript:doBooking('0')\">";
             echo "<span class='glyphicon glyphicon-map-marker'></span> ยกเลิกจอง";
             echo "</a>";
-          } else if ( $course["people_count"]==$course["num"] ) {
+          } else if ( $course["people_count"]>=$course["num"] ) {
             echo "<a ";
             echo "class='btn btn-danger disabled' ";
             echo "id='booking_button_".$course["auto_id"]."' ";
