@@ -109,6 +109,12 @@
             echo "href=\"javascript:doBooking('".$course["auto_id"]."')\">";
             echo "<span class='glyphicon glyphicon-map-marker'></span> จอง";
             echo "</a>";
+            echo "<a ";
+            echo "class='btn btn-danger' ";
+            echo "id='booking_button_".$course["auto_id"]."' ";
+            echo "href=\"javascript:doBooking('0')\">";
+            echo "<span class='glyphicon glyphicon-map-marker'></span> ยกเลิกจอง";
+            echo "</a>";
           } else if ( $course["people_count"]==$course["num"] ) {
             echo "<a ";
             echo "class='btn btn-danger disabled' ";
