@@ -30,7 +30,18 @@
     $key2 = $_POST["key2"];
     $val2 = $_POST["val2"];
     $sql = "UPDATE user SET $key = '$val', $key2 = '$val2', course_id=0 WHERE auto_id = $user_id;";
-  } else {
+  }
+  else if ( $key=="transport_id"&&$val=="1") {
+    $key2 = $_POST["key2"];
+    $val2 = $_POST["val2"];
+    $key3 = $_POST["key3"];
+    $val3 = $_POST["val3"];
+    $sql = "UPDATE transport SET transport_id = '$val', car_id = '$val2', car_distance = $val3 WHERE user_id = $user_id;";
+  }
+  else if ( $key=="transport_id") {
+    $sql = "UPDATE transport SET transport_id = '$val', car_id = '', car_distance = '' WHERE user_id = $user_id;";
+  }
+  else {
     $sql = "UPDATE user SET $key = '$val' WHERE auto_id = $user_id;";
   }
 

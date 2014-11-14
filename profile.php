@@ -57,7 +57,7 @@
       // echo count($user_lowers);
 
 
-      // user_with_upper_view
+      // user_data
       $sql = "SELECT * FROM user WHERE person_id='$current_user_person_id'";
       $result = mysqli_query($con, $sql);
 
@@ -79,6 +79,22 @@
         $user_data["course_id"] = $row['course_id'];
       }
       //print_r($user_data);
+
+      // user_transport
+      $sql = "SELECT * FROM theproject.transpot_all_view where user_id=$current_user_id";
+      $result = mysqli_query($con, $sql);
+
+      while($row = mysqli_fetch_array($result)) {
+        $user_transport["auto_id"] = $row['auto_id'];
+        $user_transport["user_id"] = $row['user_id'];
+        $user_transport["transport_id"] = $row['transport_id'];
+        $user_transport["car_id"] = $row['car_id'];
+        $user_transport["car_distance"] = $row['car_distance'];
+        $user_transport["cost1"] = $row['cost1'];
+        $user_transport["cost2"] = $row['cost2'];
+        $user_transport["name"] = $row['name'];
+      }
+      //print_r($user_transport);
 
     ?>
 
@@ -211,7 +227,7 @@
           //var newVal = prompt("Please enter your name", val);
           //alert( $('#form_title_option input[type=radio]:checked').val() );
           if ( $('#form_title_option input[type=radio]:checked').val()===undefined ) {
-            alert("กรุณาเลือกตำแหน่งทีท่านต้องการเปลี่ยน");
+            alert("กรุณาเลือกตำแหน่งท่ีท่านต้องการเปลี่ยน");
             return;
           }
           var admin_level_val = $('#form_title_option input[type=radio]:checked').val();
@@ -237,6 +253,40 @@
             }
           });
 
+        }
+
+        function editUserTransport() {
+          //var newVal = prompt("Please enter your name", val);
+          //alert( $('#form_title_option input[type=radio]:checked').val() );
+          if ( $('#form_transport_option input[type=radio]:checked').val()===undefined ) {
+            alert("กรุณาเลือกวิธีการเดินทางท่ีท่านต้องการเปลี่ยน");
+            return;
+          }
+          var transport_id = $('#form_transport_option input[type=radio]:checked').val();
+          var transport_car_id = $("#transport_car_id").val();
+          var transport_distance = $("#transport_distance").val();
+          //alert(transportOption+","+transport_car_id+","+transport_distance);
+          $.ajax({
+            type: "POST",
+            url: "mentor_edit_process.php",
+            dataType: 'json',
+            data: {
+              user_id: "<?php echo $current_user_id ?>",
+              key: "transport_id",
+              val: transport_id,
+              key2: "transport_car_id",
+              val2: transport_car_id,
+              key3: "transport_distance",
+              val3: transport_distance},
+            success: function(data) {
+              if (!data.success) { //If fails
+                alert("error");
+              } else {
+                //alert("#success");
+                location.reload();
+              }
+            }
+          });
         }
 
         function editUserBelongTo(val) {
@@ -328,6 +378,21 @@
             <?php echo $user_data["district"]; ?><br/>
             <a href="javascript:editUserDistrict('<?php echo $user_data["district"]; ?>')"
               class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขอำเภอ</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong>วิธีการเดินทาง</strong><p>
+        </div>
+        <div class="col-md-9">
+          <p>
+            <?php echo $user_transport["name"]; ?>
+            <?php echo $user_transport["car_distance"]!="0"?"(".$user_transport["car_id"]." - ".$user_transport["car_distance"]." กิโลเมตร)":""; ?><br/>
+
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal_edit_transport">
+              <span class="glyphicon glyphicon-edit"></span> แก้ไขวิธีการเดินทาง</button>
           </p>
         </div>
       </div>
@@ -515,7 +580,7 @@
             echo '<span class="glyphicon glyphicon-edit"></span> '.String::edit.'</a>';
           ?>-->
           <a href="javascript:myPrint()" class="btn btn-info">
-            <span class="glyphicon glyphicon-print"></span> พิมพ์
+            <span class="glyphicon glyphicon-print"></span> พิมพ์ ใบยืนยันการลงทะเบียน
           </a>
           <script>
             function myPrint() {
@@ -544,7 +609,7 @@
       </div>
     </div>
 
-    <!-- Small modal -->
+    <!-- modal_edit_title Small modal -->
     <div id="modal_edit_title" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -591,6 +656,67 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
               <button type="button" class="btn btn-primary" onclick="editUserTitle()">บันทึกการแก้ไข</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- modal_edit_transport Small modal -->
+    <div id="modal_edit_transport" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">แก้ไขการเดินทาง</h4>
+            </div>
+            <div class="modal-body">
+              <div>
+                <form id="form_transport_option">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="transport_option" id="transport_options_radios1" value="1"
+                        <?php echo $user_transport["transport_id"]==1?"checked":""; ?> >
+                      รถยนต์ส่วนบุคคล
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="transport_car_id"
+                        id="transport_car_id"
+                        placeholder="ทะเบียนรถ"
+                        value="<?php echo $user_transport["car_id"]; ?>">
+                        <p class="help-block">เช่น กข 1234 เชียงใหม่</p>
+                      <input
+                        type="number"
+                        min="0"
+                        class="form-control"
+                        name="transport_distance"
+                        id="transport_distance"
+                        placeholder="ระยะทาง"
+                        value="<?php echo $user_transport["car_distance"]; ?>">
+                        <p class="help-block">จากสังกัดถึงจังหวัดพิษณุโลก เช่น 120 กิโลเมตร (ใส่เฉพาะตัวเลข) นับระยะทางเฉพาะเส้นทางขาเดียว</p>
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="transport_option" id="transport_options_radios3" value="3"
+                        <?php echo $user_transport["transport_id"]==3?"checked":""; ?> >
+                      รถไฟ
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="transport_option" id="transport_options_radios4" value="4"
+                        <?php echo $user_transport["transport_id"]==4?"checked":""; ?>>
+                      รถประจำทาง
+                    </label>
+                    <p class="help-block">ท่านที่เดินทางมาโดยรถไฟหรือรถประจำทาง กรุณาเก็บใบเสร็จไว้เพื่อใช้เบิกค่าเดินทาง</p>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+              <button type="button" class="btn btn-primary" onclick="editUserTransport()">บันทึกการแก้ไข</button>
             </div>
           </div>
         </div>
