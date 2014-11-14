@@ -56,6 +56,30 @@
       }
       // echo count($user_lowers);
 
+
+      // user_with_upper_view
+      $sql = "SELECT * FROM user WHERE person_id='$current_user_person_id'";
+      $result = mysqli_query($con, $sql);
+
+      while($row = mysqli_fetch_array($result)) {
+        $user_data["auto_id"] = $row['auto_id'];
+        $user_data["person_id"] = $row['person_id'];
+        $user_data["firstname"] = $row['firstname'];
+        $user_data["lastname"] = $row['lastname'];
+        $user_data["email"] = $row['email'];
+        $user_data["password"] = $row['password'];
+        $user_data["web"] = $row['web'];
+        $user_data["prifix_name"] = $row['prifix_name'];
+        $user_data["title"] = $row['title'];
+        $user_data["belong_to"] = $row['belong_to'];
+        $user_data["admin_level"] = $row['admin_level'];
+        $user_data["district"] = $row['district'];
+        $user_data["province"] = $row['province'];
+        $user_data["upper_person_id"] = $row['upper_person_id'];
+        $user_data["course_id"] = $row['course_id'];
+      }
+      //print_r($user_data);
+
     ?>
 
     <div class="jumbotron">
@@ -99,6 +123,17 @@
 
       <div class="row">
         <div class="col-md-2"></div>
+        <div class="col-md-8 alert alert-danger" role="alert">
+          <ul>
+            <li>
+              ในกรณีที่ท่านแก้ไขข้อมูลแล้ว แต่ระบบยังแสดงข้อมูลเก่า ขอให้ท่านออกจากระบบ แล้วเข้าสู่ระบบใหม่
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2"></div>
         <div class="col-md-8 alert alert-warning" role="alert">
           <ul>
             <li>
@@ -131,7 +166,13 @@
           <p class="text-right"><strong><?php echo String::person_name ?></strong><p>
         </div>
         <div class="col-md-9">
-          <?php echo $current_user_firstname; ?> <?php echo $current_user_lastname; ?>
+          <p>
+            <?php echo $user_data["firstname"]; ?> <?php echo $user_data["lastname"]; ?><br/>
+            <a href="javascript:editUserFirstname('<?php echo $user_data["firstname"]; ?>')"
+              class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขชื่อ</a>
+            <a href="javascript:editUserLastname('<?php echo $user_data["lastname"]; ?>')"
+              class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขนามสกุล</a>
+          </p>
         </div>
       </div>
 
@@ -141,6 +182,153 @@
         </div>
         <div class="col-md-9">
           <?php echo $current_user_email; ?>
+        </div>
+      </div>
+
+      <script>
+        function editUserData(key,val) {
+          //alert(key,val);
+          $.ajax({
+            type: "POST",
+            url: "mentor_edit_process.php",
+            dataType: 'json',
+            data: {
+              user_id: "<?php echo $current_user_id ?>",
+              key: key,
+              val: val },
+            success: function(data) {
+              if (!data.success) { //If fails
+                alert("error");
+              } else {
+                //alert("#success");
+                location.reload();
+              }
+            }
+          });
+        }
+
+        function editUserTitle() {
+          //var newVal = prompt("Please enter your name", val);
+          //alert( $('#form_title_option input[type=radio]:checked').val() );
+          if ( $('#form_title_option input[type=radio]:checked').val()===undefined ) {
+            alert("กรุณาเลือกตำแหน่งทีท่านต้องการเปลี่ยน");
+            return;
+          }
+          var admin_level_val = $('#form_title_option input[type=radio]:checked').val();
+          var title_label = $('#form_title_option input[type="radio"]:checked').parent().text();
+          //alert(admin_level_val +","+title_label);
+          $.ajax({
+            type: "POST",
+            url: "mentor_edit_process.php",
+            dataType: 'json',
+            data: {
+              user_id: "<?php echo $current_user_id ?>",
+              key: "admin_level",
+              val: admin_level_val,
+              key2: "title",
+              val2: title_label },
+            success: function(data) {
+              if (!data.success) { //If fails
+                alert("error");
+              } else {
+                //alert("#success");
+                location.reload();
+              }
+            }
+          });
+
+        }
+
+        function editUserBelongTo(val) {
+          var newVal = prompt("กรุณาใส่สังกัด", val);
+          //alert(newVal);
+          if ( newVal!=null ) {
+            editUserData("belong_to",newVal);
+          }
+        }
+
+        function editUserProvince(val) {
+          var newVal = prompt("กรุณาใส่อำเภอ", val);
+          //alert(newVal);
+          if ( newVal!=null ) {
+            editUserData("province",newVal);
+          }
+        }
+
+        function editUserDistrict(val) {
+          var newVal = prompt("กรุณาใส่จังหวัด", val);
+          //alert(newVal);
+          if ( newVal!=null ) {
+            editUserData("district",newVal);
+          }
+        }
+
+        function editUserFirstname(val) {
+          var newVal = prompt("กรุณาใส่ชื่อ", val);
+          //alert(newVal);
+          if ( newVal!=null ) {
+            editUserData("firstname",newVal);
+          }
+        }
+
+        function editUserLastname(val) {
+          var newVal = prompt("กรุณาใส่นามสกุล", val);
+          //alert(newVal);
+          if ( newVal!=null ) {
+            editUserData("lastname",newVal);
+          }
+        }
+      </script>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong><?php echo String::person_title ?></strong><p>
+        </div>
+        <div class="col-md-9">
+          <p>
+            <?php echo $user_data["title"]; ?><br/>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal_edit_title">
+              <span class="glyphicon glyphicon-edit"></span> แก้ไขตำแหน่ง</button>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong>สังกัด</strong><p>
+        </div>
+        <div class="col-md-9">
+          <p>
+            <?php echo $user_data["belong_to"]; ?><br/>
+            <a href="javascript:editUserBelongTo('<?php echo $user_data["belong_to"]; ?>')"
+              class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขสังกัด</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong>จังหวัด</strong><p>
+        </div>
+        <div class="col-md-9">
+          <p>
+            <?php echo $user_data["province"]; ?><br/>
+            <a href="javascript:editUserProvince('<?php echo $user_data["province"]; ?>')"
+              class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขจังหวัด</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong>อำเภอ</strong><p>
+        </div>
+        <div class="col-md-9">
+          <p>
+            <?php echo $user_data["district"]; ?><br/>
+            <a href="javascript:editUserDistrict('<?php echo $user_data["district"]; ?>')"
+              class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขอำเภอ</a>
+          </p>
         </div>
       </div>
 
@@ -314,7 +502,7 @@
 
       <div class="row">
         <div class="col-md-offset-3 col-md-9">
-          <?php
+          <!--<?php
             if ( $user["person_id"] == $user["upper_person_id"]) {
               echo '<a class="btn btn-warning" role="button"';
               echo 'href="mentor_sign_up.php?action=edit&id='.$user["auto_id"].'&person_id='.$user["person_id"].'&firstname='.$user["firstname"].'&lastname='.$user["lastname"].'&email='.$user["email"].'&password='.$user["password"].'"';
@@ -325,7 +513,7 @@
               echo '>';
             }
             echo '<span class="glyphicon glyphicon-edit"></span> '.String::edit.'</a>';
-          ?>
+          ?>-->
           <a href="javascript:myPrint()" class="btn btn-info">
             <span class="glyphicon glyphicon-print"></span> พิมพ์
           </a>
@@ -355,5 +543,58 @@
         </div>
       </div>
     </div>
+
+    <!-- Small modal -->
+    <div id="modal_edit_title" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="myModalLabel">แก้ไขตำแหน่ง</h4>
+            </div>
+            <div class="modal-body">
+              <div>
+                <form id="form_title_option">
+                <div class="radio">
+                  <label><input type="radio" name="title_option" id="title_option_1" value="110">ผู้อำนวยการสำนักงานเขตการศึกษา</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="title_option" id="title_option_2" value="120">รองผู้อำนวยการสำนักงานเขตการศึกษา</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="title_option" id="title_option_3" value="130">ศึกษานิเทศก์</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="title_option" id="title_option_4" value="140">ผู้อำนวยการโรงเรียน</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="title_option" id="title_option_5" value="150">ครูเชี่ยวชาญพิเศษ (ครู ค.ศ. 5)</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="title_option" id="title_option_6" value="150">ครูเชี่ยวชาญ (ครู ค.ศ. 4)</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="title_option" id="title_option_7" value="150">ครูชำนาญการพิเศษ (ครู ค.ศ. 3)</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="title_option" id="title_option_8" value="150">ครูชำนาญการ (ครู ค.ศ. 2)</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="title_option" id="title_option_9" value="150">ครู (ครู ค.ศ. 1)</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" name="title_option" id="title_option_10" value="150">ครูผู้ช่วย</label>
+                </div>
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+              <button type="button" class="btn btn-primary" onclick="editUserTitle()">บันทึกการแก้ไข</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
   </body>
 </html>

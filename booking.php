@@ -108,7 +108,7 @@
             echo "id='booking_button_".$course["auto_id"]."' ";
             echo "href=\"javascript:doBooking('".$course["auto_id"]."')\">";
             echo "<span class='glyphicon glyphicon-map-marker'></span> จอง";
-            echo "</a>";
+            echo "</a> ";
             echo "<a ";
             echo "class='btn btn-danger' ";
             echo "id='booking_button_".$course["auto_id"]."' ";
