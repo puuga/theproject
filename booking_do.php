@@ -23,17 +23,53 @@
 
 
   // 2. update course_id in user
-  //setup sql
-  $sql = "UPDATE `theproject`.`user` SET `course_id` = '$course_id' WHERE `user`.`auto_id` = $user_id;";
+  // course
+  $sql = "SELECT * FROM course_count_view where auto_id=$course_id";
+  $sqlresult = mysqli_query($con, $sql);
+  while($row = mysqli_fetch_array($sqlresult)) {
 
-  if (mysqli_query($con, $sql)) {
-    $result['success'] = true;
-    $result['course_id'] = $course_id;
-    $result['user_id'] = $user_id;
+    $course["auto_id"] = $row['auto_id'];
+    $course["name"] = $row['name'];
+    $course["description"] = $row['description'];
+    $course["location"] = $row['location'];
+    $course["start_date"] = $row['start_date'];
+    $course["end_date"] = $row['end_date'];
+    $course["level"] = $row['level'];
+    $course["num"] = $row['num'];
+    $course["people_count"] = $row['people_count'];
+  }
+  //print_r($courses);
+
+  if ( $course_id==0 ) {
+    //setup sql
+    $sql = "UPDATE user SET course_id = '$course_id' WHERE auto_id = $user_id;";
+
+    if (mysqli_query($con, $sql)) {
+      $result['success'] = true;
+      $result['course_id'] = $course_id;
+      $result['user_id'] = $user_id;
+    } else {
+      $result['success'] = false;
+      $result['error'] = mysqli_error($con);
+    }
+  }
+  else if ( $course["people_count"]<$course["num"] ) {
+    //setup sql
+    $sql = "UPDATE user SET course_id = '$course_id' WHERE auto_id = $user_id;";
+
+    if (mysqli_query($con, $sql)) {
+      $result['success'] = true;
+      $result['course_id'] = $course_id;
+      $result['user_id'] = $user_id;
+    } else {
+      $result['success'] = false;
+      $result['error'] = mysqli_error($con);
+    }
   } else {
     $result['success'] = false;
-    $result['error'] = mysqli_error($con);
+    $result['error'] = "course limit";
   }
+
 
   // close mysqli connection
   mysqli_close($con);

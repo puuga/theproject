@@ -23,7 +23,12 @@
           data: { user_id: "<?php echo $current_user_id ?>", course_id: courseID },
           success: function(data) {
             if (!data.success) { //If fails
-              alert("error");
+              if ( data.error=="course limit" ) {
+                alert("ขออภัย เนื่องจากระหว่างที่ท่านกำลังเลือกรุ่นอบรม ได้มีท่านอื่นๆเลือกรุ่นอบรมนี้จนเต็มแล้ว");
+                location.reload();
+              } else {
+                alert("error");
+              }
             } else {
               //alert("#success");
               location.reload();
@@ -119,7 +124,7 @@
             echo "<a ";
             echo "class='btn btn-danger disabled' ";
             echo "id='booking_button_".$course["auto_id"]."' ";
-            echo "href=\"#\">";
+            echo "href=\"javascript:doBooking('".$course["auto_id"]."')\">";
             echo "<span class='glyphicon glyphicon-remove-sign'></span> เต็ม";
             echo "</a>";
           } else {
