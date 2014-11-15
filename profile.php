@@ -468,7 +468,7 @@
         if ( $user["person_id"] == $user["upper_person_id"]) {
 
           // read google account
-          $sql_user_google = "SELECT * FROM google_account WHERE auto_id='$current_user_id'";
+          $sql_user_google = "SELECT * FROM google_account WHERE user_id=$current_user_id";
           $result = mysqli_query($con, $sql_user_google);
 
           $user_googles = array();
