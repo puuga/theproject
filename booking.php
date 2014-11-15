@@ -95,6 +95,7 @@
           echo "<th>รุ่นการอบรม</th>";
           echo "<th>ระยะเวลา</th>";
           echo "<th>สถานที่อบรม</th>";
+          echo "<th>สถานที่พัก</th>";
           echo "<th>จำนวนผู้เข้าอบรม</th>";
           echo "<th>&nbsp;</th>";
           echo "<th>&nbsp;</th>";
@@ -105,6 +106,7 @@
           echo "<td>".$course["name"]."</td>\n";
           echo "<td>".$course["start_date"]." - ".$course["end_date"]."</td>\n";
           echo "<td>".$course["location"]."</td>\n";
+          echo "<td>".$course["description"]."</td>\n";
           echo "<td>".$course["people_count"]."/".$course["num"]."</td>\n";
           echo "<td>";
           if ( $user["course_id"]==$course["auto_id"] ) {

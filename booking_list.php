@@ -49,7 +49,8 @@
         <h1><?php echo String::booking_list; ?></h1>
         <p><strong>รุ่น</strong>: <?php echo $courses[0]["name"] ?></p>
         <p><strong>วันที่</strong>: <?php echo $courses[0]["start_date"]." - ".$courses[0]["end_date"] ?></p>
-        <p><strong>สถานที่</strong>: <?php echo $courses[0]["location"] ?></p>
+        <p><strong>สถานที่อบรม</strong>: <?php echo $courses[0]["location"] ?></p>
+        <p><strong>สถานที่พัก</strong>: <?php echo $courses[0]["description"] ?></p>
       </div>
     </div>
 

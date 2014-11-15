@@ -404,13 +404,14 @@
         $course_name = "";
         $course_location = "";
         // read course
-        $sql_course = "SELECT name , course.location
+        $sql_course = "SELECT name , course.location , course.description
           FROM user inner join course on user.course_id=course.auto_id
           WHERE user.auto_id='$current_user_id'";
         $result = mysqli_query($con, $sql_course);
         while($row = mysqli_fetch_array($result)) {
           $course_name = $row['name'];
           $course_location = $row['location'];
+          $course_description = $row['description'];
         }
 
         // read google account
@@ -435,6 +436,21 @@
               echo "อยู่ระหว่างดำเนินการ โปรดเข้าสู่ระบบเพื่อตรวจสอบก่อนวันเดินทาง";
             } else {
               echo $course_location;
+            }
+          ?>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong>สถานที่พัก</strong><p>
+        </div>
+        <div class="col-md-9">
+          <?php
+            if ( $course_description=="-" ) {
+              echo "อยู่ระหว่างดำเนินการ โปรดเข้าสู่ระบบเพื่อตรวจสอบก่อนวันเดินทาง";
+            } else {
+              echo $course_description;
             }
           ?>
         </div>
