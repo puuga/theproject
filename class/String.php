@@ -36,9 +36,9 @@
       const edit = "แก้ไขประวัติส่วนตัว";
       const person_network = "เครือข่าย";
       const seminar_description = "รายละเอียดผู้เข้ารับการอบรม";
-      const schedule_level_1 = "https://drive.google.com/open?id=0B9bzy3S3TMGROHJCaFIzTEpLbzA&authuser=0";
-      const schedule_level_2 = "https://drive.google.com/open?id=0B9bzy3S3TMGRUDNuSVVyZVlsX0U&authuser=0";
-      const schedule_level_3 = "https://drive.google.com/open?id=0B9bzy3S3TMGRdnAzZXdsUVA2OVk&authuser=0";
+      const schedule_level_1 = "https://drive.google.com/open?id=0B9bzy3S3TMGRRlpLd0M4NXpvVms&authuser=0";
+      const schedule_level_2 = "https://drive.google.com/open?id=0B9bzy3S3TMGROHRGT2x6VHFmblU&authuser=0";
+      const schedule_level_3 = "https://drive.google.com/open?id=0B9bzy3S3TMGRaml1cno1ei1pcUE&authuser=0";
       const schedule_level_4 = "https://drive.google.com/open?id=0B9bzy3S3TMGRdHZEbS01M2ZEWW8&authuser=0";
       const schedule_level_5 = "https://drive.google.com/open?id=0B9bzy3S3TMGRdWdKTWNZc0k0SlE&authuser=0";
       const schedule_level_date_1 = "https://drive.google.com/open?id=1ZDJyiLSClyLQz6BoAzZT4-Jac_5EmI6VzVBVaZb_31Q&authuser=0";
