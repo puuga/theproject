@@ -608,6 +608,7 @@
               mywindow.document.write("<?php echo String::person_email ?> : <strong><?php echo $current_user_email; ?></strong><br/><br/>");
               mywindow.document.write("รุ่นการอบรม : <strong><?php echo $course_name; ?></strong><br/>");
               mywindow.document.write("สถานที่อบรม : <strong><?php echo $course_location; ?></strong><br/>");
+              mywindow.document.write("สถานที่พัก : <strong><?php echo $course_description; ?></strong><br/>");
               mywindow.document.write("<hr/>");
               mywindow.document.write("Google account : <strong><?php echo $user_googles[0]["google_email"]; ?></strong><br/>");
               mywindow.document.write("Google password : <strong><?php echo $user_googles[0]["google_password"]; ?></strong><br/>");
