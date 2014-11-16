@@ -298,7 +298,7 @@
         }
 
         function editUserProvince(val) {
-          var newVal = prompt("กรุณาใส่อำเภอ", val);
+          var newVal = prompt("กรุณาใส่จังหวัด", val);
           //alert(newVal);
           if ( newVal!=null ) {
             editUserData("province",newVal);
@@ -306,7 +306,7 @@
         }
 
         function editUserDistrict(val) {
-          var newVal = prompt("กรุณาใส่จังหวัด", val);
+          var newVal = prompt("กรุณาใส่อำเภอ", val);
           //alert(newVal);
           if ( newVal!=null ) {
             editUserData("district",newVal);

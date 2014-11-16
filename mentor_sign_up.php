@@ -179,6 +179,10 @@ code by siwawes wongcharoen
                 <option>ครู (ครู ค.ศ. 1)</option>
                 <option>ครูผู้ช่วย</option>
               </select>
+              <p class="help-block">
+                เลือกตำแหน่งของท่าน
+                ในกรณีที่ท่านปฏิบัติหน้าที่แทนผู้อื่น ให้ท่านเลือกตำแหน่งของผู้ที่ท่านปฏิบัติหน้าที่แทน
+              </p>
             </div>
           </div>
         </div>
@@ -464,6 +468,24 @@ code by siwawes wongcharoen
 
         <div class="row">
           <div class="col-md-12">
+            <div class="form-group">
+              <label for="confirm_email">ยืนยัน <?php echo String::person_email; ?> :</label>
+              <input type="email"
+                class="form-control"
+                name="confirm_email"
+                id="confirm_email"
+                placeholder="email@domain.com"
+                <?php echo $mode=="edit" ? "value='".$_GET['confirm_email']."'" : ""; ?>
+                required/>
+              <p class="help-block">
+                ใส่ Email ของท่านอีกครั้งเพื่อเป็นการยืนยัน
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
             <strong><?php echo String::person_transport; ?> :</strong>
             <div class="radio">
               <label>
@@ -558,6 +580,11 @@ code by siwawes wongcharoen
             //return;
           }
           if ( $("#email").val().length == 0 ) {
+            alert("มีปัญหา\nกรุณาตรวจสอบ Email ของท่าน");
+            event.preventDefault();
+            //return;
+          }
+          if ( $("#email").val() != $("#confirm_email").val() ) {
             alert("มีปัญหา\nกรุณาตรวจสอบ Email ของท่าน");
             event.preventDefault();
             //return;
