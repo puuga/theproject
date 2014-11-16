@@ -125,7 +125,7 @@
                 <td>
                   <a
                     class="btn btn-primary"
-                    href="https://docs.google.com/forms/d/1XXaF5nWUZWI3cRjTCykUP0YQPI-nNvWBXVCUcgw3_d4/viewform">
+                    href="https://docs.google.com/forms/d/1WXWFOdkfsEFb6BoKu_4lylIT3e2Cb_A_mj_iH6inwMg/viewform">
                     <span class="glyphicon glyphicon-download"></span> link
                   </a>
                 </td>
@@ -136,7 +136,7 @@
                 <td>
                   <a
                     class="btn btn-primary"
-                    href="https://docs.google.com/forms/d/1u2bK_tNdeFhKEwVpS_eHjyj_TuTLChI2OVZw7pZNX80/viewform">
+                    href="https://docs.google.com/forms/d/15_m51P4XA1xcC3wOtfx-4l0Xd7cRCob9jb3iwf_3shs/viewform">
                     <span class="glyphicon glyphicon-download"></span> link
                   </a>
                 </td>
