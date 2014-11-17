@@ -83,6 +83,7 @@
         <div class="row">
           <div class="col-md-9">
             <h1><?php echo String::booking; ?></h1>
+            * ในกรณีที่ท่านใช้ Internet Explorer แล้วไม่สามารถจองรุ่นได้ ให้ท่านเปลี่ยนไปใช้ Chrome หรือ Firefox แทน
           </div>
 
         </div>
