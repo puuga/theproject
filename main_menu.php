@@ -76,7 +76,43 @@
         <div class="col-md-8">
 
           <div class="row">
+            <div class="col-md-12 alert alert-danger" role="alert">
+              <div class="page-header">
+                <h1>ประกาศ สำหรับผู้อำนวยการโรงเรียน</h1>
+              </div>
+              <div>
+                ขณะนี้ รอบอบรมของผู้อำนวยการโรงเรียนเต็มแล้ว ทางผู้จัดกำลังดำเนินการในการแก้ไขปัญหาขอให้ท่านติดตามผลได้ในประกาศผ่านทางเว็บไซต์ ขออภัยในความไม่สะดวก
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 alert alert-danger" role="alert">
+              <div class="page-header">
+                <h1>ประกาศ สำหรับครูแกนนำ</h1>
+              </div>
+              <div>
+                ขณะนี้ รอบอบรมของครูแกนนำเต็มแล้ว ทางผู้จัดกำลังดำเนินการในการแก้ไขปัญหาขอให้ท่านติดตามผลได้ในประกาศผ่านทางเว็บไซต์ ขออภัยในความไม่สะดวก
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
             <div class="col-md-12 alert alert-warning" role="alert">
+              <div class="page-header">
+                <h1>ประกาศ ปรับแก้ข้อมูลระบบการลงทะเบียน</h1>
+              </div>
+              <div>
+                ให้ท่านที่มีรายชื่อดังต่อไปนี้ทำการลงทะเบียนและจองรอบอบรมใหม่ เนื่องจากทางระบบได้ตรวจสอบพบว่า มีชื่อของท่านซ้ำซ้อนในระบบ ระบบได้ทำการลบข้อมูลของท่านออกทั้งหมด
+                <br/><br/>
+                เอกสารแนบ <a href="https://drive.google.com/file/d/0Bw0Qlqyn3EVCTjhTczA1dmZlZEk/view?usp=sharing">ประกาศ ปรับแก้ระบบการลงทะเบียน “โครงการพัฒนาครูและบุคลากรทางการศึกษาโดยใช้เทคโนโลยีสารสนเทศ”</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 alert alert-warning" role="alert">
+
               <div class="page-header">
                 <h1><?php echo String::seminar_description ?></h1>
               </div>

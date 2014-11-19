@@ -6,7 +6,7 @@
   needAdminLevel(0);
 
   // read user
-  $sql = "SELECT auto_id FROM user WHERE admin_level = 0";
+  $sql = "SELECT auto_id FROM user WHERE admin_level=0";
   $result = mysqli_query($con, $sql);
   while($row = mysqli_fetch_array($result)) {
     $user_ids[] = $row['auto_id'];
@@ -14,7 +14,7 @@
   echo "user have ".count($user_ids)."<br/>";
 
   // read google account
-  $sql = "SELECT * FROM google_account WHERE user_id IS NULL order by auto_id";
+  $sql = "SELECT * FROM google_account WHERE user_id=0 order by auto_id";
   $result = mysqli_query($con, $sql);
   while($row = mysqli_fetch_array($result)) {
     $google_accounts[] = $row['auto_id'];
