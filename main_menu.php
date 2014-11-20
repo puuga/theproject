@@ -259,8 +259,8 @@
             }
 
             function showImageOfAlbum($images, $albumName) {
+              $i=0;
               foreach ( $images as $image ) {
-                $i=0;
                 if ( $image["activity_name"]==$albumName && $i<3) {
                   echo '<div class="col-md-4">';
                   echo '<p class="text-center">';
@@ -288,6 +288,17 @@
             <?php
               //read album and photo
               showImageOfAlbum($images, "train for the trainer");
+            ?>
+          </div>
+
+          <!-- project image บรรยากาศการอบรม -->
+          <div class="row">
+            <div class="col-md-12">
+              <h3>บรรยากาศการอบรม</h3>
+            </div>
+            <?php
+            //read album and photo
+            showImageOfAlbum($images, "บรรยากาศการอบรม");
             ?>
           </div>
 
