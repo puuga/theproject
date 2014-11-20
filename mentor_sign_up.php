@@ -616,12 +616,30 @@ code by siwawes wongcharoen
               <label>
                 <input type="radio" name="transport" id="transport_options_radios3" value="3" <?php echo $mode=="edit"?"disabled":""; ?>>
                 รถไฟ
+                <input
+                type="number"
+                min="0"
+                max="1000"
+                class="form-control"
+                name="transport_train_cost"
+                id="transport_train_cost"
+                placeholder="ค่าโดยสาร" >
+                <p class="help-block">ค่าเดินทาง (ใส่เฉพาะตัวเลข) ใส่เฉพาะขามา เช่น 120</p>
               </label>
             </div>
             <div class="radio">
               <label>
                 <input type="radio" name="transport" id="transport_options_radios4" value="4" <?php echo $mode=="edit"?"disabled":""; ?> >
                 รถประจำทาง
+                <input
+                type="number"
+                min="0"
+                max="1000"
+                class="form-control"
+                name="transport_bus_cost"
+                id="transport_bus_cost"
+                placeholder="ค่าโดยสาร" >
+                <p class="help-block">ค่าเดินทาง (ใส่เฉพาะตัวเลข) ใส่เฉพาะขามา เช่น 120</p>
               </label>
               <p class="help-block">ท่านที่เดินทางมาโดยรถไฟหรือรถประจำทาง กรุณาเก็บใบเสร็จไว้เพื่อใช้เบิกค่าเดินทาง</p>
             </div>

@@ -27,6 +27,14 @@
   $school_size = $_POST["school_size"];
   $head = $_POST["head"];
   $night = $_POST["night"];
+  $transport_train_cost = $_POST["transport_train_cost"];
+  if ( $transport_train_cost=="" ) {
+    $transport_train_cost=0;
+  }
+  $transport_bus_cost = $_POST["transport_bus_cost"];
+  if ( $transport_bus_cost=="" ) {
+    $transport_bus_cost=0;
+  }
 
   if ( $title == "ผู้อำนวยการสำนักงานเขตการศึกษา" ) {
     $admin_level += 10;
@@ -82,7 +90,7 @@
 
   if( $post_action=="add") {
     $sql = "INSERT INTO transport (auto_id, user_id, transport_id, car_id, car_distance, cost1, cost2)
-      VALUES (NULL, '$last_id', '$transport', '$transport_car_id', '$transport_distance', '0', '0');";
+      VALUES (NULL, '$last_id', '$transport', '$transport_car_id', '$transport_distance', '$transport_train_cost', '$transport_bus_cost');";
     mysqli_query($con, $sql);
   }
 
