@@ -24,6 +24,9 @@
   $transport = $_POST["transport"];
   $transport_car_id = $_POST["transport_car_id"];
   $transport_distance = $_POST["transport_distance"];
+  $school_size = $_POST["school_size"];
+  $head = $_POST["head"];
+  $night = $_POST["night"];
 
   if ( $title == "ผู้อำนวยการสำนักงานเขตการศึกษา" ) {
     $admin_level += 10;
@@ -53,8 +56,8 @@
   // echo $post_department."<br/>";
 
   if( $post_action=="add") {
-    $sql = "INSERT INTO user (person_id, firstname, lastname, email, password, upper_person_id, admin_level, prifix_name, title, belong_to, district, province)
-      VALUES ('$person_id', '$firstname', '$lastname', '$email', '$password', '$upper_person_id', '$admin_level', '$prifix_name', '$title', '$belong_to', '$district', '$province')";
+    $sql = "INSERT INTO user (person_id, firstname, lastname, email, password, upper_person_id, admin_level, prifix_name, title, belong_to, district, province, school_size, head, night)
+      VALUES ('$person_id', '$firstname', '$lastname', '$email', '$password', '$upper_person_id', '$admin_level', '$prifix_name', '$title', '$belong_to', '$district', '$province', '$school_size', '$head', $night)";
   } else {
     $sql = "UPDATE user
       SET

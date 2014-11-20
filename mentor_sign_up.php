@@ -208,6 +208,33 @@ code by siwawes wongcharoen
 
         <div class="row">
           <div class="col-md-12">
+            <strong>ขนาดโรงเรียน :</strong>
+            <div class="radio">
+              <label>
+                <input type="radio" name="school_size" id="school_size_radios1" value="-" required>
+                เป็นผู้อำนวยการสำนักงานเขตการศึกษา, รองผู้อำนวยการสำนักงานเขตการศึกษา หรือศึกษานิเทศก์ ให้เลือกตัวเลือกนี้
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="school_size" id="school_size_radios1" value="โรงเรียนขนาดใหญ่">
+                โรงเรียนขนาดใหญ่
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="school_size" id="school_size_radios1" value="โรงเรียนขนาดเล็ก">
+                โรงเรียนขนาดเล็ก
+              </label>
+            </div>
+            <p class="help-block">
+              โปรดตรวจสอบให้แน่ใจก่อนส่งข้อมูลเนื่องจากข้อมูลนี้ไม่สามารถแก้ไขได้
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
             <div class="form-group">
               <label for="district">อำเภอ (อำเภอที่ท่านปฏิบัติหน้าที่) :</label>
               <input list="districts"
@@ -447,6 +474,75 @@ code by siwawes wongcharoen
           </div>
         </div>
 
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="head">สำนักงานเขตพื้นที่การศึกษา :</label>
+              <select class="form-control" id="head" name="head" required >
+
+                <option>กำแพงเพชร เขต 1</option>
+                <option>กำแพงเพชร เขต 2</option>
+                <option>เชียงราย เขต 1</option>
+                <option>เชียงราย เขต 2</option>
+                <option>เชียงราย เขต 3</option>
+                <option>เชียงราย เขต 4</option>
+                <option>เชียงใหม่ เขต 1</option>
+                <option>เชียงใหม่ เขต 2</option>
+                <option>เชียงใหม่ เขต 3</option>
+                <option>เชียงใหม่ เขต 4</option>
+                <option>เชียงใหม่ เขต 5</option>
+                <option>เชียงใหม่ เขต 6</option>
+                <option>ตาก เขต 1</option>
+                <option>ตาก เขต 2</option>
+                <option>นครสวรรค์ เขต 1</option>
+                <option>นครสวรรค์ เขต 2</option>
+                <option>นครสวรรค์ เขต 3</option>
+                <option>น่าน เขต 1</option>
+                <option>น่าน เขต 2</option>
+                <option>พะเยา เขต 1</option>
+                <option>พะเยา เขต 2</option>
+                <option>พิจิตร เขต 1</option>
+                <option>พิจิตร เขต 2</option>
+                <option>พิษณุโลก เขต 1</option>
+                <option>พิษณุโลก เขต 2</option>
+                <option>พิษณุโลก เขต 3</option>
+                <option>เพชรบูรณ์ เขต 1</option>
+                <option>เพชรบูรณ์ เขต 2</option>
+                <option>เพชรบูรณ์ เขต 3</option>
+                <option>แพร่ เขต 1</option>
+                <option>แพร่ เขต 2</option>
+                <option>แม่ฮ่องสอน เขต 1</option>
+                <option>แม่ฮ่องสอน เขต 2</option>
+                <option>ลำปาง เขต 1</option>
+                <option>ลำปาง เขต 2</option>
+                <option>ลำปาง เขต 3</option>
+                <option>ลำพูน เขต 1</option>
+                <option>ลำพูน เขต 2</option>
+                <option>สุโขทัย เขต 1</option>
+                <option>สุโขทัย เขต 2</option>
+                <option>อุตรดิตถ์ เขต 1</option>
+                <option>อุตรดิตถ์ เขต 2</option>
+                <option>สพม. เขต 34</option>
+                <option>สพม. เขต 35</option>
+                <option>สพม. เขต 36</option>
+                <option>สพม. เขต 37</option>
+                <option>สพม. เขต 38</option>
+                <option>สพม. เขต 39</option>
+                <option>สพม. เขต 40</option>
+                <option>สพม. เขต 41</option>
+                <option>สพม. เขต 42</option>
+
+
+              </select>
+              <p class="help-block">
+                สำนักงานเขตพื้นที่การศึกษาที่โรงเรียนของท่านสังกัด</br>
+                โปรดตรวจสอบให้แน่ใจก่อนส่งข้อมูลเนื่องจากข้อมูลนี้ไม่สามารถแก้ไขได้
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
@@ -531,6 +627,24 @@ code by siwawes wongcharoen
             </div>
             <div>
 
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="night">จำนวนคืนที่พักโรงแรม :</label>
+              <input type="number"
+                class="form-control"
+                name="night"
+                id="night"
+                min="0"
+                max="4"
+                required/>
+              <p class="help-block">
+                โปรดตรวจสอบให้แน่ใจก่อนส่งข้อมูลเนื่องจากข้อมูลนี้ไม่สามารถแก้ไขได้
+              </p>
             </div>
           </div>
         </div>

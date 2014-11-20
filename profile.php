@@ -77,6 +77,8 @@
         $user_data["province"] = $row['province'];
         $user_data["upper_person_id"] = $row['upper_person_id'];
         $user_data["course_id"] = $row['course_id'];
+        $user_data["school_size"] = $row['school_size'];
+        $user_data["head"] = $row['head'];
       }
       //print_r($user_data);
 
@@ -381,6 +383,28 @@
             <?php echo $user_data["district"]; ?><br/>
             <a href="javascript:editUserDistrict('<?php echo $user_data["district"]; ?>')"
               class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขอำเภอ</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong>ขนาดโรงเรียน</strong><p>
+        </div>
+        <div class="col-md-9">
+          <p>
+            <?php echo $user_data["school_size"]; ?><br/>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong>สำนักงานเขตพื้นที่การศึกษา</strong><p>
+        </div>
+        <div class="col-md-9">
+          <p>
+            <?php echo $user_data["head"]; ?><br/>
           </p>
         </div>
       </div>
