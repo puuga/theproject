@@ -88,13 +88,19 @@
                 และขอให้แจ้งขอยกเลิกผู้ที่ได้มีการลงทะเบียนก่อนหน้าแล้ว โดยเฉพาะโรงเรียนขนาดเล็ก
                 <br/><br/>
                 <strong>เอกสารเพิ่มเติม</strong>
-                <li>
-                  <ul>
-                    <a href="https://drive.google.com/file/d/0Byl-5v6ARafTbGc1ZmhEXzR2eGs/view?usp=sharing">
-                      ตัวอย่างหนังสือ ขอเปลี่ยนแปลงโรงเรียนที่เป็นกลุ่มเป้าหมายเพื่อเข้ารับการอบรม
+                <ul>
+                  <li>
+                    <a href="https://drive.google.com/file/d/0Bw0Qlqyn3EVCNUhLVmNHV2tVbEk/view?usp=sharing">
+                      หนังสือ ขอเปลี่ยนแปลงโรงเรียนที่เป็นกลุ่มเป้าหมายเพื่อเข้ารับการอบรม
                     </a>
-                  </ul>
-                </li>
+                  </li>
+                  <li>
+                    <a href="https://drive.google.com/file/d/0Bw0Qlqyn3EVCaVkzT1RLdGlsUUU/view?usp=sharing">
+                      เอกสารแนบ
+                    </a>
+                  </li>
+                </ul>
+                <strong>*** ระบบ จะเปิดให้ลงทะเบียนเวลา 12:00 น. วันที่ 20 พฤศจิกายน 2557</strong>
               </div>
             </div>
           </div>
