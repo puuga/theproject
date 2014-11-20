@@ -316,9 +316,7 @@
             <h1>ระบบ<?php echo String::system_register ?></h1>
           </div>
 
-          <div>ปิดชั่วคราว</div>
 
-          <!--
           <div>
             <?php
               if ( $current_user_admin_level>=1000 ) {
@@ -351,7 +349,7 @@
               }
             ?>
           </div>
-          -->
+          
 
 
           <div class="page-header">
