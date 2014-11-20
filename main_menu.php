@@ -107,18 +107,7 @@
 
 
 
-          <div class="row">
-            <div class="col-md-12 alert alert-warning" role="alert">
-              <div class="page-header">
-                <h1>ประกาศ ปรับแก้ข้อมูลระบบการลงทะเบียน</h1>
-              </div>
-              <div>
-                ให้ท่านที่มีรายชื่อดังต่อไปนี้ทำการลงทะเบียนและจองรอบอบรมใหม่ เนื่องจากทางระบบได้ตรวจสอบพบว่า มีชื่อของท่านซ้ำซ้อนในระบบ ระบบได้ทำการลบข้อมูลของท่านออกทั้งหมด
-                <br/><br/>
-                เอกสารแนบ <a href="https://drive.google.com/file/d/0Bw0Qlqyn3EVCTjhTczA1dmZlZEk/view?usp=sharing">ประกาศ ปรับแก้ระบบการลงทะเบียน “โครงการพัฒนาครูและบุคลากรทางการศึกษาโดยใช้เทคโนโลยีสารสนเทศ”</a>
-              </div>
-            </div>
-          </div>
+          
 
           <div class="row">
             <div class="col-md-12 alert alert-warning" role="alert">
@@ -349,7 +338,7 @@
               }
             ?>
           </div>
-          
+
 
 
           <div class="page-header">
