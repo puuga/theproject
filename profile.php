@@ -79,6 +79,7 @@
         $user_data["course_id"] = $row['course_id'];
         $user_data["school_size"] = $row['school_size'];
         $user_data["head"] = $row['head'];
+        $user_data["night"] = $row['night'];
       }
       //print_r($user_data);
 
@@ -270,7 +271,52 @@
           var transport_id = $('#form_transport_option input[type=radio]:checked').val();
           var transport_car_id = $("#transport_car_id").val();
           var transport_distance = $("#transport_distance").val();
+          var cost1 = $("#transport_train_cost").val();
+          var cost2 = $("#transport_bus_cost").val();
           //alert(transportOption+","+transport_car_id+","+transport_distance);
+          if ( transport_id=="1" ) {
+            $.ajax({
+              type: "POST",
+              url: "mentor_edit_process.php",
+              dataType: 'json',
+              data: {
+                user_id: "<?php echo $current_user_id ?>",
+                key: "transport_id",
+                val: transport_id,
+                key2: "transport_car_id",
+                val2: transport_car_id,
+                key3: "transport_distance",
+                val3: transport_distance},
+                success: function(data) {
+                  if (!data.success) { //If fails
+                    alert("error");
+                  } else {
+                    //alert("#success");
+                    location.reload();
+                  }
+                }
+              });
+          } else if ( transport_id=="3" ) {
+            $.ajax({
+              type: "POST",
+              url: "mentor_edit_process.php",
+              dataType: 'json',
+              data: {
+                user_id: "<?php echo $current_user_id ?>",
+                key: "transport_id",
+                val: transport_id,
+                key2: "cost1",
+                val2: cost1},
+                success: function(data) {
+                  if (!data.success) { //If fails
+                    alert("error");
+                  } else {
+                    //alert("#success");
+                    location.reload();
+                  }
+                }
+              });
+          }
           $.ajax({
             type: "POST",
             url: "mentor_edit_process.php",
@@ -279,10 +325,8 @@
               user_id: "<?php echo $current_user_id ?>",
               key: "transport_id",
               val: transport_id,
-              key2: "transport_car_id",
-              val2: transport_car_id,
-              key3: "transport_distance",
-              val3: transport_distance},
+              key2: "cost2",
+              val2: cost2},
             success: function(data) {
               if (!data.success) { //If fails
                 alert("error");
@@ -331,6 +375,19 @@
           //alert(newVal);
           if ( newVal!=null ) {
             editUserData("lastname",newVal);
+          }
+        }
+
+        function editUserNight(val) {
+          var newVal = prompt("กรุณาใส่จำนวนคืนที่ต้องการพัก", val);
+          if ( !isNaN(newVal) ) {
+            // alert("number");
+            newVal = parseInt(newVal);
+            if ( newVal>=0 && newVal<=7 ) {
+              editUserData("night",newVal);
+            }
+          } else {
+            // alert("not number");
           }
         }
       </script>
@@ -408,6 +465,19 @@
           </p>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong>จำนวนคืนที่พัก</strong><p>
+          </div>
+          <div class="col-md-9">
+            <p>
+              <?php echo $user_data["night"]; ?> คืน<br/>
+              <a href="javascript:editUserNight('<?php echo $user_data["night"]; ?>')"
+                class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขจำนวนคืนที่พัก</a>
+            </p>
+          </div>
+        </div>
 
       <div class="row">
         <div class="col-md-3">
@@ -512,6 +582,14 @@
 
 
       <hr/>
+
+      <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-9">
+            <a href="sitemail.nu.ac.th">Google Site</a>
+        </div>
+      </div>
 
       <div class="row">
         <div class="col-md-3">
@@ -745,6 +823,16 @@
                       <input type="radio" name="transport_option" id="transport_options_radios3" value="3"
                         <?php echo $user_transport["transport_id"]==3?"checked":""; ?> >
                       รถไฟ
+                      <input
+                      type="number"
+                      min="0"
+                      max="1000"
+                      class="form-control"
+                      name="transport_train_cost"
+                      id="transport_train_cost"
+                      placeholder="ค่าโดยสาร"
+                      <?php echo $user_transport["transport_id"]==3?"value='".$user_transport["cost1"]."'":""; ?> >
+                      <p class="help-block">ค่าเดินทาง (ใส่เฉพาะตัวเลข) ใส่เฉพาะขามา เช่น 120</p>
                     </label>
                   </div>
                   <div class="radio">
@@ -752,6 +840,16 @@
                       <input type="radio" name="transport_option" id="transport_options_radios4" value="4"
                         <?php echo $user_transport["transport_id"]==4?"checked":""; ?>>
                       รถประจำทาง
+                      <input
+                      type="number"
+                      min="0"
+                      max="1000"
+                      class="form-control"
+                      name="transport_bus_cost"
+                      id="transport_bus_cost"
+                      placeholder="ค่าโดยสาร"
+                      <?php echo $user_transport["transport_id"]==4?"value='".$user_transport["cost2"]."'":""; ?> >
+                      <p class="help-block">ค่าเดินทาง (ใส่เฉพาะตัวเลข) ใส่เฉพาะขามา เช่น 120</p>
                     </label>
                     <p class="help-block">ท่านที่เดินทางมาโดยรถไฟหรือรถประจำทาง กรุณาเก็บใบเสร็จไว้เพื่อใช้เบิกค่าเดินทาง</p>
                   </div>

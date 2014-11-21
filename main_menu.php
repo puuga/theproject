@@ -107,7 +107,7 @@
 
 
 
-          
+
 
           <div class="row">
             <div class="col-md-12 alert alert-warning" role="alert">
@@ -375,12 +375,12 @@
               สำหรับครูแกนนำ</a>
           </div>
 
-          <div class="page-header">
-            <h3>โรงเรียนที่ต้องการสมัครใช้ Google Apps for Education</h3>
-          </div>
-
           <div>
-            <a href="https://docs.google.com/forms/d/16xAZb3yyLKkxZcXJDLOE_pBIOWTg_edrVpcUTB0BOFs/viewform" target="_blank">สามารถสมัครได้ที่นี่</a>
+            <a href="https://docs.google.com/forms/d/16xAZb3yyLKkxZcXJDLOE_pBIOWTg_edrVpcUTB0BOFs/viewform"
+              target="_blank"
+              class="btn btn-success btn-lg" >
+              โรงเรียนที่ต้องการสมัครเข้าร่วมโครงการ<br>Google Apps for Education<br>สามารถสมัครได้ที่นี่
+            </a>
           </div>
 
         </div>

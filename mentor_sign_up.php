@@ -50,6 +50,14 @@ code by siwawes wongcharoen
           </a>
         </div>
       </div>
+      <br><br>
+      <div class="alert alert-danger" role="alert">
+        <h1>ผู้ที่มีสิทธิ์ลงทะเบียนคือผู้ที่สังกัดโรงเรียน<strong>ขนาดใหญ่</strong>และโรงเรียน<strong>ขนาดกลาง</strong>เท่านั้น</h1>
+      </div>
+      <br>
+      <div class="alert alert-danger" role="alert">
+        <h1>ขอให้ท่านใช้ Google Chrome หรือ Firefox ในการลงทะเบียนเท่านั้น</h1>
+      </div>
 
       <form role="form" id="form1" method="post" action="mentor_sign_up_process.php">
 
@@ -125,6 +133,15 @@ code by siwawes wongcharoen
                 required/>
             </div>
           </div>
+        </div>
+
+        <div class="alert alert-warning" role="alert">
+          <p>
+            สำหรับข้อมูลเลขประจำตัวประชาชน <u>ขอให้ท่านพิมพ์ด้วยตัวเองทั้ง 2 ครั้ง</u>
+            ไม่ใช้วิธีคัดลอกและวาง
+            เนื่องจากมีผู้ลงทะเบียนจำนวนมากพิมพ์เลขประจำตัวประชาชนผิดพลาดในครั้งแรก
+            แล้วคัดลอกไปวางในช่องยืนยัน ทำให้มีความผิดพลาดของข้อมูลเกิดขึ้น
+          </p>
         </div>
 
         <div class="row">
@@ -217,18 +234,19 @@ code by siwawes wongcharoen
             </div>
             <div class="radio">
               <label>
-                <input type="radio" name="school_size" id="school_size_radios1" value="โรงเรียนขนาดใหญ่">
+                <input type="radio" name="school_size" id="school_size_radios2" value="โรงเรียนขนาดใหญ่">
                 โรงเรียนขนาดใหญ่
               </label>
             </div>
             <div class="radio">
               <label>
-                <input type="radio" name="school_size" id="school_size_radios1" value="โรงเรียนขนาดเล็ก">
-                โรงเรียนขนาดเล็ก
+                <input type="radio" name="school_size" id="school_size_radios3" value="โรงเรียนขนาดกลาง">
+                โรงเรียนขนาดกลาง
               </label>
             </div>
             <p class="help-block">
-              โปรดตรวจสอบให้แน่ใจก่อนส่งข้อมูลเนื่องจากข้อมูลนี้ไม่สามารถแก้ไขได้
+              โปรดตรวจสอบให้แน่ใจก่อนส่งข้อมูลเนื่องจากข้อมูลนี้ไม่สามารถแก้ไขได้<br>
+              ขนาดของโรงเรียนให้ตรวจสอบกับเขตพื้นที่การศึกษา
             </p>
           </div>
         </div>
@@ -543,6 +561,15 @@ code by siwawes wongcharoen
           </div>
         </div>
 
+        <div class="alert alert-warning" role="alert">
+          <p>
+            สำหรับข้อมูล Email <u>ขอให้ท่านพิมพ์ด้วยตัวเองทั้ง 2 ครั้ง</u>
+            ไม่ใช้วิธีคัดลอกและวาง
+            เนื่องจากมีผู้ลงทะเบียนจำนวนมากพิมพ์ Email ผิดพลาดในครั้งแรก
+            แล้วคัดลอกไปวางในช่องยืนยัน ทำให้มีความผิดพลาดของข้อมูลเกิดขึ้น
+          </p>
+        </div>
+
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
@@ -641,7 +668,10 @@ code by siwawes wongcharoen
                 placeholder="ค่าโดยสาร" >
                 <p class="help-block">ค่าเดินทาง (ใส่เฉพาะตัวเลข) ใส่เฉพาะขามา เช่น 120</p>
               </label>
-              <p class="help-block">ท่านที่เดินทางมาโดยรถไฟหรือรถประจำทาง กรุณาเก็บใบเสร็จไว้เพื่อใช้เบิกค่าเดินทาง</p>
+              <p class="help-block">
+                ท่านที่เดินทางมาโดยรถไฟหรือรถประจำทาง กรุณาเก็บใบเสร็จไว้เพื่อใช้เบิกค่าเดินทาง<br>
+                ในกรณีที่ท่านยังไม่ทราบค่าเดินทางให้ใส่ 0
+              </p>
             </div>
             <div>
 
