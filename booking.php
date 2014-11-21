@@ -102,7 +102,7 @@
           echo "<th>&nbsp;</th>";
         }
 
-        function printTableData($user, $course) {
+        function printTableData($user, $course, $admin_level) {
           echo "<tr>\n";
           echo "<td>".$course["name"]."</td>\n";
           echo "<td>".$course["start_date"]." - ".$course["end_date"]."</td>\n";
@@ -144,6 +144,13 @@
           echo "class='btn btn-primary' ";
           echo "href='booking_list.php?course_id=".$course["auto_id"]."'>";
           echo "<span class='glyphicon glyphicon-list-alt'></span> รายชื่อผู้ลงทะเบียน</a>";
+          if ( $admin_level==0 ) {
+            echo " ";
+            echo "<a ";
+            echo "class='btn btn-primary' ";
+            echo "href='admin_transport.php?course_id=".$course["auto_id"]."'>";
+            echo "<span class='glyphicon glyphicon-list-alt'></span> admin_transport</a>";
+          }
           echo "</td>\n";
           echo "</tr>\n";
         }
@@ -165,7 +172,7 @@
               <?php
                 foreach ( $courses as $course ) {
                   if ( $course["level"] == 110 ) {
-                    printTableData($user, $course);
+                    printTableData($user, $course, $current_user_admin_level);
                   }
                 }
               ?>
