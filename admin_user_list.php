@@ -20,13 +20,13 @@ needAdminLevel(0);
 
   <?php
   $course_id = $_GET["course_id"];
-  $sql = "SELECT title,firstname,lastname,email,password
+  $sql = "SELECT prifix_name,firstname,lastname,email,password
   FROM user
   WHERE course_id =$course_id";
   $result = mysqli_query($con, $sql);
   while($row = mysqli_fetch_array($result)) {
     $data = Array();
-    $data["title"] = $row["title"];
+    $data["prifix_name"] = $row["prifix_name"];
     $data["firstname"] = $row["firstname"];
     $data["lastname"] = $row["lastname"];
     $data["email"] = $row["email"];
@@ -51,7 +51,7 @@ needAdminLevel(0);
         <table border="1">
           <thead>
             <tr>
-              <th>title</th>
+              <th>prifix_name</th>
               <th>firstname</th>
               <th>lastname</th>
               <th>email</th>
@@ -63,7 +63,7 @@ needAdminLevel(0);
             foreach ( $datas as $data ) {
               ?>
               <tr>
-                <td><?php echo $data["title"]; ?></td>
+                <td><?php echo $data["prifix_name"]; ?></td>
                 <td><?php echo $data["firstname"]; ?></td>
                 <td><?php echo $data["lastname"]; ?></td>
                 <td><?php echo $data["email"]; ?></td>

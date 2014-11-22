@@ -316,26 +316,49 @@
                   }
                 }
               });
+          } else if ( transport_id=="4" ) {
+            $.ajax({
+              type: "POST",
+              url: "mentor_edit_process.php",
+              dataType: 'json',
+              data: {
+                user_id: "<?php echo $current_user_id ?>",
+                key: "transport_id",
+                val: transport_id,
+                key2: "cost2",
+                val2: cost2},
+                success: function(data) {
+                  if (!data.success) { //If fails
+                    alert("error");
+                  } else {
+                    //alert("#success");
+                    location.reload();
+                  }
+                }
+              });
           }
-          $.ajax({
-            type: "POST",
-            url: "mentor_edit_process.php",
-            dataType: 'json',
-            data: {
-              user_id: "<?php echo $current_user_id ?>",
-              key: "transport_id",
-              val: transport_id,
-              key2: "cost2",
-              val2: cost2},
-            success: function(data) {
-              if (!data.success) { //If fails
-                alert("error");
-              } else {
-                //alert("#success");
-                location.reload();
-              }
-            }
-          });
+
+        }
+
+        function editSchoolSize() {
+          if ( $('#form_school_size_option input[type=radio]:checked').val()===undefined ) {
+            alert("กรุณาเลือกขนาดโรงเรียนท่ีท่านต้องการเปลี่ยน");
+            return;
+          }
+          var schoolSize = $('#form_school_size_option input[type=radio]:checked').val();
+          editUserData("school_size",schoolSize);
+        }
+
+        function editHead() {
+          var head = $('#head').val();
+          if ( head===undefined ) {
+            alert("กรุณาเลือกสำนักงานเขตพื้นที่การศึกษาท่ีท่านต้องการเปลี่ยน");
+            return;
+          }
+          //var head = $('#form_head_option input[type=select]:checked').val();
+          //var head = $('#head').val();
+          //alert(head);
+          editUserData("head",head);
         }
 
         function editUserBelongTo(val) {
@@ -451,6 +474,8 @@
         <div class="col-md-9">
           <p>
             <?php echo $user_data["school_size"]; ?><br/>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal_edit_school_size">
+              <span class="glyphicon glyphicon-edit"></span> แก้ไขขนาดโรงเรียน</button>
           </p>
         </div>
       </div>
@@ -462,6 +487,8 @@
         <div class="col-md-9">
           <p>
             <?php echo $user_data["head"]; ?><br/>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal_edit_head">
+              <span class="glyphicon glyphicon-edit"></span> แก้ไขสำนักงานเขตพื้นที่การศึกษา</button>
           </p>
         </div>
       </div>
@@ -862,6 +889,132 @@
             </div>
           </div>
         </div>
+    </div>
+
+    <!-- modal_edit_school_size Small modal -->
+    <div id="modal_edit_school_size" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">แก้ไขขนาดโรงเรียน</h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <form id="form_school_size_option">
+                <strong>ขนาดโรงเรียน :</strong>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="school_size" id="school_size_radios1" value="-" required>
+                    เป็นผู้อำนวยการสำนักงานเขตการศึกษา, รองผู้อำนวยการสำนักงานเขตการศึกษา หรือศึกษานิเทศก์ ให้เลือกตัวเลือกนี้
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="school_size" id="school_size_radios2" value="โรงเรียนขนาดใหญ่">
+                    โรงเรียนขนาดใหญ่
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="school_size" id="school_size_radios3" value="โรงเรียนขนาดกลาง">
+                    โรงเรียนขนาดกลาง
+                  </label>
+                </div>
+                <p class="help-block">
+                  ขนาดของโรงเรียนให้ตรวจสอบกับเขตพื้นที่การศึกษา
+                </p>
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+            <button type="button" class="btn btn-primary" onclick="editSchoolSize()">บันทึกการแก้ไข</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal_edit_head Small modal -->
+    <div id="modal_edit_head" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">แก้ไขขนาดโรงเรียน</h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <form id="form_head_option">
+                <label for="head">สำนักงานเขตพื้นที่การศึกษา :</label>
+                <select class="form-control" id="head" name="head" required >
+
+                  <option>กำแพงเพชร เขต 1</option>
+                  <option>กำแพงเพชร เขต 2</option>
+                  <option>เชียงราย เขต 1</option>
+                  <option>เชียงราย เขต 2</option>
+                  <option>เชียงราย เขต 3</option>
+                  <option>เชียงราย เขต 4</option>
+                  <option>เชียงใหม่ เขต 1</option>
+                  <option>เชียงใหม่ เขต 2</option>
+                  <option>เชียงใหม่ เขต 3</option>
+                  <option>เชียงใหม่ เขต 4</option>
+                  <option>เชียงใหม่ เขต 5</option>
+                  <option>เชียงใหม่ เขต 6</option>
+                  <option>ตาก เขต 1</option>
+                  <option>ตาก เขต 2</option>
+                  <option>นครสวรรค์ เขต 1</option>
+                  <option>นครสวรรค์ เขต 2</option>
+                  <option>นครสวรรค์ เขต 3</option>
+                  <option>น่าน เขต 1</option>
+                  <option>น่าน เขต 2</option>
+                  <option>พะเยา เขต 1</option>
+                  <option>พะเยา เขต 2</option>
+                  <option>พิจิตร เขต 1</option>
+                  <option>พิจิตร เขต 2</option>
+                  <option>พิษณุโลก เขต 1</option>
+                  <option>พิษณุโลก เขต 2</option>
+                  <option>พิษณุโลก เขต 3</option>
+                  <option>เพชรบูรณ์ เขต 1</option>
+                  <option>เพชรบูรณ์ เขต 2</option>
+                  <option>เพชรบูรณ์ เขต 3</option>
+                  <option>แพร่ เขต 1</option>
+                  <option>แพร่ เขต 2</option>
+                  <option>แม่ฮ่องสอน เขต 1</option>
+                  <option>แม่ฮ่องสอน เขต 2</option>
+                  <option>ลำปาง เขต 1</option>
+                  <option>ลำปาง เขต 2</option>
+                  <option>ลำปาง เขต 3</option>
+                  <option>ลำพูน เขต 1</option>
+                  <option>ลำพูน เขต 2</option>
+                  <option>สุโขทัย เขต 1</option>
+                  <option>สุโขทัย เขต 2</option>
+                  <option>อุตรดิตถ์ เขต 1</option>
+                  <option>อุตรดิตถ์ เขต 2</option>
+                  <option>สพม. เขต 34</option>
+                  <option>สพม. เขต 35</option>
+                  <option>สพม. เขต 36</option>
+                  <option>สพม. เขต 37</option>
+                  <option>สพม. เขต 38</option>
+                  <option>สพม. เขต 39</option>
+                  <option>สพม. เขต 40</option>
+                  <option>สพม. เขต 41</option>
+                  <option>สพม. เขต 42</option>
+
+
+                </select>
+                <p class="help-block">
+                  สำนักงานเขตพื้นที่การศึกษาที่โรงเรียนของท่านสังกัด</br>
+                </p>
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+            <button type="button" class="btn btn-primary" onclick="editHead()">บันทึกการแก้ไข</button>
+          </div>
+        </div>
+      </div>
     </div>
 
   </body>
