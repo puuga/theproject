@@ -155,6 +155,11 @@
             echo "class='btn btn-primary' ";
             echo "href='admin_transport.php?course_id=".$course["auto_id"]."'>";
             echo "<span class='glyphicon glyphicon-list-alt'></span> admin_transport</a>";
+            echo " ";
+            echo "<a ";
+            echo "class='btn btn-primary' ";
+            echo "href='admin_user_list.php?course_id=".$course["auto_id"]."'>";
+            echo "<span class='glyphicon glyphicon-list-alt'></span> user list</a>";
           }
           echo "</td>\n";
           echo "</tr>\n";
