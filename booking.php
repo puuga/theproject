@@ -69,6 +69,7 @@
         $course["end_date"] = $row['end_date'];
         $course["level"] = $row['level'];
         $course["num"] = $row['num'];
+        $course["is_activate"] = $row['is_activate'];
         $course["people_count"] = $row['people_count'];
 
         $courses[] = $course;
@@ -110,33 +111,37 @@
           echo "<td>".$course["description"]."</td>\n";
           echo "<td>".$course["people_count"]."/".$course["num"]."</td>\n";
           echo "<td>";
-          if ( $user["course_id"]==$course["auto_id"] ) {
-            echo "<a ";
-            echo "class='btn btn-success disabled' ";
-            echo "id='booking_button_".$course["auto_id"]."' ";
-            echo "href=\"javascript:doBooking('".$course["auto_id"]."')\">";
-            echo "<span class='glyphicon glyphicon-map-marker'></span> จอง";
-            echo "</a> ";
-            echo "<a ";
-            echo "class='btn btn-danger' ";
-            echo "id='booking_button_".$course["auto_id"]."' ";
-            echo "href=\"javascript:doBooking('0')\">";
-            echo "<span class='glyphicon glyphicon-map-marker'></span> ยกเลิกจอง";
-            echo "</a>";
-          } else if ( $course["people_count"]>=$course["num"] ) {
-            echo "<a ";
-            echo "class='btn btn-danger disabled' ";
-            echo "id='booking_button_".$course["auto_id"]."' ";
-            echo "href=\"javascript:doBooking('".$course["auto_id"]."')\">";
-            echo "<span class='glyphicon glyphicon-remove-sign'></span> เต็ม";
-            echo "</a>";
+          if ( $course["is_activate"]==1 ) {
+            if ( $user["course_id"]==$course["auto_id"] ) {
+              echo "<a ";
+              echo "class='btn btn-success disabled' ";
+              echo "id='booking_button_".$course["auto_id"]."' ";
+              echo "href=\"javascript:doBooking('".$course["auto_id"]."')\">";
+              echo "<span class='glyphicon glyphicon-map-marker'></span> จอง";
+              echo "</a> ";
+              echo "<a ";
+              echo "class='btn btn-danger' ";
+              echo "id='booking_button_".$course["auto_id"]."' ";
+              echo "href=\"javascript:doBooking('0')\">";
+              echo "<span class='glyphicon glyphicon-map-marker'></span> ยกเลิกจอง";
+              echo "</a>";
+            } else if ( $course["people_count"]>=$course["num"] ) {
+              echo "<a ";
+              echo "class='btn btn-danger disabled' ";
+              echo "id='booking_button_".$course["auto_id"]."' ";
+              echo "href=\"javascript:doBooking('".$course["auto_id"]."')\">";
+              echo "<span class='glyphicon glyphicon-remove-sign'></span> เต็ม";
+              echo "</a>";
+            } else {
+              echo "<a ";
+              echo "class='btn btn-success' ";
+              echo "id='booking_button_".$course["auto_id"]."' ";
+              echo "href=\"javascript:doBooking('".$course["auto_id"]."')\">";
+              echo "<span class='glyphicon glyphicon-map-marker'></span> จอง";
+              echo "</a>";
+            }
           } else {
-            echo "<a ";
-            echo "class='btn btn-success' ";
-            echo "id='booking_button_".$course["auto_id"]."' ";
-            echo "href=\"javascript:doBooking('".$course["auto_id"]."')\">";
-            echo "<span class='glyphicon glyphicon-map-marker'></span> จอง";
-            echo "</a>";
+            echo "สิ้นสุดระยะเวลา";
           }
           echo "</td>\n";
           echo "<td>";

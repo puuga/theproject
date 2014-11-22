@@ -587,7 +587,7 @@
         <div class="col-md-3">
         </div>
         <div class="col-md-9">
-            <a href="sitemail.nu.ac.th">Google Site</a>
+            <a href="http://sitemail.nu.ac.th" target="_blank">Google Site</a>
         </div>
       </div>
 
