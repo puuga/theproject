@@ -103,7 +103,16 @@
           echo "<th>&nbsp;</th>";
         }
 
-        function printTableData($user, $course, $admin_level) {
+        function userInInactivateCourse($user, $courses) {
+          foreach ( $courses as $course ) {
+            if ( $user["course_id"] == $course["course_id"] && $course["is_activate"]==0 ) {
+              return true;
+            }
+          }
+          return flase;
+        }
+
+        function printTableData($user, $course, $admin_level, $isUserInInactivateCourse) {
           echo "<tr>\n";
           echo "<td>".$course["name"]."</td>\n";
           echo "<td>".$course["start_date"]." - ".$course["end_date"]."</td>\n";
@@ -112,7 +121,9 @@
           echo "<td>".$course["people_count"]."/".$course["num"]."</td>\n";
           echo "<td>";
           if ( $course["is_activate"]==1 ) {
-            if ( $user["course_id"]==$course["auto_id"] ) {
+            if ($isUserInInactivateCourse) {
+              echo "ไม่สามารถเปลี่ยนรุ่นอบรมได้";
+            } else if ( $user["course_id"]==$course["auto_id"] ) {
               echo "<a ";
               echo "class='btn btn-success disabled' ";
               echo "id='booking_button_".$course["auto_id"]."' ";
@@ -182,7 +193,7 @@
               <?php
                 foreach ( $courses as $course ) {
                   if ( $course["level"] == 110 ) {
-                    printTableData($user, $course, $current_user_admin_level);
+                    printTableData($user, $course, $current_user_admin_level, userInInactivateCourse($user, $courses));
                   }
                 }
               ?>
@@ -210,7 +221,7 @@
               <?php
                 foreach ( $courses as $course ) {
                   if ( $course["level"] == 120 ) {
-                    printTableData($user, $course);
+                    printTableData($user, $course, $current_user_admin_level, userInInactivateCourse($user, $courses));
                   }
                 }
               ?>
@@ -238,7 +249,7 @@
               <?php
                 foreach ( $courses as $course ) {
                   if ( $course["level"] == 130 ) {
-                    printTableData($user, $course);
+                    printTableData($user, $course, $current_user_admin_level, userInInactivateCourse($user, $courses));
                   }
                 }
               ?>
@@ -266,7 +277,7 @@
               <?php
                 foreach ( $courses as $course ) {
                   if ( $course["level"] == 140 ) {
-                    printTableData($user, $course);
+                    printTableData($user, $course, $current_user_admin_level, userInInactivateCourse($user, $courses));
                   }
                 }
               ?>
@@ -294,7 +305,7 @@
               <?php
                 foreach ( $courses as $course ) {
                   if ( $course["level"] == 150 ) {
-                    printTableData($user, $course);
+                    printTableData($user, $course, $current_user_admin_level, userInInactivateCourse($user, $courses));
                   }
                 }
               ?>
