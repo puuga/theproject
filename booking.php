@@ -105,11 +105,11 @@
 
         function userInInactivateCourse($user, $courses) {
           foreach ( $courses as $course ) {
-            if ( $user["course_id"] == $course["course_id"] && $course["is_activate"]==0 ) {
+            if ( $user["course_id"] == $course["course_id"] && $course["is_activate"]==0 && $course["course_id"]!=0 ) {
               return true;
             }
           }
-          return flase;
+          return false;
         }
 
         function printTableData($user, $course, $admin_level, $isUserInInactivateCourse) {
