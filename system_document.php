@@ -74,7 +74,7 @@
                 <td>
                   <a
                     class="btn btn-primary"
-                    href="https://drive.google.com/open?id=0B9bzy3S3TMGRbENpS3poRkpqVHM&authuser=0">
+                    href="https://drive.google.com/open?id=0B9bzy3S3TMGRdmMxT0xNNFpjTmc&authuser=0">
                     <span class="glyphicon glyphicon-download"></span> link
                   </a>
                 </td>
@@ -293,7 +293,7 @@
                 <td>
                   <a
                     class="btn btn-primary"
-                    href="https://docs.google.com/forms/d/1JAde_BULIBSwGojJd7InjqEE21C7iWTQ69xux3TNLP4/viewform">
+                    href="https://docs.google.com/forms/d/12ZDHSAjLVexDwnRyUYQQVFWxY-X_HR2URCgXkzeSRqA/viewform">
                     <span class="glyphicon glyphicon-download"></span> link
                   </a>
                 </td>

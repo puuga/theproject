@@ -77,6 +77,11 @@
               คู่มือการจองรอบการอบรม</a></li>
           </ul>
         </li>
+        <li>
+          <a href="list_name.php">
+            <span class="glyphicon glyphicon-th-list"></span> รายชื่อผู้ผ่านการอบรม
+          </a>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
