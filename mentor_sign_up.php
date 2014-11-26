@@ -251,6 +251,36 @@ code by siwawes wongcharoen
           </div>
         </div>
 
+
+        <script>
+        <?php
+        $sql_distance = "SELECT * FROM distance";
+        $result = mysqli_query($con, $sql_distance);
+        $distances = array();
+        while($row = mysqli_fetch_array($result)) {
+          $distance["district"] = $row['district'];
+          $distance["province"] = $row['province'];
+          $distance["distance"] = $row['distance'];
+
+          $distances[] = $distance;
+        }
+
+        ?>
+        var distances = <?php echo json_encode($distances); ?>;
+        function setDistance() {
+          var district = $("#district").val();
+          //alert(district);
+          //console.log(distances.length);
+          for ( i=0; i<distances.length; i++ ) {
+            if ( distances[i].district == district ) {
+              $("#transport_distance").attr("value", distances[i].distance);
+              //alert(distances[i].distance);
+              alert($("#transport_distance").val());
+            }
+          }
+        }
+        </script>
+
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
@@ -259,206 +289,199 @@ code by siwawes wongcharoen
                 class="form-control"
                 name="district"
                 id="district"
+                oninput="setDistance()"
                 <?php echo $mode=="edit" ? "value='".$_GET['district']."'" : ""; ?>
                 <?php echo $mode=="edit"?"disabled":""; ?>
                 required/>
               <p class="help-block">พิมพ์ชื่ออำเภอ (ไม่ต้องพิมพ์คำว่าอำเภอ) ระบบจะแสดงชื่ออำเภอที่ตรงกับอักษรที่ท่านพิมพ์</p>
               <datalist id="districts">
-                <option value="เมืองกำแพงเพชร">
+                <option value="กงไกรลาศ">
+                <option value="เก้าเลี้ยว">
+                <option value="เกาะคา">
+                <option value="โกรกพระ">
+                <option value="โกสัมพีนคร">
                 <option value="ขาณุวรลักษบุรี">
+                <option value="ขุนตาล">
+                <option value="ขุนยวม">
+                <option value="เขาค้อ">
                 <option value="คลองขลุง">
                 <option value="คลองลาน">
-                <option value="ทรายทองวัฒนา">
-                <option value="ไทรงาม">
-                <option value="ปางศิลาทอง">
-                <option value="พรานกระต่าย">
-                <option value="ลานกระบือ">
-                <option value="บึงสามัคคี">
-                <option value="โกสัมพีนคร">
-                <option value="เมืองเชียงราย">
-                <option value="ขุนตาล">
-                <option value="เชียงของ">
-                <option value="เชียงแสน">
-                <option value="เทิง">
-                <option value="ป่าแดด">
-                <option value="พาน">
-                <option value="แม่จัน">
-                <option value="แม่ฟ้าหลวง">
-                <option value="แม่สรวย">
-                <option value="แม่สาย">
-                <option value="เวียงแก่น">
-                <option value="เวียงชัย">
-                <option value="เวียงป่าเป้า">
-                <option value="พญาเม็งราย">
-                <option value="แม่ลาว">
-                <option value="ดอยหลวง">
-                <option value="เวียงเชียงรุ้ง">
-                <option value="เมืองเชียงใหม่">
+                <option value="คีรีมาศ">
+                <option value="งาว">
                 <option value="จอมทอง">
-                <option value="เชียงดาว">
-                <option value="ไชยปราการ">
-                <option value="ดอยเต่า">
-                <option value="ดอยหล่อ">
-                <option value="ดอยสะเก็ด">
-                <option value="ฝาง">
-                <option value="พร้าว">
-                <option value="แม่แจ่ม">
-                <option value="แม่แตง">
-                <option value="แม่ริม">
-                <option value="แม่วาง">
-                <option value="แม่อาย">
-                <option value="แม่ออน">
-                <option value="เวียงแหง">
-                <option value="สะเมิง">
-                <option value="สันกำแพง">
-                <option value="สันทราย">
-                <option value="สันป่าตอง">
-                <option value="สารภี">
-                <option value="หางดง">
-                <option value="อมก๋อย">
-                <option value="ฮอด">
-                <option value="เมืองตาก">
-                <option value="ท่าสองยาง">
-                <option value="บ้านตาก">
-                <option value="พบพระ">
-                <option value="แม่ระมาด">
-                <option value="แม่สอด">
-                <option value="สามเงา">
-                <option value="อุ้มผาง">
-                <option value="วังเจ้า">
-                <option value="เมืองนครสวรรค์">
-                <option value="เก้าเลี้ยว">
-                <option value="โกรกพระ">
+                <option value="จุน">
+                <option value="แจ้ห่ม">
+                <option value="เฉลิมพระเกียรติ">
+                <option value="ชนแดน">
+                <option value="ชาติตระการ">
+                <option value="ชุมตาบง">
                 <option value="ชุมแสง">
+                <option value="เชียงกลาง">
+                <option value="เชียงของ">
+                <option value="เชียงคำ">
+                <option value="เชียงดาว">
+                <option value="เชียงม่วน">
+                <option value="เชียงแสน">
+                <option value="ไชยปราการ">
+                <option value="ดงเจริญ">
+                <option value="ดอกคำใต้">
+                <option value="ดอยเต่า">
+                <option value="ดอยสะเก็ด">
+                <option value="ดอยหลวง">
+                <option value="ดอยหล่อ">
+                <option value="เด่นชัย">
+                <option value="ตรอน">
+                <option value="ตะพานหิน">
                 <option value="ตากฟ้า">
                 <option value="ตาคลี">
+                <option value="เถิน">
+                <option value="ทรายทองวัฒนา">
+                <option value="ทองแสนขัน">
+                <option value="ทับคล้อ">
                 <option value="ท่าตะโก">
-                <option value="บรรพตพิสัย">
-                <option value="พยุหคีรี">
-                <option value="ไพศาลี">
-                <option value="แม่วงก์">
-                <option value="ลาดยาว">
-                <option value="หนองบัว">
-                <option value="แม่เปิน">
-                <option value="ชุมตาบง">
-                <option value="เมืองน่าน">
-                <option value="เชียงกลาง">
+                <option value="ท่าปลา">
                 <option value="ท่าวังผา">
+                <option value="ท่าสองยาง">
                 <option value="ทุ่งช้าง">
+                <option value="ทุ่งเสลี่ยม">
+                <option value="ทุ่งหัวช้าง">
+                <option value="เทิง">
+                <option value="ไทรงาม">
+                <option value="นครไทย">
                 <option value="นาน้อย">
                 <option value="นาหมื่น">
-                <option value="บ้านหลวง">
-                <option value="ปัว">
-                <option value="แม่จริม">
-                <option value="เวียงสา">
-                <option value="สันติสุข">
+                <option value="น้ำปาด">
+                <option value="น้ำหนาว">
+                <option value="เนินมะปราง">
+                <option value="บรรพตพิสัย">
                 <option value="บ่อเกลือ">
-                <option value="สองแคว">
-                <option value="เฉลิมพระเกียรติ">
-                <option value="ภูเพียง">
-                <option value="เมืองพะเยา">
-                <option value="จุน">
-                <option value="เชียงคำ">
-                <option value="เชียงม่วน">
-                <option value="ดอกคำใต้">
-                <option value="ปง">
-                <option value="แม่ใจ">
-                <option value="ภูซาง">
-                <option value="ภูกามยาว">
-                <option value="เมืองพิจิตร">
-                <option value="ตะพานหิน">
-                <option value="ทับคล้อ">
+                <option value="บางกระทุ่ม">
                 <option value="บางมูลนาก">
+                <option value="บางระกำ">
+                <option value="บ้านโคก">
+                <option value="บ้านด่านลานหอย">
+                <option value="บ้านตาก">
+                <option value="บ้านธิ">
+                <option value="บ้านหลวง">
+                <option value="บ้านโฮ่ง">
+                <option value="บึงนาราง">
+                <option value="บึงสามพัน">
+                <option value="บึงสามัคคี">
+                <option value="ปง">
+                <option value="ปัว">
+                <option value="ปางมะผ้า">
+                <option value="ปางศิลาทอง">
+                <option value="ป่าซาง">
+                <option value="ป่าแดด">
+                <option value="ปาย">
+                <option value="ฝาง">
+                <option value="พญาเม็งราย">
+                <option value="พบพระ">
+                <option value="พยุหะคีรี">
+                <option value="พรหมพิราม">
+                <option value="พรานกระต่าย">
+                <option value="พร้าว">
+                <option value="พาน">
+                <option value="พิชัย">
                 <option value="โพทะเล">
                 <option value="โพธิ์ประทับช้าง">
-                <option value="สามง่าม">
-                <option value="วังทรายพูน">
-                <option value="สากเหล็ก">
-                <option value="บึงนาราง">
-                <option value="ดงเจริญ">
-                <option value="วชิรบารมี">
+                <option value="ไพศาลี">
+                <option value="ฟากท่า">
+                <option value="ภูกามยาว">
+                <option value="ภูซาง">
+                <option value="ภูเพียง">
+                <option value="เมืองกำแพงเพชร">
+                <option value="เมืองเชียงราย">
+                <option value="เมืองเชียงใหม่">
+                <option value="เมืองตาก">
+                <option value="เมืองนครสวรรค์">
+                <option value="เมืองน่าน">
+                <option value="เมืองปาน">
+                <option value="เมืองพะเยา">
+                <option value="เมืองพิจิตร">
                 <option value="เมืองพิษณุโลก">
-                <option value="นครไทย">
-                <option value="ชาติตระการ">
-                <option value="เนินมะปราง">
-                <option value="บางกระทุ่ม">
-                <option value="บางระกำ">
-                <option value="พรหมพิราม">
-                <option value="วังทอง">
-                <option value="วัดโบสถ์">
                 <option value="เมืองเพชรบูรณ์">
-                <option value="เขาค้อ">
-                <option value="ชนแดน">
-                <option value="น้ำหนาว">
-                <option value="บึงสามพัน">
-                <option value="วิเชียรบุรี">
-                <option value="ศรีเทพ">
-                <option value="หนองไผ่">
-                <option value="หล่มเก่า">
-                <option value="หล่มสัก">
-                <option value="วังโป่ง">
                 <option value="เมืองแพร่">
-                <option value="เด่นชัย">
+                <option value="เมืองแม่ฮ่องสอน">
+                <option value="เมืองลำปาง">
+                <option value="เมืองลำพูน">
+                <option value="เมืองสุโขทัย">
+                <option value="เมืองอุตรดิตถ์">
+                <option value="แม่จริม">
+                <option value="แม่จัน">
+                <option value="แม่แจ่ม">
+                <option value="แม่ใจ">
+                <option value="แม่แตง">
+                <option value="แม่ทะ">
+                <option value="แม่ทา">
+                <option value="แม่เปิน">
+                <option value="แม่พริก">
+                <option value="แม่ฟ้าหลวง">
+                <option value="แม่เมาะ">
+                <option value="แม่ระมาด">
+                <option value="แม่ริม">
+                <option value="แม่ลาน้อย">
+                <option value="แม่ลาว">
+                <option value="แม่วงก์">
+                <option value="แม่วาง">
+                <option value="แม่สรวย">
+                <option value="แม่สอด">
+                <option value="แม่สะเรียง">
+                <option value="แม่สาย">
+                <option value="แม่ออน">
+                <option value="แม่อาย">
                 <option value="ร้องกวาง">
                 <option value="ลอง">
-                <option value="วังชิ้น">
-                <option value="สอง">
-                <option value="หนองม่วงไข่">
-                <option value="สูงเม่น">
-                <option value="เมืองแม่ฮ่องสอน">
-                <option value="ขุนยวม">
-                <option value="ปางมะผ้า">
-                <option value="ปาย">
-                <option value="แม่ลาน้อย">
-                <option value="แม่สะเรียง">
-                <option value="สบเมย">
-                <option value="เมืองลำปาง">
-                <option value="เกาะคา">
-                <option value="งาว">
-                <option value="แจ้ห่ม">
-                <option value="เถิน">
-                <option value="แม่ทะ">
-                <option value="แม่พริก">
-                <option value="เมืองปาน">
-                <option value="แม่เมาะ">
-                <option value="วังเหนือ">
-                <option value="สบปราบ">
-                <option value="เสริมงาม">
-                <option value="ห้างฉัตร">
-                <option value="เมืองลำพูน">
-                <option value="ทุ่งหัวช้าง">
-                <option value="บ้านโฮ่ง">
-                <option value="ป่าซาง">
-                <option value="แม่ทา">
+                <option value="ลับแล">
+                <option value="ลาดยาว">
+                <option value="ลานกระบือ">
                 <option value="ลี้">
-                <option value="บ้านธิ">
+                <option value="วชิรบารมี">
+                <option value="วังเจ้า">
+                <option value="วังชิ้น">
+                <option value="วังทรายพูน">
+                <option value="วังทอง">
+                <option value="วังโป่ง">
+                <option value="วังเหนือ">
+                <option value="วัดโบสถ์">
+                <option value="วิเชียรบุรี">
+                <option value="เวียงแก่น">
+                <option value="เวียงชัย">
+                <option value="เวียงเชียงรุ้ง">
+                <option value="เวียงป่าเป้า">
+                <option value="เวียงสา">
                 <option value="เวียงหนองล่อง">
-                <option value="เมืองสุโขทัย">
-                <option value="กงไกรลาศ">
-                <option value="คีรีมาศ">
-                <option value="ทุ่งเสลี่ยม">
-                <option value="บ้านด่านลานหอย">
+                <option value="เวียงแหง">
+                <option value="ศรีเทพ">
                 <option value="ศรีนคร">
                 <option value="ศรีสัชนาลัย">
                 <option value="ศรีสำโรง">
+                <option value="สบปราบ">
+                <option value="สบเมย">
                 <option value="สวรรคโลก">
-                <option value="เมืองอุตรดิตถ์">
-                <option value="ตรอน">
-                <option value="ทองแสนขัน">
-                <option value="ท่าปลา">
-                <option value="น้ำปาด">
-                <option value="บ้านโคก">
-                <option value="พิชัย">
-                <option value="ฟากท่า">
-                <option value="ลับแล">
-                <option value="เมืองอุทัยธานี">
-                <option value="ทัพทัน">
-                <option value="บ้านไร่">
-                <option value="ลานสัก">
-                <option value="สว่างอารมณ์">
-                <option value="หนองขาหย่าง">
-                <option value="หนองฉาง">
-                <option value="ห้วยคต">
+                <option value="สอง">
+                <option value="สองแคว">
+                <option value="สะเมิง">
+                <option value="สันกำแพง">
+                <option value="สันติสุข">
+                <option value="สันทราย">
+                <option value="สันป่าตอง">
+                <option value="สากเหล็ก">
+                <option value="สามง่าม">
+                <option value="สามเงา">
+                <option value="สารภี">
+                <option value="สูงเม่น">
+                <option value="เสริมงาม">
+                <option value="หนองบัว">
+                <option value="หนองไผ่">
+                <option value="หนองม่วงไข่">
+                <option value="หล่มเก่า">
+                <option value="หล่มสัก">
+                <option value="ห้างฉัตร">
+                <option value="หางดง">
+                <option value="อมก๋อย">
+                <option value="อุ้มผาง">
+                <option value="ฮอด">
               </datalist>
             </div>
           </div>
@@ -609,6 +632,23 @@ code by siwawes wongcharoen
 
         <div class="row">
           <div class="col-md-12">
+            <div class="form-group">
+              <label for="tel">เบอร์โทรศัพท์ที่ติดต่อได้ :</label>
+              <input type="tel"
+              class="form-control"
+              name="tel"
+              id="tel"
+              placeholder="0XXXXXXXXX"
+              required/>
+              <p class="help-block">
+                เบอร์โทรศัพท์ที่ติดต่อได้
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
             <strong><?php echo String::person_transport; ?> :</strong>
             <div class="radio">
               <label>
@@ -621,16 +661,9 @@ code by siwawes wongcharoen
                   id="transport_car_id"
                   placeholder="ทะเบียนรถ"
                   <?php echo $mode=="edit"?"disabled":""; ?>>
-                  <p class="help-block">เช่น กข 1234 เชียงใหม่</p>
-                <input
-                  type="number"
-                  min="0"
-                  class="form-control"
-                  name="transport_distance"
-                  id="transport_distance"
-                  placeholder="ระยะทาง"
-                  <?php echo $mode=="edit"?"disabled":""; ?>>
-                  <p class="help-block">จากสังกัดถึงจังหวัดพิษณุโลก เช่น 120 กิโลเมตร (ใส่เฉพาะตัวเลข) นับระยะทางเฉพาะเส้นทางขาเดียว</p>
+                <p class="help-block">เช่น กข 1234 เชียงใหม่</p>
+                <p class="help-block">ระบบจะคำนวนระยะทางให้</p>
+                <input type="hidden" name="transport_distance" id="transport_distance">
               </label>
             </div>
             <!--<div class="radio">
@@ -688,10 +721,10 @@ code by siwawes wongcharoen
                 name="night"
                 id="night"
                 min="0"
-                max="4"
+                max="3"
                 required/>
               <p class="help-block">
-                โปรดตรวจสอบให้แน่ใจก่อนส่งข้อมูลเนื่องจากข้อมูลนี้ไม่สามารถแก้ไขได้
+                เนื่องจากคณะกรรมการดำเนินงานกำหนดจำนวนคืนที่พักไม่เกินจำนวนวันอบรม
               </p>
             </div>
           </div>
@@ -728,6 +761,16 @@ code by siwawes wongcharoen
       <script type="text/javascript">
         // disable submit button
         // btnSubmit
+        function checkDistrict() {
+          for ( i=0; i<distances.length; i++ ) {
+            if ( distances[i].district == $("#district").val() ) {
+              //alert(distances[i].distance);
+              return true;
+            }
+          }
+          return false;
+        }
+
         $( "#form1" ).submit(function( event ) {
           //alert( "Handler for .submit() called." );
           //event.preventDefault();
@@ -748,6 +791,11 @@ code by siwawes wongcharoen
           }
           if ( $("#email").val() != $("#confirm_email").val() ) {
             alert("มีปัญหา\nกรุณาตรวจสอบ Email ของท่าน");
+            event.preventDefault();
+            //return;
+          }
+          if ( !checkDistrict() ) {
+            alert("มีปัญหา\nกรุณาตรวจสอบอำเภอของท่าน");
             event.preventDefault();
             //return;
           }

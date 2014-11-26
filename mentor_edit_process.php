@@ -34,9 +34,7 @@
   else if ( $key=="transport_id"&&$val=="1") {
     $key2 = $_POST["key2"];
     $val2 = $_POST["val2"];
-    $key3 = $_POST["key3"];
-    $val3 = $_POST["val3"];
-    $sql = "UPDATE transport SET transport_id = '$val', car_id = '$val2', car_distance = $val3 WHERE user_id = $user_id;";
+    $sql = "UPDATE transport SET transport_id = '$val', car_id = '$val2' WHERE user_id = $user_id;";
   }
   else if ( $key=="transport_id"&&$val=="3") {
     $key2 = $_POST["key2"];

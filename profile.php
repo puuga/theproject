@@ -80,6 +80,7 @@
         $user_data["school_size"] = $row['school_size'];
         $user_data["head"] = $row['head'];
         $user_data["night"] = $row['night'];
+        $user_data["tel"] = $row['tel'];
       }
       //print_r($user_data);
 
@@ -159,7 +160,7 @@
         <div class="col-md-8 alert alert-warning" role="alert">
           <ul>
             <li>
-              กรุณานำคอมพิวเตอร์โน๊ตบุคส่วนตัว และอุปกรณ์พวกต่อ ของท่านมาใช้ในการอบรม
+              กรุณานำคอมพิวเตอร์โน๊ตบุคส่วนตัว<u>ที่ใช้ได้</u> และอุปกรณ์พวกต่อ ของท่านมาใช้ในการอบรม
             </li>
             <li>
               ในกรณีที่ท่านเลือกวิธีการเดินทางมาโดยรถไฟหรือรถประจำทาง กรุณานำใบเสร็จมาแสดงในวันอบรม เพื่อใช้เบิกค่าเดินทาง
@@ -284,9 +285,7 @@
                 key: "transport_id",
                 val: transport_id,
                 key2: "transport_car_id",
-                val2: transport_car_id,
-                key3: "transport_distance",
-                val3: transport_distance},
+                val2: transport_car_id},
                 success: function(data) {
                   if (!data.success) { //If fails
                     alert("error");
@@ -406,11 +405,19 @@
           if ( !isNaN(newVal) ) {
             // alert("number");
             newVal = parseInt(newVal);
-            if ( newVal>=0 && newVal<=7 ) {
+            if ( newVal>=0 && newVal<=3 ) {
               editUserData("night",newVal);
             }
           } else {
             // alert("not number");
+          }
+        }
+
+        function editUserTel(val) {
+          var newVal = prompt("กรุณาใส่เบอร์โทรศัพท์", val);
+          //alert(newVal);
+          if ( newVal!=null ) {
+            editUserData("tel",newVal);
           }
         }
       </script>
@@ -496,15 +503,28 @@
       <div class="row">
         <div class="col-md-3">
           <p class="text-right"><strong>จำนวนคืนที่พัก</strong><p>
+        </div>
+        <div class="col-md-9">
+          <p>
+            <?php echo $user_data["night"]; ?> คืน<br/>
+            <a href="javascript:editUserNight('<?php echo $user_data["night"]; ?>')"
+              class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขจำนวนคืนที่พัก</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong>เบอร์โทรศัพท์</strong><p>
           </div>
           <div class="col-md-9">
             <p>
-              <?php echo $user_data["night"]; ?> คืน<br/>
-              <a href="javascript:editUserNight('<?php echo $user_data["night"]; ?>')"
-                class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขจำนวนคืนที่พัก</a>
-            </p>
+              <?php echo $user_data["tel"]; ?> <br/>
+              <a href="javascript:editUserTel('<?php echo $user_data["tel"]; ?>')"
+                class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขเบอร์โทรศัพท์</a>
+              </p>
+            </div>
           </div>
-        </div>
 
       <div class="row">
         <div class="col-md-3">
@@ -834,15 +854,6 @@
                         placeholder="ทะเบียนรถ"
                         value="<?php echo $user_transport["car_id"]; ?>">
                         <p class="help-block">เช่น กข 1234 เชียงใหม่</p>
-                      <input
-                        type="number"
-                        min="0"
-                        class="form-control"
-                        name="transport_distance"
-                        id="transport_distance"
-                        placeholder="ระยะทาง"
-                        value="<?php echo $user_transport["car_distance"]; ?>">
-                        <p class="help-block">จากสังกัดถึงจังหวัดพิษณุโลก เช่น 120 กิโลเมตร (ใส่เฉพาะตัวเลข) นับระยะทางเฉพาะเส้นทางขาเดียว</p>
                     </label>
                   </div>
                   <div class="radio">

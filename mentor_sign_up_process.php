@@ -35,6 +35,7 @@
   if ( $transport_bus_cost=="" ) {
     $transport_bus_cost=0;
   }
+  $tel = $_POST["tel"];
 
   if ( $title == "ผู้อำนวยการสำนักงานเขตการศึกษา" ) {
     $admin_level += 10;
@@ -64,8 +65,8 @@
   // echo $post_department."<br/>";
 
   if( $post_action=="add") {
-    $sql = "INSERT INTO user (person_id, firstname, lastname, email, password, upper_person_id, admin_level, prifix_name, title, belong_to, district, province, school_size, head, night)
-      VALUES ('$person_id', '$firstname', '$lastname', '$email', '$password', '$upper_person_id', '$admin_level', '$prifix_name', '$title', '$belong_to', '$district', '$province', '$school_size', '$head', $night)";
+    $sql = "INSERT INTO user (person_id, firstname, lastname, email, password, upper_person_id, admin_level, prifix_name, title, belong_to, district, province, school_size, head, night, tel)
+      VALUES ('$person_id', '$firstname', '$lastname', '$email', '$password', '$upper_person_id', '$admin_level', '$prifix_name', '$title', '$belong_to', '$district', '$province', '$school_size', '$head', $night,'$tel')";
   } else {
     $sql = "UPDATE user
       SET
