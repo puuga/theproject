@@ -171,6 +171,11 @@
             echo "class='btn btn-primary' ";
             echo "href='admin_user_list.php?course_id=".$course["auto_id"]."'>";
             echo "<span class='glyphicon glyphicon-list-alt'></span> user list</a>";
+            echo " ";
+            echo "<a ";
+            echo "class='btn btn-primary' ";
+            echo "href='admin_user_check_list.php?course_id=".$course["auto_id"]."'>";
+            echo "<span class='glyphicon glyphicon-list-alt'></span> user check list</a>";
           }
           echo "</td>\n";
           echo "</tr>\n";

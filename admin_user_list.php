@@ -12,7 +12,12 @@ needAdminLevel(0);
 
   <?php include 'head_tag.php'; ?>
 
-
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      padding: 3px;
+    }
+  </style>
 </head>
 
 <body>
@@ -20,7 +25,7 @@ needAdminLevel(0);
 
   <?php
   $course_id = $_GET["course_id"];
-  $sql = "SELECT prifix_name,firstname,lastname,email,password
+  $sql = "SELECT *
   FROM user
   WHERE course_id =$course_id";
   $result = mysqli_query($con, $sql);
@@ -31,6 +36,7 @@ needAdminLevel(0);
     $data["lastname"] = $row["lastname"];
     $data["email"] = $row["email"];
     $data["password"] = $row["password"];
+    $data["night"] = $row["night"];
 
 
     $datas[] = $data;
@@ -48,7 +54,7 @@ needAdminLevel(0);
 
     <div class="row">
       <div class="col-md-12">
-        <table border="1">
+        <table>
           <thead>
             <tr>
               <th>prifix_name</th>
@@ -56,6 +62,7 @@ needAdminLevel(0);
               <th>lastname</th>
               <th>email</th>
               <th>password</th>
+              <th>night</th>
             </tr>
           </thead>
           <tbody>
@@ -68,6 +75,7 @@ needAdminLevel(0);
                 <td><?php echo $data["lastname"]; ?></td>
                 <td><?php echo $data["email"]; ?></td>
                 <td><?php echo $data["password"]; ?></td>
+                <td><?php echo $data["night"]; ?></td>
               </tr>
               <?php
             }

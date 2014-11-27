@@ -12,6 +12,12 @@
 
   <?php include 'head_tag.php'; ?>
 
+  <style>
+  table, th, td {
+    border: 1px solid black;
+    padding: 3px;
+  }
+  </style>
 
 </head>
 
@@ -56,7 +62,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        <table border="1">
+        <table>
           <thead>
             <tr>
               <th>prifix_name</th>
