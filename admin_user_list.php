@@ -31,6 +31,7 @@ needAdminLevel(0);
   $result = mysqli_query($con, $sql);
   while($row = mysqli_fetch_array($result)) {
     $data = Array();
+    $data["auto_id"] = $row["auto_id"];
     $data["prifix_name"] = $row["prifix_name"];
     $data["firstname"] = $row["firstname"];
     $data["lastname"] = $row["lastname"];
@@ -57,6 +58,7 @@ needAdminLevel(0);
         <table>
           <thead>
             <tr>
+              <th>user_id</th>
               <th>prifix_name</th>
               <th>firstname</th>
               <th>lastname</th>
@@ -70,6 +72,7 @@ needAdminLevel(0);
             foreach ( $datas as $data ) {
               ?>
               <tr>
+                <td><?php echo $data["auto_id"]; ?></td>
                 <td><?php echo $data["prifix_name"]; ?></td>
                 <td><?php echo $data["firstname"]; ?></td>
                 <td><?php echo $data["lastname"]; ?></td>

@@ -721,10 +721,10 @@ code by siwawes wongcharoen
                 name="night"
                 id="night"
                 min="0"
-                max="3"
+                max="4"
                 required/>
               <p class="help-block">
-                เนื่องจาก สพฐ กำหนดจำนวนคืนที่พักไม่เกินจำนวนวันอบรม
+                ไม่เกิน 4 คืน
               </p>
             </div>
           </div>

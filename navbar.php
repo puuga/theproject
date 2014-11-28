@@ -68,13 +68,17 @@
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <span class="glyphicon glyphicon-info-sign"></span> คู่มือลงทะเบียน <span class="caret"></span>
+            <span class="glyphicon glyphicon-info-sign"></span> คู่มือ <span class="caret"></span>
           </a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="https://drive.google.com/file/d/0B9bzy3S3TMGRVnh5T1hsbThxbXM/view" target="_blank">
               คู่มือลงทะเบียนเข้าอบรม</a></li>
             <li><a href="https://drive.google.com/file/d/0B9bzy3S3TMGRZjBtNWFxbV94dUE/view" target="_blank">
               คู่มือการจองรอบการอบรม</a></li>
+            <li><a href="https://drive.google.com/file/d/0B9bzy3S3TMGRbXItZUtWa2JiUlk/view?usp=sharing" target="_blank">
+              คู่มือเข้าสู่ระบบการใช้งาน Google App Education</a></li>
+            <li><a href="https://drive.google.com/file/d/0B9bzy3S3TMGRWE5ueXdMenJTX0U/view?usp=sharing" target="_blank">
+              คู่มือการเข้าสู่ระบบ www.edunu.nu.ac.th</a></li>
           </ul>
         </li>
         <li>

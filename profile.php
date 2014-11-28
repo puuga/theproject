@@ -405,7 +405,7 @@
           if ( !isNaN(newVal) ) {
             // alert("number");
             newVal = parseInt(newVal);
-            if ( newVal>=0 && newVal<=3 ) {
+            if ( newVal>=0 && newVal<=7 ) {
               editUserData("night",newVal);
             }
           } else {
