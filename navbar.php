@@ -99,7 +99,12 @@
                 if ($current_user_admin_level < 10) {
                   echo '<li><a href="admin_manager.php"><span class="glyphicon glyphicon-wrench"></span> Admin Manager</a></li>';
                 }
-                echo '<li><a href="profile.php"><span class="glyphicon glyphicon-list"></span> '.String::profile.'</a></li>';
+                if ( $current_user_admin_level == 200) {
+                  echo '<li><a href="profile_network.php"><span class="glyphicon glyphicon-list"></span> '.String::profile.'</a></li>';
+                } else {
+                  echo '<li><a href="profile.php"><span class="glyphicon glyphicon-list"></span> '.String::profile.'</a></li>';
+                }
+
                 echo '<li class="divider"></li>';
                 echo '<li><a href="logout_process.php"><span class="glyphicon glyphicon-log-out"></span> '.String::system_sign_out.'</a></li>';
               } else {

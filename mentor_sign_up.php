@@ -275,7 +275,7 @@ code by siwawes wongcharoen
             if ( distances[i].district == district ) {
               $("#transport_distance").attr("value", distances[i].distance);
               //alert(distances[i].distance);
-              alert($("#transport_distance").val());
+              console.log($("#transport_distance").val());
             }
           }
         }

@@ -3,7 +3,7 @@
 <?php include 'db_connect.php'; ?>
 <?php include "class_import.php"; ?>
 <?php
-  needAdminLevel(100);
+  needAdminLevel(200);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -149,7 +149,7 @@
               ในกรณีที่ท่านแก้ไขข้อมูลแล้ว แต่ระบบยังแสดงข้อมูลเก่า ขอให้ท่าน<a href="logout_process.php" class="alert-link">ออกจากระบบ</a> แล้วเข้าสู่ระบบใหม่
             </li>
             <li>
-              ในกรณีที่ท่านใช้ Internet Explorer แล้วแก้ไขข้อมูลได้ ให้ท่านเปลี่ยนไปใช้ Chrome หรือ Firefox แทน
+              ในกรณีที่ท่านใช้ Internet Explorer แล้วแก้ไขข้อมูลไม่ได้ ให้ท่านเปลี่ยนไปใช้ Chrome หรือ Firefox แทน
             </li>
           </ul>
         </div>
@@ -177,7 +177,7 @@
 
       <div class="row">
         <div class="col-md-3">
-          <p class="text-right"><strong><?php echo String::person_personal_id ?></strong><p>
+          <p class="text-right"><strong><?php echo String::person_personal_id ?></strong></p>
         </div>
         <div class="col-md-9">
           <?php echo $current_user_person_id; ?>
@@ -186,7 +186,7 @@
 
       <div class="row">
         <div class="col-md-3">
-          <p class="text-right"><strong><?php echo String::person_name ?></strong><p>
+          <p class="text-right"><strong><?php echo String::person_name ?></strong></p>
         </div>
         <div class="col-md-9">
           <p>
@@ -201,7 +201,7 @@
 
       <div class="row">
         <div class="col-md-3">
-          <p class="text-right"><strong><?php echo String::person_email ?></strong><p>
+          <p class="text-right"><strong><?php echo String::person_email ?></strong></p>
         </div>
         <div class="col-md-9">
           <?php echo $current_user_email; ?>
@@ -237,28 +237,37 @@
             alert("กรุณาเลือกตำแหน่งท่ีท่านต้องการเปลี่ยน");
             return;
           }
-          var admin_level_val = $('#form_title_option input[type=radio]:checked').val();
-          var title_label = $('#form_title_option input[type="radio"]:checked').parent().text();
-          //alert(admin_level_val +","+title_label);
-          $.ajax({
-            type: "POST",
-            url: "mentor_edit_process.php",
-            dataType: 'json',
-            data: {
-              user_id: "<?php echo $current_user_id ?>",
-              key: "admin_level",
-              val: admin_level_val,
-              key2: "title",
-              val2: title_label },
-            success: function(data) {
-              if (!data.success) { //If fails
-                alert("error");
-              } else {
-                //alert("#success");
-                location.reload();
-              }
-            }
-          });
+          var admin_level_val_new = $('#form_title_option input[type=radio]:checked').val();
+          var admin_level_val_old = "<?php echo $user_data["admin_level"]; ?>";
+          var title_label_new = $('#form_title_option input[type="radio"]:checked').parent().text();
+          var title_label_old = "<?php echo $user_data["title"]; ?>";
+          //alert(admin_level_val_new +","+title_label_new);
+          if ( title_label_new==title_label_old ) {
+            alert("ท่านไม่ได้เปลี่ยนตำแหน่ง");
+            return;
+          } else if ( admin_level_val_new==admin_level_val_old ) {
+            editUserData("title",title_label_new);
+          } else {
+            $.ajax({
+              type: "POST",
+              url: "mentor_edit_process.php",
+              dataType: 'json',
+              data: {
+                user_id: "<?php echo $current_user_id ?>",
+                key: "admin_level",
+                val: admin_level_val_new,
+                key2: "title",
+                val2: title_label_new },
+                success: function(data) {
+                  if (!data.success) { //If fails
+                    alert("error");
+                  } else {
+                    //alert("#success");
+                    location.reload();
+                  }
+                }
+              });
+          }
 
         }
 
@@ -401,11 +410,21 @@
         }
 
         function editUserNight(val) {
+          var admin_level_val = "<?php echo $user_data["admin_level"]; ?>";
           var newVal = prompt("กรุณาใส่จำนวนคืนที่ต้องการพัก", val);
           if ( !isNaN(newVal) ) {
             // alert("number");
+            admin_level_val = parseInt(admin_level_val);
             newVal = parseInt(newVal);
-            if ( newVal>=0 && newVal<=7 ) {
+            if ( admin_level_val==110 && newVal>=0 && newVal<=3 ) {
+              editUserData("night",newVal);
+            } else if ( admin_level_val==120 && newVal>=0 && newVal<=4 ) {
+              editUserData("night",newVal);
+            } else if ( admin_level_val==130 && newVal>=0 && newVal<=7 ) {
+              editUserData("night",newVal);
+            } else if ( admin_level_val==140 && newVal>=0 && newVal<=3 ) {
+              editUserData("night",newVal);
+            } else if ( admin_level_val==150 && newVal>=0 && newVal<=4 ) {
               editUserData("night",newVal);
             }
           } else {
@@ -424,7 +443,7 @@
 
       <div class="row">
         <div class="col-md-3">
-          <p class="text-right"><strong><?php echo String::person_title ?></strong><p>
+          <p class="text-right"><strong><?php echo String::person_title ?></strong></p>
         </div>
         <div class="col-md-9">
           <p>
@@ -437,7 +456,7 @@
 
       <div class="row">
         <div class="col-md-3">
-          <p class="text-right"><strong>สังกัด</strong><p>
+          <p class="text-right"><strong>สังกัด</strong></p>
         </div>
         <div class="col-md-9">
           <p>
@@ -450,7 +469,7 @@
 
       <div class="row">
         <div class="col-md-3">
-          <p class="text-right"><strong>จังหวัด</strong><p>
+          <p class="text-right"><strong>จังหวัด</strong></p>
         </div>
         <div class="col-md-9">
           <p>
@@ -476,7 +495,7 @@
 
       <div class="row">
         <div class="col-md-3">
-          <p class="text-right"><strong>ขนาดโรงเรียน</strong><p>
+          <p class="text-right"><strong>ขนาดโรงเรียน</strong></p>
         </div>
         <div class="col-md-9">
           <p>
@@ -489,7 +508,7 @@
 
       <div class="row">
         <div class="col-md-3">
-          <p class="text-right"><strong>สำนักงานเขตพื้นที่การศึกษา</strong><p>
+          <p class="text-right"><strong>สำนักงานเขตพื้นที่การศึกษา</strong></p>
         </div>
         <div class="col-md-9">
           <p>
@@ -502,7 +521,7 @@
 
       <div class="row">
         <div class="col-md-3">
-          <p class="text-right"><strong>จำนวนคืนที่พัก</strong><p>
+          <p class="text-right"><strong>จำนวนคืนที่พัก</strong></p>
         </div>
         <div class="col-md-9">
           <p>
@@ -515,7 +534,7 @@
 
       <div class="row">
         <div class="col-md-3">
-          <p class="text-right"><strong>เบอร์โทรศัพท์</strong><p>
+          <p class="text-right"><strong>เบอร์โทรศัพท์</strong></p>
           </div>
           <div class="col-md-9">
             <p>
@@ -528,7 +547,7 @@
 
       <div class="row">
         <div class="col-md-3">
-          <p class="text-right"><strong>วิธีการเดินทาง</strong><p>
+          <p class="text-right"><strong>วิธีการเดินทาง</strong></p>
         </div>
         <div class="col-md-9">
           <p>
@@ -563,7 +582,7 @@
           ?>
       <div class="row">
         <div class="col-md-3">
-          <p class="text-right"><strong>รุ่นการอบรม</strong><p>
+          <p class="text-right"><strong>รุ่นการอบรม</strong></p>
         </div>
         <div class="col-md-9">
           <?php echo $course_name; ?>
@@ -572,7 +591,7 @@
 
       <div class="row">
         <div class="col-md-3">
-          <p class="text-right"><strong>สถานที่อบรม</strong><p>
+          <p class="text-right"><strong>สถานที่อบรม</strong></p>
         </div>
         <div class="col-md-9">
           <?php
@@ -587,7 +606,7 @@
 
       <div class="row">
         <div class="col-md-3">
-          <p class="text-right"><strong>สถานที่พัก</strong><p>
+          <p class="text-right"><strong>สถานที่พัก</strong></p>
         </div>
         <div class="col-md-9">
           <?php
@@ -640,7 +659,7 @@
 
       <div class="row">
         <div class="col-md-3">
-          <p class="text-right"><strong>Google account</strong><p>
+          <p class="text-right"><strong>Google account</strong></p>
         </div>
         <div class="col-md-9">
           <?php echo $user_googles[0]["google_email"]; ?>
@@ -649,7 +668,7 @@
 
       <div class="row">
         <div class="col-md-3">
-          <p class="text-right"><strong>Google password</strong><p>
+          <p class="text-right"><strong>Google password</strong></p>
         </div>
         <div class="col-md-9">
           <?php echo $user_googles[0]["google_password"]; ?>
@@ -662,7 +681,7 @@
       ?>
       <div class="row">
         <div class="col-md-3">
-          <p class="text-right"><strong><?php echo String::person_web ?></strong><p>
+          <p class="text-right"><strong><?php echo String::person_web ?></strong></p>
         </div>
         <div class="col-md-9">
           <a href="<?php echo $user["web"]; ?>"><?php echo $user["web"]; ?></a>
@@ -678,58 +697,25 @@
         console.log("person_id: <?php echo $user["person_id"];?>");
         console.log("upper_person_id: <?php echo $user["upper_person_id"];?>");
       </script>
-      <?php
-        if ( $user["person_id"] != $user["upper_person_id"]) {
-      ?>
 
-
-      <div class="row">
-        <div class="col-md-3">
-          <p class="text-right"><strong><?php echo String::person_mentor ?></strong><p>
-        </div>
-        <div class="col-md-9">
-          <?php echo $user["upper_firstname"]; ?> <?php echo $user["upper_lastname"]; ?>
-        </div>
-      </div>
-
-      <?php
-        } else {
-      ?>
       <div class="row">
         <div class="col-md-3">
           <p class="text-right"><strong><?php echo String::person_network ?></strong><p>
         </div>
 
-        <?php
-          for ($i=0; $i<count($user_lowers); $i++) {
-            if ( $i==0 ) {
-              ?>
-              <div class="col-md-9">
-                <p>
-                  <?php echo $user_lowers[$i]["firstname"]; ?>
-                  <?php echo $user_lowers[$i]["lastname"]; ?>
-                  <a href="<?php echo $user_lowers[$i]["web"]==""?"#":$user_lowers[$i]["web"];?>">[ web ]</a>
-                </p>
-              </div>
-              <?php
-            } else {
-              ?>
-              <div class="col-md-offset-3 col-md-9">
-                <p>
-                  <?php echo $user_lowers[$i]["firstname"]; ?>
-                  <?php echo $user_lowers[$i]["lastname"]; ?>
-                  <a href="<?php echo $user_lowers[$i]["web"]==""?"#":$user_lowers[$i]["web"];?>">[ web ]</a>
-                </p>
-              </div>
-              <?php
+        <div class="col-md-9">
+          <?php
+            // read google account
+            $sql_user_network = "SELECT * FROM user_network WHERE mentor_auto_id=$current_user_id";
+            $result = mysqli_query($con, $sql_user_network);
+
+            while($row = mysqli_fetch_array($result)) {
+              echo "<p>".$row['firstname']." ".$row['lastname']."</p>\n";
             }
-          }
-        ?>
+          ?>
+        </div>
 
       </div>
-      <?php
-        }
-      ?>
 
       <hr/>
 

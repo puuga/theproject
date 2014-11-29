@@ -346,7 +346,7 @@
                 <span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ</a>
             </p>
             <?php
-              } else {
+              } else if ( $current_user_admin_level<200 ){
             ?>
             <p>
               สำหรับผู้ที่ลงทะเบียนแล้ว สามารถจองและตรวจสอบรอบการอบรมได้
@@ -357,6 +357,41 @@
             </p>
             <?php
               }
+            ?>
+          </div>
+
+          <hr>
+
+          <div>
+            <?php
+            if ( $current_user_admin_level>=1000 ) {
+              ?>
+              <p>
+                สำหรับครูเครือข่ายที่ยังไม่ได้ลงทะเบียน
+                <br/><a
+                class="btn btn-primary btn-lg"
+                href="user_sign_up.php">
+                <span class="glyphicon glyphicon-edit"></span> ลงทะเบียนครูเครือข่าย</a>
+              </p>
+              <p>
+                สำหรับครูเครือข่ายที่ลงทะเบียนแล้ว สามารถเข้าสู่ระบบ<br/>เพื่อแก้ไขข้อมูลได้
+                <br/><a
+                class="btn btn-success btn-lg"
+                href="login.php">
+                <span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ</a>
+              </p>
+              <?php
+                } else if ( $current_user_admin_level==200 ) {
+              ?>
+              <p>
+                สำหรับครูเครือข่ายที่ลงทะเบียนแล้ว สามารถแก้ไขข้อมูลได้
+                <br/><a
+                class="btn btn-success btn-lg"
+                href="profile.php">
+                <span class="glyphicon glyphicon-list"></span> <?php echo String::profile ?></a>
+              </p>
+              <?php
+            }
             ?>
           </div>
 
