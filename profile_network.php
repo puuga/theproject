@@ -144,7 +144,7 @@
           <?php echo $current_user_email; ?><br/>
           <a href="javascript:editUserEmail('<?php echo $current_user_email; ?>')"
             class="btn btn-warning" role="button">
-            <span class="glyphicon glyphicon-edit"></span> แก้ไข<?php echo String::person_personal_id ?>
+            <span class="glyphicon glyphicon-edit"></span> แก้ไข <?php echo String::person_email ?>
           </a>
           <p class="help-block">โปรดระวัง เนื่องจากระบบจำเป็นต้องใช้ Email ในการยืนยันตัวตน หากท่านแก้ไขผิดจะไม่สามารถเข้าสู่ระบบได้</p>
         </div>
@@ -163,7 +163,7 @@
               val: val },
             success: function(data) {
               if (!data.success) { //If fails
-                alert("error");
+                alert(data.error);
               } else {
                 //alert("#success");
                 location.reload();
@@ -226,6 +226,9 @@
           var newVal = prompt("กรุณาใส่ Email", val);
           if ( newVal.indexOf("@")==-1 ) {
             alert("Email ไม่ถูกต้อง");
+            return;
+          }
+          if ( newVal==val ) {
             return;
           }
           editUserData("email",newVal);
@@ -421,9 +424,9 @@
           <p class="text-right"><strong><?php echo String::person_web ?></strong></p>
         </div>
         <div class="col-md-9">
-          <a href="<?php echo $user_data["web"]; ?>"><?php echo $user_data["web"]; ?></a>
+          <a href="<?php echo UrlHelper::makeURL($user_data["web"]); ?>"><?php echo UrlHelper::makeURL($user_data["web"]); ?></a>
           <p>
-            <a href="javascript:editUserWeb('<?php echo $user_data["web"]; ?>')"
+            <a href="javascript:editUserWeb('<?php echo UrlHelper::makeURL($user_data["web"]); ?>')"
               class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไข <?php echo String::person_web ?></a>
           </p>
         </div>
@@ -521,12 +524,6 @@
             <div>
               <form id="form_school_size_option">
                 <strong>ขนาดโรงเรียน :</strong>
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="school_size" id="school_size_radios1" value="-" required>
-                    เป็นผู้อำนวยการสำนักงานเขตการศึกษา, รองผู้อำนวยการสำนักงานเขตการศึกษา หรือศึกษานิเทศก์ ให้เลือกตัวเลือกนี้
-                  </label>
-                </div>
                 <div class="radio">
                   <label>
                     <input type="radio" name="school_size" id="school_size_radios2" value="โรงเรียนขนาดใหญ่">

@@ -466,7 +466,7 @@ code by siwawes wongcharoen
               <p class="help-block">พิมพ์ชื่อผู้นำ (ไม่ต้องพิมพคำนำหน้า) ระบบจะแสดงชื่อผู้นำที่ตรงกับอักษรที่ท่านพิมพ์</p>
               <datalist id="mentors">
                 <?php
-                  $sql_distance = "SELECT * FROM user where admin_level=140 or admin_level=150";
+                  $sql_distance = "SELECT * FROM user where admin_level=140";
                   $result = mysqli_query($con, $sql_distance);
                   $distances = array();
                   while($row = mysqli_fetch_array($result)) {
@@ -480,7 +480,7 @@ code by siwawes wongcharoen
 
         <script>
           <?php
-          $sql = "SELECT * FROM user where admin_level=140 or admin_level=150";
+          $sql = "SELECT * FROM user where admin_level=140";
           $result = mysqli_query($con, $sql);
           $users = array();
           while($row = mysqli_fetch_array($result)) {
