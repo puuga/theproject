@@ -409,7 +409,7 @@ code by siwawes wongcharoen
               <?php echo $mode=="edit" ? "value='".$_GET['email']."'" : ""; ?>
               required/>
               <p class="help-block">
-                ใช้ในการลงชื่อเข้าใช้งานระบบ เพื่อจองรุ่นการอบรมและตรวจสอบข้อมูลเท่านั้น<br/>
+                ใช้ในการลงชื่อเข้าใช้งานระบบ <br/>
                 ระบบจะไม่อนุญาตให้ใช้ Email ซ้ำกันในการลงทะเบียน
               </p>
             </div>
@@ -470,7 +470,7 @@ code by siwawes wongcharoen
                   $result = mysqli_query($con, $sql_distance);
                   $distances = array();
                   while($row = mysqli_fetch_array($result)) {
-                    echo "<option value=\"".$row['firstname']." ".$row['lastname']."\">";
+                    echo "<option value=\"".$row['firstname']." ".$row['lastname']." - ".$row['belong_to']."\">";
                   }
                 ?>
               </datalist>
@@ -487,6 +487,7 @@ code by siwawes wongcharoen
             $user["auto_id"] = $row['auto_id'];
             $user["firstname"] = $row['firstname'];
             $user["lastname"] = $row['lastname'];
+            $user["belong_to"] = $row['belong_to'];
             $users[] = $user;
           }
 
@@ -497,7 +498,7 @@ code by siwawes wongcharoen
             //alert(district);
             //console.log(distances.length);
             for ( i=0; i<users.length; i++ ) {
-              var users_full_name = users[i].firstname+" "+users[i].lastname;
+              var users_full_name = users[i].firstname+" "+users[i].lastname+" - "+users[i].belong_to;
               if ( users_full_name == user_full_name ) {
                 $("#mentor_auto_id").attr("value", users[i].auto_id);
                 //alert(distances[i].distance);

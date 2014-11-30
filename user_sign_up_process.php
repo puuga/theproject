@@ -22,9 +22,7 @@
   $province = $_POST["province"];
   $school_size = $_POST["school_size"];
   $head = $_POST["head"];
-  $night = $_POST["night"];
   $tel = $_POST["tel"];
-  $web = $_POST["web"];
 
 
 
@@ -65,7 +63,7 @@
   $result = mysqli_query($con, $sql);
 
   if (!$result) {
-    header('Location: mentor_sign_up.php?message=Cannot add or edit User because of duplicate username&message_type=error');
+    header('Location: user_sign_up.php?message='.mysqli_error($con).'&message_type=error');
 
     die('Error: ' . mysqli_error($con));
 
