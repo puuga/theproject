@@ -79,6 +79,10 @@
               คู่มือเข้าสู่ระบบการใช้งาน Google App Education</a></li>
             <li><a href="https://drive.google.com/file/d/0B9bzy3S3TMGRWE5ueXdMenJTX0U/view?usp=sharing" target="_blank">
               คู่มือการเข้าสู่ระบบ www.edunu.nu.ac.th</a></li>
+            <li><a href="https://docs.google.com/presentation/d/1ngFXfEIqLgUUgUq7FBQTal_hyGbXYmyB70G750xa730/edit?usp=sharing" target="_blank">
+              คู่มือลงทะเบียน ของครูเครือข่าย</a></li>
+            <li><a href="https://docs.google.com/presentation/d/1MZYGsc9p9aWVClZ8U94A2po06Aun30gLKMI3SnMNAmo/edit?usp=sharing" target="_blank">
+              คู่มือการส่งผลงาน ของครูเครือข่าย</a></li>
           </ul>
         </li>
         <li>
@@ -96,7 +100,7 @@
           <ul class="dropdown-menu" role="menu">
             <?php
               if ($current_user_email != "") {
-                if ($current_user_admin_level < 10) {
+                if ($current_user_admin_level == 0) {
                   echo '<li><a href="admin_manager.php"><span class="glyphicon glyphicon-wrench"></span> Admin Manager</a></li>';
                 }
                 if ( $current_user_admin_level == 200) {

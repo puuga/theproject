@@ -94,6 +94,7 @@ needAdminLevel(0);
               <th>โรงเรียน</th>
               <th>สังกัด</th>
               <th>อำเภอ</th>
+              <th>จังหวัด</th>
               <th>จำนวนคืนที่พัก</th>
               <th>ลายมือชื่อ</th>
             </tr>
@@ -110,6 +111,7 @@ needAdminLevel(0);
                 <td><?php echo $data["belong_to"]; ?></td>
                 <td><?php echo $data["head"]; ?></td>
                 <td><?php echo $data["district"]; ?></td>
+                <td><?php echo $data["province"]; ?></td>
                 <td><?php echo $data["night"]; ?></td>
                 <td>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

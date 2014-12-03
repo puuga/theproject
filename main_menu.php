@@ -322,15 +322,17 @@
 
         <div class="col-md-4">
 
-          <div class="page-header">
-            <h1>ระบบ<?php echo String::system_register ?></h1>
-          </div>
+
+
 
 
           <div>
             <?php
               if ( $current_user_admin_level>=1000 ) {
             ?>
+            <div class="page-header">
+              <h1>ระบบ<?php echo String::system_register ?></h1>
+            </div>
             <p>
               สำหรับผู้ที่ยังไม่ได้ลงทะเบียน
               <br/><a
@@ -348,6 +350,9 @@
             <?php
               } else if ( $current_user_admin_level<200 ){
             ?>
+            <div class="page-header">
+              <h1>ระบบ<?php echo String::system_register ?></h1>
+            </div>
             <p>
               สำหรับผู้ที่ลงทะเบียนแล้ว สามารถจองและตรวจสอบรอบการอบรมได้
               <br/><a
@@ -360,12 +365,17 @@
             ?>
           </div>
 
-          <hr>
+          
+
+
 
           <div>
             <?php
             if ( $current_user_admin_level>=1000 ) {
               ?>
+              <div class="page-header">
+                <h2>ระบบลงทะเบียนครูเครือข่าย</h2>
+              </div>
               <p>
                 สำหรับครูเครือข่ายที่ยังไม่ได้ลงทะเบียน
                 <br/><a
@@ -383,8 +393,11 @@
               <?php
                 } else if ( $current_user_admin_level==200 ) {
               ?>
+              <div class="page-header">
+                <h2>ระบบลงทะเบียนครูเครือข่าย</h2>
+              </div>
               <p>
-                สำหรับครูเครือข่ายที่ลงทะเบียนแล้ว สามารถแก้ไขข้อมูลได้
+                สำหรับครูเครือข่ายที่ลงทะเบียนแล้ว สามารถแก้ไขข้อมูล และส่งผลงานได้
                 <br/><a
                 class="btn btn-success btn-lg"
                 href="profile.php">

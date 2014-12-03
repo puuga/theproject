@@ -15,7 +15,7 @@
   $lastname = $_POST["lastname"];
   $email = $_POST["email"];
   $mentor_auto_id = $_POST["mentor_auto_id"];
-  $admin_level = $_POST["admin_level"];
+  $admin_level = 200;
   $title = $_POST["title"];
   $belong_to = $_POST["belong_to"];
   $district = $_POST["district"];

@@ -171,6 +171,9 @@
             <li>
               กรุณาพิมพ์หน้าประวัติส่วนตัว เพื่อนำมายืนยันในวันเข้ารับการอบรม
             </li>
+            <li>
+              กรุณาเตรียมสำเนาบัตรข้าราชการ พร้อมเซ็นสำเนาถูกต้อง เพื่อมายืนยันในการเข้าพักโรงแรม
+            </li>
           </ul>
         </div>
       </div>
@@ -751,9 +754,10 @@
               mywindow.document.write("Google account : <strong><?php echo $user_googles[0]["google_email"]; ?></strong><br/>");
               mywindow.document.write("Google password : <strong><?php echo $user_googles[0]["google_password"]; ?></strong><br/>");
               mywindow.document.write("<br/><br/>");
-              mywindow.document.write("*กรุณานำคอมพิวเตอร์โน๊ตบุคส่วนตัว และอุปกรณ์พวกต่อ ของท่านมาใช้ในการอบรม<br/>");
+              mywindow.document.write("*กรุณานำคอมพิวเตอร์โน๊ตบุคส่วนตัวที่ใช้งานได้ และอุปกรณ์พวกต่อ ของท่านมาใช้ในการอบรม<br/>");
               mywindow.document.write("*ในกรณีที่ท่านเลือกวิธีการเดินทางมาโดยรถไฟหรือรถประจำทาง กรุณานำใบเสร็จมาแสดงในวันอบรม เพื่อใช้เบิกค่าเดินทาง<br/>");
-
+              mywindow.document.write("*กรุณานำคอมพิวเตอร์โน๊ตบุคส่วนตัว และอุปกรณ์พวกต่อ ของท่านมาใช้ในการอบรม<br/>");
+              mywindow.document.write("*กรุณาเตรียมสำเนาบัตรข้าราชการ พร้อมเซ็นสำเนาถูกต้อง เพื่อมายืนยันในการเข้าพักโรงแรม<br/>");
               mywindow.document.write('</body></html>');
               mywindow.document.close();
               mywindow.print();

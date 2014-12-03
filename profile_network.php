@@ -42,6 +42,8 @@
         un.tel,
         un.google_account,
         un.google_password,
+        un.google_classroom_code,
+        un.google_domain,
         u.firstname as upper_firstname,
         u.lastname as upper_lastname
         FROM user_network un inner join user u on un.mentor_auto_id=u.auto_id
@@ -67,6 +69,8 @@
         $user_data["tel"] = $row['tel'];
         $user_data["google_account"] = $row['google_account'];
         $user_data["google_password"] = $row['google_password'];
+        $user_data["google_classroom_code"] = $row['google_classroom_code'];
+        $user_data["google_domain"] = $row['google_domain'];
         $user_data["upper_firstname"] = $row['upper_firstname'];
         $user_data["upper_lastname"] = $row['upper_lastname'];
 
@@ -81,13 +85,6 @@
         <div class="row">
           <div class="col-md-9">
             <h1><?php echo String::profile; ?></h1>
-          </div>
-          <div class="col-md-3"><br/>
-            <p class="text-right">
-              <a href="booking.php" class="btn btn-primary btn-lg">
-                <span class="glyphicon glyphicon-map-marker"></span> <?php echo String::booking ?>
-              </a>
-            </p>
           </div>
         </div>
       </div>
@@ -326,6 +323,23 @@
             editUserData("google_password",newVal);
           }
         }
+
+        function editUserGDomain(val) {
+          var newVal = prompt("กรุณาใส่ Google Domain ที่โรงเรียนท่านใช้", val);
+          //alert(newVal);
+          if ( newVal!=null ) {
+            editUserData("google_domain",newVal);
+          }
+        }
+
+
+        function editUserGClassroomCode(val) {
+          var newVal = prompt("กรุณาใส่ Google Classromm code ที่ท่านได้สร้างไว้", val);
+          //alert(newVal);
+          if ( newVal!=null ) {
+            editUserData("google_classroom_code",newVal);
+          }
+        }
       </script>
 
       <div class="row">
@@ -419,9 +433,18 @@
         </div>
       </div>
 
+      <hr/>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 alert alert-info" role="alert">
+          <p>เว็บไซต์ผลงาน (Google Site) ที่ท่านสร้าง</p>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col-md-3">
-          <p class="text-right"><strong><?php echo String::person_web ?></strong></p>
+          <p class="text-right"><strong>เว็บไซต์ผลงาน (Google Site)</strong></p>
         </div>
         <div class="col-md-9">
           <a href="<?php echo UrlHelper::makeURL($user_data["web"]); ?>"><?php echo UrlHelper::makeURL($user_data["web"]); ?></a>
@@ -431,6 +454,30 @@
           </p>
         </div>
       </div>
+
+      <hr/>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 alert alert-info" role="alert">
+          <p>
+            ในกรณีที่โรงเรียนของท่านได้ใช้งาน Google App for Education ขอให้ท่านใส่ข้อมูลที่ท่านสร้างไว้
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong>Google domain</strong></p>
+        </div>
+        <div class="col-md-9">
+          <p>
+            <?php echo $user_data["google_domain"]; ?> <br/>
+            <a href="javascript:editUserGDomain('<?php echo $user_data["google_domain"]; ?>')"
+              class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไข Google domain</a>
+            </p>
+          </div>
+        </div>
 
       <div class="row">
         <div class="col-md-3">
@@ -457,6 +504,19 @@
           </p>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong>Classroom code</strong></p>
+        </div>
+        <div class="col-md-9">
+          <p>
+            <?php echo $user_data["google_classroom_code"]; ?> <br/>
+            <a href="javascript:editUserGClassroomCode('<?php echo $user_data["google_classroom_code"]; ?>')"
+              class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไข Classroom code</a>
+            </p>
+          </div>
+        </div>
 
       <hr/>
 

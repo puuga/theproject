@@ -43,7 +43,7 @@ code by siwawes wongcharoen
         <div class="col-md-10">
           <h2>
             ระบบลงทะเบียนโครงการพัฒนาครูและบุคลากรทางการศึกษาโดยใช้เทคโนโลยีสารสนเทศ
-            <small>สำหรับครูเครื่อข่าย</small>
+            <small>สำหรับครูเครือข่าย</small>
           </h2>
         </div>
         <div class="col-md-2 text-right">
@@ -454,7 +454,7 @@ code by siwawes wongcharoen
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label for="mentor">ชื่อผู้นำ :</label>
+              <label for="mentor">ชื่อครูแกนนำของโรงเรียนท่าน :</label>
               <input list="mentors"
               class="form-control"
               name="mentor"
@@ -463,7 +463,7 @@ code by siwawes wongcharoen
               <?php echo $mode=="edit" ? "value='".$_GET['mentor']."'" : ""; ?>
               <?php echo $mode=="edit"?"disabled":""; ?>
               required/>
-              <p class="help-block">พิมพ์ชื่อผู้นำ (ไม่ต้องพิมพคำนำหน้า) ระบบจะแสดงชื่อผู้นำที่ตรงกับอักษรที่ท่านพิมพ์</p>
+              <p class="help-block">พิมพ์ชื่อครูแกนนำ (ไม่ต้องพิมพคำนำหน้า) ระบบจะแสดงชื่อผู้นำที่ตรงกับอักษรที่ท่านพิมพ์</p>
               <datalist id="mentors">
                 <?php
                   $sql_distance = "SELECT * FROM user where admin_level=140";
