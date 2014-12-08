@@ -147,6 +147,7 @@
             output += "<th>จังหวัด</th>";
             output += "<th>ขนาดโรงเรียน</th>";
             output += "<th>รุ่นอบรม</th>";
+            output += "<th>#</th>";
             output += "</tr>";
             output += "</thead>";
             output += "<tbody>";
@@ -160,6 +161,7 @@
               output += "<td>"+datas[i].province+"</td>";
               output += "<td>"+datas[i].school_size+"</td>";
               output += "<td>"+datas[i].name+"</td>";
+              output += "<td>"+"<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#network_detail\" data-whatever=\""+datas[i].user_id+"\" data-mentor=\""+datas[i].firstname+" "+datas[i].lastname+"\">รายชื่อครูเครือข่าย</button>"+"</td>";
               output += "</tr>";
             }
             output += "</tbody>";
@@ -173,6 +175,63 @@
         </div>
       </div>
     </div>
+
+    <!-- Large modal -->
+
+    <!-- Large modal -->
+    <div id="network_detail" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $('#network_detail').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var user_id = button.data('whatever'); // Extract info from data-* attributes
+        var mentor = button.data('mentor');
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this);
+        modal.find('.modal-title').text(mentor);
+        modal.find('.modal-body').text("loading...");
+        $.ajax({
+          type: "POST",
+          url: "list_name_network_do.php",
+          dataType: 'json',
+          data: { mentor_auto_id: user_id },
+          success: function(data) {
+            if (!data.success) { //If fails
+              alert(data.error);
+            } else {
+              //alert(data);
+              //console.log(data);
+              //dataOutput(data);
+              //location.reload();
+              if ( data.data200.length !=0 ) {
+                var output = "";
+                for ( i=0; i<data.data200.length; i++ ) {
+                  output += (i+1) + ". " + data.data200[i].firstname + " " + data.data200[i].lastname + "<br/>";
+                }
+                modal.find('.modal-body').html(output);
+              } else {
+                modal.find('.modal-body').text("ยังไม่มีครูเครือข่าย");
+              }
+            }
+          }
+        });
+      })
+    </script>
 
   </body>
 </html>

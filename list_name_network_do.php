@@ -1,4 +1,4 @@
-<?php //list_name_do.php ?>
+<?php //list_name_network_do.php ?>
 <?php
 //header('Content-type: text/html; charset=utf-8');
 header('Cache-Control: no-cache, must-revalidate');
@@ -8,49 +8,47 @@ header('Content-Type: application/json');
 <?php include "class_import.php"; ?>
 <?php
 /*
-1. read head from post
+1. read mentor_auto_id from post
 2. return data in json form
 */
 
-// 1. read head from post
-$head = $_POST["head"];
+// 1. read mentor_auto_id from post
+$mentor_auto_id = $_POST["mentor_auto_id"];
 
 // set up result
 $result = array();
 $result['success'] = true;
-$result['head'] = $head;
+$result['mentor_auto_id'] = $mentor_auto_id;
 
 
-// 2. update course_id in user
+// 2. read in user_network
 // course
-$sql = "SELECT * FROM user_pass_view where head='$head'";
+$sql = "SELECT * FROM user_network where mentor_auto_id='$mentor_auto_id'";
 $sqlresult = mysqli_query($con, $sql);
-$datas140 = Array();
-$datas150 = Array();
+$datas200 = Array();
 while($row = mysqli_fetch_array($sqlresult)) {
 
   $data["user_id"] = $row['user_id'];
   $data["firstname"] = $row['firstname'];
   $data["lastname"] = $row['lastname'];
-  $data["prifix_name"] = $row['prifix_name'];
+  $data["prifix_name"] = $row['prefix_name'];
   $data["belong_to"] = $row['belong_to'];
   $data["district"] = $row['district'];
   $data["province"] = $row['province'];
   $data["school_size"] = $row['school_size'];
   $data["head"] = $row['head'];
   $data["admin_level"] = $row['admin_level'];
-  $data["name"] = $row['name'];
+  $data["web"] = $row['web'];
+  $data["google_account"] = $row['google_account'];
+  $data["google_password"] = $row['google_password'];
+  $data["google_classroom_code"] = $row['google_classroom_code'];
+  $data["google_domain"] = $row['google_domain'];
 
-  if ( $row['admin_level']==140 ) {
-    $datas140[] = $data;
-  } else if( $row['admin_level']==150 ) {
-    $datas150[] = $data;
-  }
+  $datas200[] = $data;
 
 }
-$result['data140'] = $datas140;
-$result['data150'] = $datas150;
-$result['total'] = count($datas150) + count($datas140);
+$result['data200'] = $datas200;
+$result['total'] = count($datas200);
 
 
 // close mysqli connection

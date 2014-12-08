@@ -480,7 +480,7 @@ code by siwawes wongcharoen
 
         <script>
           <?php
-          $sql = "SELECT * FROM user where admin_level=140";
+          $sql = "SELECT * FROM user where admin_level=140 or admin_level=150";
           $result = mysqli_query($con, $sql);
           $users = array();
           while($row = mysqli_fetch_array($result)) {

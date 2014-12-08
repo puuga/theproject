@@ -32,6 +32,10 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo String::system_sign_in ?></button>
       </form>
 
+      <div class="starter-template">
+        <a href="forget_email.php">ลืม Email</a>
+      </div>
+
     </div> <!-- /container -->
 
   </body>
