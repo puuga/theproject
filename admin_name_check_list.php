@@ -27,7 +27,8 @@ needAdminLevel(0);
   $course_id = $_GET["course_id"];
   $sql = "SELECT *
   FROM user
-  WHERE course_id =$course_id";
+  WHERE course_id =$course_id
+  order by province,district";
   $result = mysqli_query($con, $sql);
   while($row = mysqli_fetch_array($result)) {
     $data = Array();
@@ -133,7 +134,6 @@ needAdminLevel(0);
               <th>สังกัด</th>
               <th>อำเภอ</th>
               <th>จังหวัด</th>
-              <th>จำนวนคืนที่พัก</th>
               <?php for ($i=1; $i<=$course_data["num_date"]; $i++) { ?>
                 <th><?php echo $i; ?></th>
               <?php } ?>
@@ -152,7 +152,6 @@ needAdminLevel(0);
                 <td><?php echo $data["head"]; ?></td>
                 <td><?php echo $data["district"]; ?></td>
                 <td><?php echo $data["province"]; ?></td>
-                <td><?php echo $data["night"]; ?></td>
                 <?php for ($i=1; $i<=$course_data["num_date"]; $i++) { ?>
                   <td>
                     <input type="checkbox"
