@@ -40,6 +40,7 @@ while($row = mysqli_fetch_array($sqlresult)) {
   $data["head"] = $row['head'];
   $data["admin_level"] = $row['admin_level'];
   $data["name"] = $row['name'];
+  $data["network_number"] = $row['network_number'];
 
   if ( $row['admin_level']==140 ) {
     $datas140[] = $data;

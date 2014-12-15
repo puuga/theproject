@@ -33,7 +33,8 @@
       </form>
 
       <div class="starter-template">
-        <a href="forget_email.php">ลืม Email</a>
+        <a href="forget_email.php">ลืม Email</a><br/>
+        ในกรณีที่ท่านไม่สามารภเข้าสู่ระบบ หรือจำ Email ที่ท่านใช้ลงทะเบียนไม่ได้
       </div>
 
     </div> <!-- /container -->

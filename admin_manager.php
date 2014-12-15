@@ -51,7 +51,7 @@
       }
 
       //read mentors and clients
-      $sql = "SELECT * FROM user_with_lower_view order by firstname";
+      $sql = "SELECT * FROM user_with_lower_view where admin_level=150 order by firstname";
       $result = mysqli_query($con, $sql);
 
       $mentors = array();
@@ -86,7 +86,7 @@
       }
 
       //read mentors has 0 client
-      $sql = "SELECT * FROM user_with_out_lower_view order by firstname";
+      $sql = "SELECT * FROM user_with_out_lower_view where admin_level=150 order by firstname";
       $result = mysqli_query($con, $sql);
 
       while($row = mysqli_fetch_array($result)) {

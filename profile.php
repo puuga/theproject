@@ -100,6 +100,16 @@
       }
       //print_r($user_transport);
 
+      $current_course_id = $user_data["course_id"];
+      $sql = "SELECT * FROM course where auto_id=$current_course_id";
+      $result = mysqli_query($con, $sql);
+      if ( mysqli_num_rows($result)==0 ) {
+        $course_data["is_activate"] = 1;
+      }
+      while($row = mysqli_fetch_array($result)) {
+        $course_data["is_activate"] = $row['is_activate'];
+      }
+
     ?>
 
     <div class="jumbotron">
@@ -109,6 +119,7 @@
           <div class="col-md-9">
             <h1><?php echo String::profile; ?></h1>
           </div>
+          <?php if ( $course_data["is_activate"]==1 ) { ?>
           <div class="col-md-3"><br/>
             <p class="text-right">
               <a href="booking.php" class="btn btn-primary btn-lg">
@@ -116,6 +127,7 @@
               </a>
             </p>
           </div>
+          <?php } ?>
         </div>
       </div>
     </div>
@@ -194,10 +206,12 @@
         <div class="col-md-9">
           <p>
             <?php echo $user_data["firstname"]; ?> <?php echo $user_data["lastname"]; ?><br/>
+            <?php if ( $course_data["is_activate"]==1 ) { ?>
             <a href="javascript:editUserFirstname('<?php echo $user_data["firstname"]; ?>')"
               class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขชื่อ</a>
             <a href="javascript:editUserLastname('<?php echo $user_data["lastname"]; ?>')"
               class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขนามสกุล</a>
+            <?php } ?>
           </p>
         </div>
       </div>
@@ -451,8 +465,10 @@
         <div class="col-md-9">
           <p>
             <?php echo $user_data["title"]; ?><br/>
+            <?php if ( $course_data["is_activate"]==1 ) { ?>
             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal_edit_title">
               <span class="glyphicon glyphicon-edit"></span> แก้ไขตำแหน่ง</button>
+            <?php } ?>
           </p>
         </div>
       </div>
@@ -464,8 +480,10 @@
         <div class="col-md-9">
           <p>
             <?php echo $user_data["belong_to"]; ?><br/>
+            <?php if ( $course_data["is_activate"]==1 ) { ?>
             <a href="javascript:editUserBelongTo('<?php echo $user_data["belong_to"]; ?>')"
               class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขสังกัด</a>
+            <?php } ?>
           </p>
         </div>
       </div>
@@ -477,8 +495,10 @@
         <div class="col-md-9">
           <p>
             <?php echo $user_data["province"]; ?><br/>
+            <?php if ( $course_data["is_activate"]==1 ) { ?>
             <a href="javascript:editUserProvince('<?php echo $user_data["province"]; ?>')"
               class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขจังหวัด</a>
+            <?php } ?>
           </p>
         </div>
       </div>
@@ -490,8 +510,10 @@
         <div class="col-md-9">
           <p>
             <?php echo $user_data["district"]; ?><br/>
+            <?php if ( $course_data["is_activate"]==1 ) { ?>
             <a href="javascript:editUserDistrict('<?php echo $user_data["district"]; ?>')"
               class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขอำเภอ</a>
+            <?php } ?>
           </p>
         </div>
       </div>
@@ -503,8 +525,10 @@
         <div class="col-md-9">
           <p>
             <?php echo $user_data["school_size"]; ?><br/>
+            <?php if ( $course_data["is_activate"]==1 ) { ?>
             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal_edit_school_size">
               <span class="glyphicon glyphicon-edit"></span> แก้ไขขนาดโรงเรียน</button>
+            <?php } ?>
           </p>
         </div>
       </div>
@@ -516,8 +540,10 @@
         <div class="col-md-9">
           <p>
             <?php echo $user_data["head"]; ?><br/>
+            <?php if ( $course_data["is_activate"]==1 ) { ?>
             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal_edit_head">
               <span class="glyphicon glyphicon-edit"></span> แก้ไขสำนักงานเขตพื้นที่การศึกษา</button>
+            <?php } ?>
           </p>
         </div>
       </div>
@@ -529,8 +555,10 @@
         <div class="col-md-9">
           <p>
             <?php echo $user_data["night"]; ?> คืน<br/>
+            <?php if ( $course_data["is_activate"]==1 ) { ?>
             <a href="javascript:editUserNight('<?php echo $user_data["night"]; ?>')"
               class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขจำนวนคืนที่พัก</a>
+            <?php } ?>
           </p>
         </div>
       </div>
@@ -538,15 +566,15 @@
       <div class="row">
         <div class="col-md-3">
           <p class="text-right"><strong>เบอร์โทรศัพท์</strong></p>
-          </div>
-          <div class="col-md-9">
-            <p>
-              <?php echo $user_data["tel"]; ?> <br/>
-              <a href="javascript:editUserTel('<?php echo $user_data["tel"]; ?>')"
-                class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขเบอร์โทรศัพท์</a>
-              </p>
-            </div>
-          </div>
+        </div>
+        <div class="col-md-9">
+          <p>
+            <?php echo $user_data["tel"]; ?> <br/>
+            <a href="javascript:editUserTel('<?php echo $user_data["tel"]; ?>')"
+              class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขเบอร์โทรศัพท์</a>
+          </p>
+        </div>
+      </div>
 
       <div class="row">
         <div class="col-md-3">
@@ -556,9 +584,10 @@
           <p>
             <?php echo $user_transport["name"]; ?>
             <?php echo $user_transport["car_distance"]!="0"?"(".$user_transport["car_id"]." - ".$user_transport["car_distance"]." กิโลเมตร)":""; ?><br/>
-
+            <?php if ( $course_data["is_activate"]==1 ) { ?>
             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal_edit_transport">
               <span class="glyphicon glyphicon-edit"></span> แก้ไขวิธีการเดินทาง</button>
+            <?php } ?>
           </p>
         </div>
       </div>

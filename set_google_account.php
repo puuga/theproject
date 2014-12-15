@@ -6,7 +6,7 @@
   needAdminLevel(0);
 
   // read user -- edit
-  $sql = "SELECT auto_id FROM user WHERE admin_level=140 and (course_id=8 or course_id=9 or course_id=10)";
+  $sql = "SELECT auto_id FROM user WHERE admin_level=140 and (course_id=14 or course_id=15 or course_id=16)";
   $result = mysqli_query($con, $sql);
   while($row = mysqli_fetch_array($result)) {
     $user_ids[] = $row['auto_id'];

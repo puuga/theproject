@@ -121,20 +121,20 @@
             output += "<h2>ผู้อำนวยการโรงเรียน ("+data.data140.length+" ท่าน)</h2>";
             if ( data.data140.length!=0 ) {
               var datas = data.data140;
-              output += makeTable(datas);
+              output += makeTable(datas, false);
             }
 
             output += "<h2>ครูแกนนำ ("+data.data150.length+" ท่าน)</h2>";
             if ( data.data150.length!=0 ) {
               var datas = data.data150;
-              output += makeTable(datas);
+              output += makeTable(datas, true);
             }
 
             $("#data_result").html(output);
 
           }
 
-          function makeTable(datas) {
+          function makeTable(datas, isTeacher) {
             var output = "";
             output += "<table class=\"table table-striped table-hover\">";
             output += "<thead>";
@@ -147,7 +147,9 @@
             output += "<th>จังหวัด</th>";
             output += "<th>ขนาดโรงเรียน</th>";
             output += "<th>รุ่นอบรม</th>";
-            output += "<th>#</th>";
+            if (isTeacher) {
+              output += "<th>#</th>";
+            }
             output += "</tr>";
             output += "</thead>";
             output += "<tbody>";
@@ -161,7 +163,9 @@
               output += "<td>"+datas[i].province+"</td>";
               output += "<td>"+datas[i].school_size+"</td>";
               output += "<td>"+datas[i].name+"</td>";
-              output += "<td>"+"<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#network_detail\" data-whatever=\""+datas[i].user_id+"\" data-mentor=\""+datas[i].firstname+" "+datas[i].lastname+"\">รายชื่อครูเครือข่าย</button>"+"</td>";
+              if (isTeacher) {
+                output += "<td>"+"<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#network_detail\" data-whatever=\""+datas[i].user_id+"\" data-mentor=\""+datas[i].firstname+" "+datas[i].lastname+"\">รายชื่อครูเครือข่าย ("+datas[i].network_number+")</button>"+"</td>";
+              }
               output += "</tr>";
             }
             output += "</tbody>";
