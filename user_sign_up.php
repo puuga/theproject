@@ -466,7 +466,7 @@ code by siwawes wongcharoen
               <p class="help-block">พิมพ์ชื่อครูแกนนำ (ไม่ต้องพิมพคำนำหน้า) ระบบจะแสดงชื่อผู้นำที่ตรงกับอักษรที่ท่านพิมพ์</p>
               <datalist id="mentors">
                 <?php
-                  $sql_distance = "SELECT * FROM user where admin_level=140";
+                  $sql_distance = "SELECT * FROM user where admin_level=150";
                   $result = mysqli_query($con, $sql_distance);
                   $distances = array();
                   while($row = mysqli_fetch_array($result)) {
@@ -493,6 +493,8 @@ code by siwawes wongcharoen
 
           ?>
           var users = <?php echo json_encode($users); ?>;
+          console.log("users count="+users.length);
+          console.log(users);
           function setMentorId() {
             var user_full_name = $("#mentor").val();
             //alert(district);

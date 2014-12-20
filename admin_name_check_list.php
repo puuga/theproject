@@ -12,12 +12,6 @@ needAdminLevel(0);
 
   <?php include 'head_tag.php'; ?>
 
-  <style>
-  table, th, td {
-    border: 1px solid black;
-    padding: 3px;
-  }
-  </style>
 </head>
 
 <body>
@@ -76,6 +70,7 @@ needAdminLevel(0);
   $result = mysqli_query($con, $sql);
   while($row = mysqli_fetch_array($result)) {
     $course_data["num_date"] = $row['num_date'];
+    $end_date = new DateTime($row['end_date_date']);
   }
 
   $sql = "SELECT * FROM name_check where course_id=$course_id";
@@ -118,12 +113,19 @@ needAdminLevel(0);
         <p><strong>วันที่</strong>: <?php echo $course["start_date"]." - ".$course["end_date"] ?></p>
         <p><strong>สถานที่อบรม</strong>: <?php echo $course["location"] ?></p>
         <p><strong>สถานที่พัก</strong>: <?php echo $course["description"] ?></p>
+        <?php
+          $objDateNow = new DateTime('NOW');
+          $diff=$end_date->diff($objDateNow);
+        ?>
+        <p><?php print_r( $diff ); ?></p>
+        <p><strong>end_date</strong>: <?php echo $end_date->format('c') ?></p>
+        <p><strong>diff</strong>: <?php echo $diff->format('%R%d'); ?></p>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12">
-        <table>
+        <table class="table table-bordered table-striped table-hover">
           <thead>
             <tr>
               <th>คำนำหน้า</th>
@@ -134,9 +136,11 @@ needAdminLevel(0);
               <th>สังกัด</th>
               <th>อำเภอ</th>
               <th>จังหวัด</th>
+              <th>#</th>
               <?php for ($i=1; $i<=$course_data["num_date"]; $i++) { ?>
                 <th><?php echo $i; ?></th>
               <?php } ?>
+              <th>#</th>
             </tr>
           </thead>
           <tbody>
@@ -152,6 +156,7 @@ needAdminLevel(0);
                 <td><?php echo $data["head"]; ?></td>
                 <td><?php echo $data["district"]; ?></td>
                 <td><?php echo $data["province"]; ?></td>
+                <td><?php echo $data["auto_id"]; ?></td>
                 <?php for ($i=1; $i<=$course_data["num_date"]; $i++) { ?>
                   <td>
                     <input type="checkbox"
@@ -160,6 +165,11 @@ needAdminLevel(0);
                       <?php echo isNameCheck($name_check_data,$data["auto_id"],$course_id,$i)?"checked":"" ?> >
                   </td>
                 <?php } ?>
+                <td>
+                  <?php if ( $diff->format('%R%d') >= 1 ) { ?>
+                  <a href="javascript:setTo0(<?php echo $data["auto_id"]; ?>)" class="btn btn-danger" role="button">set</a>
+                  <?php } ?>
+                </td>
               </tr>
               <?php
             }
@@ -168,6 +178,34 @@ needAdminLevel(0);
         </table>
 
         <script>
+          function setTo0(id) {
+            //alert(id);
+            var secret = prompt("enter secret", "");
+
+            if ( secret == id ) {
+              //alert(id);
+              //admin_name_check_list_set0_do.php
+              $.ajax({
+                type: "POST",
+                url: "admin_name_check_list_set0_do.php",
+                dataType: 'json',
+                data: {
+                  user_id: id },
+                  success: function(data) {
+                    if (!data.success) { //If fails
+                      alert("error");
+                      console.log(data);
+                    } else {
+                      // alert("#success");
+                      // location.reload();
+                      console.log(data);
+                      alert("set 0: ok");
+                    }
+                  }
+                });
+            }
+          }
+
           function checkname(chkBox) {
             // alert(chkBox.value +" "+ chkBox.checked);
             var temp = chkBox.value.split("_");

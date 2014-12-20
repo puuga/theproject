@@ -92,6 +92,104 @@
 
     <div class="container">
 
+      <hr/>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 alert alert-info" role="alert">
+          <p>เว็บไซต์ผลงาน (Google Site) ที่ท่านสร้าง</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong>เว็บไซต์ผลงาน (Google Site)</strong></p>
+        </div>
+        <div class="col-md-9">
+          <a href="<?php echo UrlHelper::makeURL($user_data["web"]); ?>"><?php echo UrlHelper::makeURL($user_data["web"]); ?></a>
+          <p>
+            <a href="javascript:editUserWeb('<?php echo UrlHelper::makeURL($user_data["web"]); ?>')"
+              class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไข <?php echo String::person_web ?></a>
+          </p>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 alert alert-info" role="alert">
+          <p>
+            ในกรณีที่โรงเรียนของท่านได้ใช้งาน Google App for Education ขอให้ท่านใส่ข้อมูลที่ท่านสร้างไว้
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong>Google domain</strong></p>
+        </div>
+        <div class="col-md-9">
+          <p>
+            <?php echo $user_data["google_domain"]; ?> <br/>
+            <a href="javascript:editUserGDomain('<?php echo $user_data["google_domain"]; ?>')"
+              class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไข Google domain</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong>Google account</strong></p>
+        </div>
+        <div class="col-md-9">
+          <p>
+            <?php echo $user_data["google_account"]; ?> <br/>
+            <a href="javascript:editUserGAccount('<?php echo $user_data["google_account"]; ?>')"
+              class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไข Google account</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong>Google password</strong></p>
+        </div>
+        <div class="col-md-9">
+          <p>
+            <?php echo $user_data["google_password"]; ?> <br/>
+            <a href="javascript:editUserGPassword('<?php echo $user_data["google_password"]; ?>')"
+              class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไข Google password</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong>Classroom code</strong></p>
+        </div>
+        <div class="col-md-9">
+          <p>
+            <?php echo $user_data["google_classroom_code"]; ?> <br/>
+            <a href="javascript:editUserGClassroomCode('<?php echo $user_data["google_classroom_code"]; ?>')"
+              class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไข Classroom code</a>
+          </p>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong><?php echo String::person_mentor ?></strong></p>
+        </div>
+        <div class="col-md-9">
+          <?php echo $user_data["upper_firstname"]; ?> <?php echo $user_data["upper_lastname"]; ?>
+        </div>
+      </div>
+
+      <hr/>
+
       <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8 alert alert-danger" role="alert">
@@ -433,101 +531,7 @@
         </div>
       </div>
 
-      <hr/>
 
-      <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8 alert alert-info" role="alert">
-          <p>เว็บไซต์ผลงาน (Google Site) ที่ท่านสร้าง</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-3">
-          <p class="text-right"><strong>เว็บไซต์ผลงาน (Google Site)</strong></p>
-        </div>
-        <div class="col-md-9">
-          <a href="<?php echo UrlHelper::makeURL($user_data["web"]); ?>"><?php echo UrlHelper::makeURL($user_data["web"]); ?></a>
-          <p>
-            <a href="javascript:editUserWeb('<?php echo UrlHelper::makeURL($user_data["web"]); ?>')"
-              class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไข <?php echo String::person_web ?></a>
-          </p>
-        </div>
-      </div>
-
-      <hr/>
-
-      <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8 alert alert-info" role="alert">
-          <p>
-            ในกรณีที่โรงเรียนของท่านได้ใช้งาน Google App for Education ขอให้ท่านใส่ข้อมูลที่ท่านสร้างไว้
-          </p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-3">
-          <p class="text-right"><strong>Google domain</strong></p>
-        </div>
-        <div class="col-md-9">
-          <p>
-            <?php echo $user_data["google_domain"]; ?> <br/>
-            <a href="javascript:editUserGDomain('<?php echo $user_data["google_domain"]; ?>')"
-              class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไข Google domain</a>
-            </p>
-          </div>
-        </div>
-
-      <div class="row">
-        <div class="col-md-3">
-          <p class="text-right"><strong>Google account</strong></p>
-        </div>
-        <div class="col-md-9">
-          <p>
-            <?php echo $user_data["google_account"]; ?> <br/>
-            <a href="javascript:editUserGAccount('<?php echo $user_data["google_account"]; ?>')"
-              class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไข Google account</a>
-          </p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-3">
-          <p class="text-right"><strong>Google password</strong></p>
-        </div>
-        <div class="col-md-9">
-          <p>
-            <?php echo $user_data["google_password"]; ?> <br/>
-            <a href="javascript:editUserGPassword('<?php echo $user_data["google_password"]; ?>')"
-              class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไข Google password</a>
-          </p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-3">
-          <p class="text-right"><strong>Classroom code</strong></p>
-        </div>
-        <div class="col-md-9">
-          <p>
-            <?php echo $user_data["google_classroom_code"]; ?> <br/>
-            <a href="javascript:editUserGClassroomCode('<?php echo $user_data["google_classroom_code"]; ?>')"
-              class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไข Classroom code</a>
-            </p>
-          </div>
-        </div>
-
-      <hr/>
-
-      <div class="row">
-        <div class="col-md-3">
-          <p class="text-right"><strong><?php echo String::person_mentor ?></strong></p>
-        </div>
-        <div class="col-md-9">
-          <?php echo $user_data["upper_firstname"]; ?> <?php echo $user_data["upper_lastname"]; ?>
-        </div>
-      </div>
 
 
     </div>
