@@ -428,6 +428,8 @@
               สำหรับศึกษานิเทศก์</a>
             <a class="list-group-item" href="<?php echo String::schedule_level_4; ?>">
               สำหรับผู้อำนวยการโรงเรียน</a>
+            <a class="list-group-item" href="<?php echo String::schedule_level_4_16_17; ?>">
+              สำหรับผู้อำนวยการโรงเรียน รุ่นที่ 16-17</a>
             <a class="list-group-item" href="<?php echo String::schedule_level_5; ?>">
               สำหรับครูแกนนำ</a>
           </div>
