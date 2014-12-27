@@ -50,54 +50,104 @@
         return $count;
       }
 
-      //read mentors and clients
-      $sql = "SELECT * FROM user_with_lower_view where admin_level=150 order by firstname";
-      $result = mysqli_query($con, $sql);
+      // //read mentors and clients
+      // $sql = "SELECT * FROM user_with_lower_view where admin_level=150 order by firstname";
+      // $result = mysqli_query($con, $sql);
+      //
+      // $mentors = array();
+      // while($row = mysqli_fetch_array($result)) {
+      //   $index = findMentorInArray($mentors,$row["auto_id"]);
+      //   if ( $index == -1 ) {
+      //     $mentor = new Mentor;
+      //     $mentor->auto_id = $row["auto_id"];
+      //     $mentor->firstname = $row["firstname"];
+      //     $mentor->lastname = $row["lastname"];
+      //     $mentor->person_id = $row["upper_person_id"];
+      //
+      //     $client = new Client;
+      //     $client->firstname = $row["lower_firstname"];
+      //     $client->lastname = $row["lower_lastname"];
+      //     $client->web = $row["lower_web"];
+      //
+      //     $mentor->clients[] = $client;
+      //
+      //     $mentors[] = $mentor;
+      //   } else {
+      //
+      //     $client = new Client;
+      //     $client->firstname = $row["lower_firstname"];
+      //     $client->lastname = $row["lower_lastname"];
+      //     $client->web = $row["lower_web"];
+      //
+      //     $mentors[$index]->clients[] = $client;
+      //
+      //   }
+      //
+      // }
+      //
+      // //read mentors has 0 client
+      // $sql = "SELECT * FROM user_with_out_lower_view where admin_level=150 order by firstname";
+      // $result = mysqli_query($con, $sql);
+      //
+      // while($row = mysqli_fetch_array($result)) {
+      //   $mentor = new Mentor;
+      //   $mentor->auto_id = $row["auto_id"];
+      //   $mentor->firstname = $row["firstname"];
+      //   $mentor->lastname = $row["lastname"];
+      //   $mentor->person_id = $row["upper_person_id"];
+      //
+      //   $mentors[] = $mentor;
+      //
+      // }
 
+      // make mentor
+      $sql = "select
+        auto_id AS mentor_id,
+        firstname AS firstname,
+        lastname AS lastname,
+        admin_level AS admin_level,
+        email AS email,
+        person_id AS person_id
+        from user
+        where admin_level = 150";
+      $result = mysqli_query($con, $sql);
       $mentors = array();
       while($row = mysqli_fetch_array($result)) {
-        $index = findMentorInArray($mentors,$row["auto_id"]);
-        if ( $index == -1 ) {
-          $mentor = new Mentor;
-          $mentor->auto_id = $row["auto_id"];
-          $mentor->firstname = $row["firstname"];
-          $mentor->lastname = $row["lastname"];
-          $mentor->person_id = $row["upper_person_id"];
-
-          $client = new Client;
-          $client->firstname = $row["lower_firstname"];
-          $client->lastname = $row["lower_lastname"];
-          $client->web = $row["lower_web"];
-
-          $mentor->clients[] = $client;
-
-          $mentors[] = $mentor;
-        } else {
-
-          $client = new Client;
-          $client->firstname = $row["lower_firstname"];
-          $client->lastname = $row["lower_lastname"];
-          $client->web = $row["lower_web"];
-
-          $mentors[$index]->clients[] = $client;
-
-        }
-
-      }
-
-      //read mentors has 0 client
-      $sql = "SELECT * FROM user_with_out_lower_view where admin_level=150 order by firstname";
-      $result = mysqli_query($con, $sql);
-
-      while($row = mysqli_fetch_array($result)) {
         $mentor = new Mentor;
-        $mentor->auto_id = $row["auto_id"];
+        $mentor->auto_id = $row["mentor_id"];
         $mentor->firstname = $row["firstname"];
         $mentor->lastname = $row["lastname"];
-        $mentor->person_id = $row["upper_person_id"];
+        $mentor->person_id = $row["person_id"];
 
         $mentors[] = $mentor;
+      }
 
+      // make client
+      $sql = "SELECT auto_id as client_id,
+        firstname,
+        lastname,
+        mentor_auto_id,
+        web,
+        google_account,
+        google_password,
+        google_classroom_code,
+        google_domain
+        from theproject.user_network;";
+      $result = mysqli_query($con, $sql);
+      while($row = mysqli_fetch_array($result)) {
+        $index = findMentorInArray($mentors,$row["mentor_auto_id"]);
+        if ( $index != -1 ) {
+          $client = new Client;
+          $client->firstname = $row["firstname"];
+          $client->lastname = $row["lastname"];
+          $client->web = $row["web"];
+          $client->googleAccount = $row["google_account"];
+          $client->googlePassword = $row["google_password"];
+          $client->googleClassroomCode = $row["google_classroom_code"];
+          $client->googleDomain = $row["google_domain"];
+
+          $mentors[$index]->clients[] = $client;
+        }
       }
     ?>
 

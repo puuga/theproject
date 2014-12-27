@@ -11,5 +11,9 @@
     public $firstname;
     public $lastname;
     public $web;
+    public $googleAccount;
+    public $googlePassword;
+    public $googleClassroomCode;
+    public $googleDomain;
   }
 ?>
