@@ -103,7 +103,7 @@
             <?php
               if ($current_user_email != "") {
                 if ($current_user_admin_level == 0) {
-                  echo '<li><a href="admin_manager.php"><span class="glyphicon glyphicon-wrench"></span> Admin Manager</a></li>';
+                  echo '<li><a href="admin_manager.php"><span class="glyphicon glyphicon-wrench"></span> ขยายผล</a></li>';
                 }
                 if ( $current_user_admin_level == 200) {
                   echo '<li><a href="profile_network.php"><span class="glyphicon glyphicon-list"></span> '.String::profile.'</a></li>';

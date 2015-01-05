@@ -19,6 +19,7 @@
   $admin_level = $_POST["admin_level"];
   $title = $_POST["title"];
   $belong_to = $_POST["belong_to"];
+  $group = $_POST["group"];
   $district = $_POST["district"];
   $province = $_POST["province"];
   $transport = $_POST["transport"];
@@ -65,8 +66,8 @@
   // echo $post_department."<br/>";
 
   if( $post_action=="add") {
-    $sql = "INSERT INTO user (person_id, firstname, lastname, email, password, upper_person_id, admin_level, prifix_name, title, belong_to, district, province, school_size, head, night, tel)
-      VALUES ('$person_id', '$firstname', '$lastname', '$email', '$password', '$upper_person_id', '$admin_level', '$prifix_name', '$title', '$belong_to', '$district', '$province', '$school_size', '$head', $night,'$tel')";
+    $sql = "INSERT INTO user (person_id, firstname, lastname, email, password, upper_person_id, admin_level, prifix_name, title, belong_to, group, district, province, school_size, head, night, tel)
+      VALUES ('$person_id', '$firstname', '$lastname', '$email', '$password', '$upper_person_id', '$admin_level', '$prifix_name', '$title', '$belong_to', '$group', '$district', '$province', '$school_size', '$head', $night,'$tel')";
   } else {
     $sql = "UPDATE user
       SET

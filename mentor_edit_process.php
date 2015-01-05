@@ -47,7 +47,7 @@
     $sql = "UPDATE transport SET transport_id = '$val', car_id = '', car_distance = '', cost2='$val2' WHERE user_id = $user_id;";
   }
   else {
-    $sql = "UPDATE user SET $key = '$val' WHERE auto_id = $user_id;";
+    $sql = "UPDATE user SET user.$key = '$val' WHERE auto_id = $user_id;";
   }
 
 
@@ -61,6 +61,7 @@
     }
   } else {
     $result['success'] = false;
+    $result['sql'] = $sql;
     $result['error'] = mysqli_error($con);
   }
 

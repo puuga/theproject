@@ -159,7 +159,7 @@
 
     <div class="jumbotron">
       <div class="container">
-        <h1>admin manager</h1>
+        <h1>การขยายผล</h1>
       </div>
     </div>
 
@@ -192,6 +192,7 @@
                 <h4 class="panel-title">
                   <a class="collapsed" data-toggle="collapse" data-parent="#data1Accordion" href="#data1Collapse<?php echo $mentors[$i]->auto_id; ?>" aria-expanded="false" aria-controls="data1Collapse<?php echo $mentors[$i]->auto_id; ?>">
                     <?php echo $mentors[$i]->firstname." ".$mentors[$i]->lastname ?>
+                    <span class="label label-success"><?php echo count($mentors[$i]->clients) ?></span>
                   </a>
                 </h4>
               </div>
