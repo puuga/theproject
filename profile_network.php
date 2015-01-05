@@ -33,6 +33,7 @@
         un.prefix_name,
         un.title,
         un.belong_to,
+        un.group,
         un.admin_level,
         un.district,
         un.province,
@@ -60,6 +61,7 @@
         $user_data["prifix_name"] = $row['prefix_name'];
         $user_data["title"] = $row['title'];
         $user_data["belong_to"] = $row['belong_to'];
+        $user_data["group"] = $row['group'];
         $user_data["admin_level"] = $row['admin_level'];
         $user_data["district"] = $row['district'];
         $user_data["province"] = $row['province'];
@@ -338,6 +340,15 @@
           editUserData("school_size",schoolSize);
         }
 
+        function editGroup() {
+          if ( $('#form_group_option input[type=radio]:checked').val()===undefined ) {
+            alert("กรุณาเลือกขนาดโรงเรียนท่ีท่านต้องการเปลี่ยน");
+            return;
+          }
+          var group = $('#form_group_option input[type=radio]:checked').val();
+          editUserData("group",group);
+        }
+
         function editHead() {
           var head = $('#head').val();
           if ( head===undefined ) {
@@ -462,6 +473,20 @@
             <?php echo $user_data["belong_to"]; ?><br/>
             <a href="javascript:editUserBelongTo('<?php echo $user_data["belong_to"]; ?>')"
               class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขสังกัด</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p class="text-right"><strong>กลุ่มสาระการเรียนรู้</strong></p>
+        </div>
+        <div class="col-md-9">
+          <p>
+            <?php echo $user_data["group"]; ?><br/>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal_edit_group">
+              <span class="glyphicon glyphicon-edit"></span> แก้ไขกลุ่มสาระการเรียนรู้
+            </button>
           </p>
         </div>
       </div>
@@ -609,6 +634,83 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
             <button type="button" class="btn btn-primary" onclick="editSchoolSize()">บันทึกการแก้ไข</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal_edit_group Small modal -->
+    <div id="modal_edit_group" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">แก้ไขกลุ่มสาระการเรียนรู้</h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <form id="form_group_option">
+                <strong>กลุ่มสาระการเรียนรู้ :</strong>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="group" value="-" required>
+                    เป็นผู้อำนวยการสำนักงานเขตการศึกษา, รองผู้อำนวยการสำนักงานเขตการศึกษา ,ศึกษานิเทศก์ หรือผู้อำนวยการโรงเรียน ให้เลือกตัวเลือกนี้
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="group" value="กลุ่มสาระการเรียนรู้วิทยาศาสตร์" >
+                    กลุ่มสาระการเรียนรู้วิทยาศาสตร์
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="group" value="กลุ่มสาระการเรียนรู้คณิตศาสตร์" >
+                    กลุ่มสาระการเรียนรู้คณิตศาสตร์
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="group" value="กลุ่มสาระการเรียนรู้ศิลปะ" >
+                    กลุ่มสาระการเรียนรู้ศิลปะ
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="group" value="กลุ่มสาระการเรียนรู้ภาษาไทย" >
+                    กลุ่มสาระการเรียนรู้ภาษาไทย
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="group" value="กลุ่มสาระการเรียนรู้ภาษาต่างประเทศ" >
+                    กลุ่มสาระการเรียนรู้ภาษาต่างประเทศ
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="group" value="กลุ่มสาระการเรียนรู้สังคมศึกษา ศาสนา และวัฒนธรรม" >
+                    กลุ่มสาระการเรียนรู้สังคมศึกษา ศาสนา และวัฒนธรรม
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="group" value="กลุ่มสาระการเรียนรู้การงานอาชีพและเทคโนโลยี" >
+                    กลุ่มสาระการเรียนรู้การงานอาชีพและเทคโนโลยี
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="group" value="กลุ่มสาระการเรียนรู้สุขศึกษาและพลศึกษา" >
+                    กลุ่มสาระการเรียนรู้สุขศึกษาและพลศึกษา
+                  </label>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+            <button type="button" class="btn btn-primary" onclick="editGroup()">บันทึกการแก้ไข</button>
           </div>
         </div>
       </div>

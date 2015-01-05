@@ -215,6 +215,66 @@ code by siwawes wongcharoen
 
         <div class="row">
           <div class="col-md-12">
+            <strong>กลุ่มสาระการเรียนรู้ :</strong>
+            <div class="radio">
+              <label>
+                <input type="radio" name="group" value="-" required>
+                เป็นผู้อำนวยการสำนักงานเขตการศึกษา, รองผู้อำนวยการสำนักงานเขตการศึกษา ,ศึกษานิเทศก์ หรือผู้อำนวยการโรงเรียน ให้เลือกตัวเลือกนี้
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="group" value="กลุ่มสาระการเรียนรู้วิทยาศาสตร์" >
+                กลุ่มสาระการเรียนรู้วิทยาศาสตร์
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="group" value="กลุ่มสาระการเรียนรู้คณิตศาสตร์" >
+                กลุ่มสาระการเรียนรู้คณิตศาสตร์
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="group" value="กลุ่มสาระการเรียนรู้ศิลปะ" >
+                กลุ่มสาระการเรียนรู้ศิลปะ
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="group" value="กลุ่มสาระการเรียนรู้ภาษาไทย" >
+                กลุ่มสาระการเรียนรู้ภาษาไทย
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="group" value="กลุ่มสาระการเรียนรู้ภาษาต่างประเทศ" >
+                กลุ่มสาระการเรียนรู้ภาษาต่างประเทศ
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="group" value="กลุ่มสาระการเรียนรู้สังคมศึกษา ศาสนา และวัฒนธรรม" >
+                กลุ่มสาระการเรียนรู้สังคมศึกษา ศาสนา และวัฒนธรรม
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="group" value="กลุ่มสาระการเรียนรู้การงานอาชีพและเทคโนโลยี" >
+                กลุ่มสาระการเรียนรู้การงานอาชีพและเทคโนโลยี
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="group" value="กลุ่มสาระการเรียนรู้สุขศึกษาและพลศึกษา" >
+                กลุ่มสาระการเรียนรู้สุขศึกษาและพลศึกษา
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
             <strong>ขนาดโรงเรียน :</strong>
             <div class="radio">
               <label>

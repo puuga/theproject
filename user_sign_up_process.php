@@ -18,6 +18,7 @@
   $admin_level = 200;
   $title = $_POST["title"];
   $belong_to = $_POST["belong_to"];
+  $group = $_POST["group"];
   $district = $_POST["district"];
   $province = $_POST["province"];
   $school_size = $_POST["school_size"];
@@ -37,6 +38,7 @@
     prefix_name,
     title,
     belong_to,
+    user_network.group,
     district,
     province,
     school_size,
@@ -51,6 +53,7 @@
     '$prifix_name',
     '$title',
     '$belong_to',
+    '$group',
     '$district',
     '$province',
     '$school_size',

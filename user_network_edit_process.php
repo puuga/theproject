@@ -32,7 +32,7 @@
     $sql = "UPDATE user_network SET $key = '$val', $key2 = '$val2' WHERE auto_id = $user_id;";
   }
   else {
-    $sql = "UPDATE user_network SET $key = '$val' WHERE auto_id = $user_id;";
+    $sql = "UPDATE user_network SET user_network.$key = '$val' WHERE auto_id = $user_id;";
   }
 
 

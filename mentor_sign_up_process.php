@@ -66,7 +66,7 @@
   // echo $post_department."<br/>";
 
   if( $post_action=="add") {
-    $sql = "INSERT INTO user (person_id, firstname, lastname, email, password, upper_person_id, admin_level, prifix_name, title, belong_to, group, district, province, school_size, head, night, tel)
+    $sql = "INSERT INTO user (person_id, firstname, lastname, email, password, upper_person_id, admin_level, prifix_name, title, belong_to, user.group, district, province, school_size, head, night, tel)
       VALUES ('$person_id', '$firstname', '$lastname', '$email', '$password', '$upper_person_id', '$admin_level', '$prifix_name', '$title', '$belong_to', '$group', '$district', '$province', '$school_size', '$head', $night,'$tel')";
   } else {
     $sql = "UPDATE user
