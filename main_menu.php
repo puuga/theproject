@@ -330,7 +330,7 @@
 
 
 
-
+          <!-- mentor -->
           <div>
             <?php
               if ( $current_user_admin_level>=1000 ) {
@@ -373,7 +373,7 @@
 
 
 
-
+          <!-- network -->
           <div>
             <?php
             if ( $current_user_admin_level>=1000 ) {
@@ -405,7 +405,47 @@
                 สำหรับครูเครือข่ายที่ลงทะเบียนแล้ว สามารถแก้ไขข้อมูล และส่งผลงานได้
                 <br/><a
                 class="btn btn-success btn-lg"
-                href="profile.php">
+                href="profile_network.php">
+                <span class="glyphicon glyphicon-list"></span> <?php echo String::profile ?></a>
+              </p>
+              <?php
+            }
+            ?>
+          </div>
+
+          <!-- network_mobile -->
+          <div>
+            <?php
+            if ( $current_user_admin_level>=1000 ) {
+              ?>
+              <div class="page-header">
+                <h2>ระบบลงทะเบียนครูเครือข่าย mobile</h2>
+              </div>
+              <p>
+                สำหรับครูเครือข่ายที่ยังไม่ได้ลงทะเบียน
+                <br/><a
+                class="btn btn-primary btn-lg"
+                href="user_network_mobile_sign_up.php">
+                <span class="glyphicon glyphicon-edit"></span> ลงทะเบียนครูเครือข่าย mobile</a>
+              </p>
+              <p>
+                สำหรับครูเครือข่ายที่ลงทะเบียนแล้ว สามารถเข้าสู่ระบบ<br/>เพื่อแก้ไขข้อมูล และส่งผลงานได้
+                <br/><a
+                class="btn btn-success btn-lg"
+                href="login.php">
+                <span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ</a>
+              </p>
+              <?php
+            } else if ( $current_user_admin_level==250 ) {
+              ?>
+              <div class="page-header">
+                <h2>ระบบลงทะเบียนครูเครือข่าย mobile</h2>
+              </div>
+              <p>
+                สำหรับครูเครือข่ายที่ลงทะเบียนแล้ว สามารถแก้ไขข้อมูล และส่งผลงานได้
+                <br/><a
+                class="btn btn-success btn-lg"
+                href="profile_network_mobile.php">
                 <span class="glyphicon glyphicon-list"></span> <?php echo String::profile ?></a>
               </p>
               <?php

@@ -20,8 +20,14 @@
     <?php include 'navbar.php'; ?>
 
     <?php
+      $course_id = $_GET["course_id"];
       // course
-      $sql = "SELECT * FROM course_count_view where auto_id=".$_GET["course_id"];
+      if ($course_id < 47) {
+        $sql = "SELECT * FROM course_count_view where auto_id=".$_GET["course_id"];
+      } else {
+        $sql = "SELECT * FROM course_mobile_count_view where auto_id=".$_GET["course_id"];
+      }
+      //$sql = "SELECT * FROM course_count_view where auto_id=".$_GET["course_id"];
       $result = mysqli_query($con, $sql);
 
       $courses = array();
@@ -71,7 +77,11 @@
             <tbody>
               <?php
                 // course
-                $sql = "SELECT * FROM user where course_id=".$_GET["course_id"];
+                if ($course_id < 47) {
+                  $sql = "SELECT * FROM user where course_id=".$_GET["course_id"];
+                } else {
+                  $sql = "SELECT * FROM user_network_mobile where course_id=".$_GET["course_id"];
+                }
                 $result = mysqli_query($con, $sql);
 
                 $courses = array();

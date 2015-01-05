@@ -4,6 +4,11 @@
 <?php include "class_import.php"; ?>
 <?php
   needAdminLevel(100);
+
+  $mode = $_GET["mode"];
+  if ($mode=="") {
+    $mode = "normal";
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,13 +25,14 @@
           type: "POST",
           url: "booking_do.php",
           dataType: 'json',
-          data: { user_id: "<?php echo $current_user_id ?>", course_id: courseID },
+          data: { user_id: "<?php echo $current_user_id ?>", course_id: courseID, mode:"<?php echo $mode ?>" },
           success: function(data) {
             if (!data.success) { //If fails
               if ( data.error=="course limit" ) {
                 alert("ขออภัย เนื่องจากระหว่างที่ท่านกำลังเลือกรุ่นอบรม ได้มีท่านอื่นๆเลือกรุ่นอบรมนี้จนเต็มแล้ว");
                 location.reload();
               } else {
+                console.log(data);
                 alert("error");
               }
             } else {
@@ -43,8 +49,13 @@
     <?php include 'navbar.php'; ?>
 
     <?php
+
       // course of current user
-      $sql = "SELECT * FROM user WHERE auto_id='$current_user_id'";
+      if ($mode=="mobile") {
+        $sql = "SELECT * FROM user_network_mobile WHERE id='$current_user_id'";
+      } else {
+        $sql = "SELECT * FROM user WHERE auto_id='$current_user_id'";
+      }
       $result = mysqli_query($con, $sql);
 
       while($row = mysqli_fetch_array($result)) {
@@ -54,7 +65,11 @@
 
 
       // course
-      $sql = "SELECT * FROM course_count_view";
+      if ($mode=="mobile") {
+        $sql = "SELECT * FROM course_mobile_count_view";
+      } else {
+        $sql = "SELECT * FROM course_count_view";
+      }
       $result = mysqli_query($con, $sql);
 
       $courses = array();
@@ -325,6 +340,34 @@
       </div>
       <?php
         }
+      ?>
+
+      <?php
+      if ( $current_user_admin_level == 250 || $current_user_admin_level==0 ) {
+        ?>
+        <!-- สำหรับครูขยายผล -->
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr class="info">
+                  <?php printTableHeader(); ?>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                foreach ( $courses as $course ) {
+                  if ( $course["level"] == 250 ) {
+                    printTableData($user, $course, $current_user_admin_level, userInInactivateCourse($user, $courses));
+                  }
+                }
+                ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <?php
+      }
       ?>
 
 

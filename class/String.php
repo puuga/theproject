@@ -47,6 +47,7 @@
       const schedule_level_date_3 = "https://drive.google.com/open?id=1WAU_6g6lD5NxESZCpy5yDWXgewcxK-vGS92_keKRGgw&authuser=0";
       const schedule_level_date_4 = "https://drive.google.com/open?id=1FAQQVQbradkS4L6h0kGjiKyOT50JAgN5-0zLKQSdWjY&authuser=0";
       const schedule_level_date_5 = "https://drive.google.com/open?id=1Ajmi99s1EYxSa_0gUzIzX_MrntEK6zZAu95E-TsyJO0&authuser=0";
+      const extend_network_mobile = "ขยายผลเครือข่าย Mobile";
 
   }
 ?>
