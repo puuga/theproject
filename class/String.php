@@ -10,7 +10,7 @@
       const system_schedule_date = "กำหนดการอบรม";
       const system_paper_test = "แบบสดสอบ";
       const system_questionnaire = "แบบสอบถามประเมินโครงการ";
-      const system_register = "ลงทะเบียน";
+      const system_register = "ลงทะเบียนเข้าอบรม";
       const system_sign_in = "เข้าสู่ระบบ";
       const system_sign_out = "ออกจากระบบ";
       const system_sign_up = "ลงทะเบียน";
@@ -48,6 +48,8 @@
       const schedule_level_date_4 = "https://drive.google.com/open?id=1FAQQVQbradkS4L6h0kGjiKyOT50JAgN5-0zLKQSdWjY&authuser=0";
       const schedule_level_date_5 = "https://drive.google.com/open?id=1Ajmi99s1EYxSa_0gUzIzX_MrntEK6zZAu95E-TsyJO0&authuser=0";
       const extend_network_mobile = "ขยายผลเครือข่าย Mobile";
+      const manual_mobile = "https://drive.google.com/open?id=1ZJMxVlTOLVHH5LN16xhg52_LBcJlaXrPWL7mjMrt8MA&authuser=0";
+      const manual_mobile_text = "คู่มือการลงทะเบียนครูเครือข่าย mobile";
 
   }
 ?>

@@ -66,30 +66,172 @@
         <center><h1><?php echo String::system_title_full ?></h1></center>
       </div>
     </div>
-<br>
+
+    <br>
+
     <div class="container">
 
+      <div class="row">
 
+        <!-- mentor -->
+        <?php
+        if ( $current_user_admin_level>=1000 ) {
+          ?>
+          <div class="col-md-4">
+            <div class="alert alert-info" role="alert">
+              <h1>ระบบ<?php echo String::system_register ?></h1>
+              <p>
+                สำหรับผู้ที่ยังไม่ได้ลงทะเบียน
+                <br/><a
+                class="btn btn-primary btn-lg"
+                href="mentor_sign_up.php">
+                <span class="glyphicon glyphicon-edit"></span> ลงทะเบียนเข้าอบรม</a>
+              </p>
+              <p>
+                สำหรับผู้ที่ลงทะเบียนแล้ว สามารถเข้าสู่ระบบ<br/>เพื่อจองและตรวจสอบรอบการอบรมได้
+                <br/><a
+                class="btn btn-success btn-lg"
+                href="login.php">
+                <span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ</a>
+              </p>
+            </div>
+          </div>
+          <?php
+        } else if ( $current_user_admin_level<200 ){
+          ?>
+          <div class="col-md-12">
+            <div class="alert alert-info" role="alert">
+              <h1>ระบบ<?php echo String::system_register ?></h1>
+              <p>
+                สำหรับผู้ที่ลงทะเบียนแล้ว สามารถจองและตรวจสอบรอบการอบรมได้
+                <br/><a
+                class="btn btn-success btn-lg"
+                href="profile.php">
+                <span class="glyphicon glyphicon-list"></span> <?php echo String::profile ?></a>
+              </p>
+            </div>
+          </div>
+          <?php
+        }
+        ?>
+
+        <!-- network -->
+        <?php
+        if ( $current_user_admin_level>=1000 ) {
+          ?>
+          <div class="col-md-4">
+            <div class="alert alert-info" role="alert">
+              <h1>ระบบลงทะเบียนครูเครือข่าย</h1>
+              <p>
+                สำหรับครูเครือข่ายที่ยังไม่ได้ลงทะเบียน
+                <br/><a
+                class="btn btn-primary btn-lg"
+                href="user_sign_up.php">
+                <span class="glyphicon glyphicon-edit"></span> ลงทะเบียนครูเครือข่าย</a>
+              </p>
+              <p>
+                สำหรับครูเครือข่ายที่ลงทะเบียนแล้ว สามารถเข้าสู่ระบบ<br/>เพื่อแก้ไขข้อมูล และส่งผลงานได้
+                <br/><a
+                class="btn btn-success btn-lg"
+                href="login.php">
+                <span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ</a>
+              </p>
+            </div>
+          </div>
+          <?php
+        } else if ( $current_user_admin_level==200 ) {
+          ?>
+          <div class="col-md-12">
+            <div class="alert alert-info" role="alert">
+              <h1>ระบบลงทะเบียนครูเครือข่าย</h1>
+              <p>
+                สำหรับครูเครือข่ายที่ลงทะเบียนแล้ว สามารถแก้ไขข้อมูล และส่งผลงานได้
+                <br/><a
+                class="btn btn-success btn-lg"
+                href="profile_network.php">
+                <span class="glyphicon glyphicon-list"></span> <?php echo String::profile ?></a>
+              </p>
+            </div>
+          </div>
+          <?php
+        }
+        ?>
+
+        <!-- network_mobile -->
+        <?php
+        if ( $current_user_admin_level>=1000 ) {
+          ?>
+          <div class="col-md-4">
+            <div class="alert alert-info" role="alert">
+              <h1>ระบบลงทะเบียนครูเครือข่าย mobile</h1>
+              <p>
+                สำหรับครูเครือข่ายที่ยังไม่ได้ลงทะเบียน
+                <br/><a
+                class="btn btn-primary btn-lg"
+                href="user_network_mobile_sign_up.php">
+                <span class="glyphicon glyphicon-edit"></span> ลงทะเบียนครูเครือข่าย mobile</a>
+              </p>
+              <p>
+                สำหรับครูเครือข่ายที่ลงทะเบียนแล้ว สามารถเข้าสู่ระบบ<br/>เพื่อแก้ไขข้อมูล และส่งผลงานได้
+                <br/><a
+                class="btn btn-success btn-lg"
+                href="login.php">
+                <span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ</a>
+              </p>
+            </div>
+          </div>
+          <?php
+        } else if ( $current_user_admin_level==250 ) {
+          ?>
+          <div class="col-md-12">
+            <div class="alert alert-info" role="alert">
+              <h1>ระบบลงทะเบียนครูเครือข่าย mobile</h1>
+              <p>
+                สำหรับครูเครือข่ายที่ลงทะเบียนแล้ว สามารถแก้ไขข้อมูล และส่งผลงานได้
+                <br/><a
+                class="btn btn-success btn-lg"
+                href="profile_network_mobile.php">
+                <span class="glyphicon glyphicon-list"></span> <?php echo String::profile ?></a>
+              </p>
+            </div>
+          </div>
+          <?php
+        }
+        ?>
+
+      </div>
 
 
       <div class="row">
         <div class="col-md-8">
 
           <div class="row">
-            <div class="col-md-12 alert alert-success" role="alert">
+            <div class="col-md-12 alert alert-danger" role="alert">
               <div class="page-header">
-                <h1>ถ่ายทอดสดพิธีเปิด!!!</h1>
+                <h1>ประกาศ ขณะนี้ท่านสามารถลงทะเบียนครูเครือข่าย mobile สำหรับอบรมครูขยายผล 8 จังหวัดภาคเหนือตอนล่าง
+                  (พิษณุโลก , อุตรดิตถ์ , เพชรบูรณ์ , พิจิตร , นครสวรรค์ , กำแพงเพชร , สุโขทัย , ตาก) ได้แล้ว
+                </h1>
               </div>
               <div>
-                <a href="http://www.sci.nu.ac.th/edunulive/">
-                  ท่านสามารถชมการถ่ายทอดสดพิธีเปิดได้ที่นี่
+                ขณะนี้ท่านสามารถลงทะเบียนครูเครือข่าย mobile สำหรับอบรมครูขยายผล 8 จังหวัดภาคเหนือตอนล่าง
+                (พิษณุโลก , อุตรดิตถ์ , เพชรบูรณ์ , พิจิตร , นครสวรรค์ , กำแพงเพชร , สุโขทัย , ตาก) ได้แล้ว<br/>
+                <br/>
+                สำหรับครูที่เข้ารับการอบรม <br/>
+                1.กรุณานำคอมพิวเตอร์โน๊ตบุคส่วนตัว และอุปกรณ์พวกต่อ ของท่านมาใช้ในการอบรม <br/>
+                2.เตรียมไฟล์เอกสารเกี่ยวกับการสอน เช่น ตารางสอน ใบงาน แผนการจัดการเรียนรู้ ฯลฯ<br/>
+                <br/>
+                หมายเหตุ เปิดระบบลงทะเบียนเฉพาะจังหวัด พิษณุโลก และ อุตรดิตถ์ ก่อนเท่านั้น<br/>
+                <br/>
+                <a href="<?php echo String::manual_mobile ?>" class="alert-link" target="_blank">
+                  <?php echo String::manual_mobile_text ?>
                 </a>
+
               </div>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-md-12 alert alert-danger" role="alert">
+            <div class="col-md-12 alert alert-warning" role="alert">
               <div class="page-header">
                 <h1>ขอความร่วมมือตรวจสอบข้อมูลก่อนวันเดินทางเข้าอบรม</h1>
               </div>
@@ -102,7 +244,7 @@
           </div>
 
           <div class="row">
-            <div class="col-md-12 alert alert-danger" role="alert">
+            <div class="col-md-12 alert alert-warning" role="alert">
               <div class="page-header">
                 <h1>ประกาศ สำหรับผู้อำนวยการโรงเรียน และครูแกนนำ</h1>
               </div>
@@ -194,7 +336,7 @@
                   <li>055-964169</li>
                   <li>055-964170</li>
                 </ul>
-                สำหรับปัญหาเกี่ยวกับการลงทะเบียน สอบถามเพิ่มเติมได้ที่ 084-048-0947, 082-980-0666
+                สำหรับปัญหาเกี่ยวกับการลงทะเบียน สอบถามเพิ่มเติมได้ที่ 084-048-0947, 082-980-0666, nu.edu.it@gmail.com
               </div>
             </div>
           </div>
@@ -327,134 +469,6 @@
 
         <div class="col-md-4">
 
-
-
-
-          <!-- mentor -->
-          <div>
-            <?php
-              if ( $current_user_admin_level>=1000 ) {
-            ?>
-            <div class="page-header">
-              <h1>ระบบ<?php echo String::system_register ?></h1>
-            </div>
-            <p>
-              สำหรับผู้ที่ยังไม่ได้ลงทะเบียน
-              <br/><a
-                class="btn btn-primary btn-lg"
-                href="mentor_sign_up.php">
-                <span class="glyphicon glyphicon-edit"></span> ลงทะเบียนเข้าอบรม</a>
-            </p>
-            <p>
-              สำหรับผู้ที่ลงทะเบียนแล้ว สามารถเข้าสู่ระบบ<br/>เพื่อจองและตรวจสอบรอบการอบรมได้
-              <br/><a
-                class="btn btn-success btn-lg"
-                href="login.php">
-                <span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ</a>
-            </p>
-            <?php
-              } else if ( $current_user_admin_level<200 ){
-            ?>
-            <div class="page-header">
-              <h1>ระบบ<?php echo String::system_register ?></h1>
-            </div>
-            <p>
-              สำหรับผู้ที่ลงทะเบียนแล้ว สามารถจองและตรวจสอบรอบการอบรมได้
-              <br/><a
-                class="btn btn-success btn-lg"
-                href="profile.php">
-                <span class="glyphicon glyphicon-list"></span> <?php echo String::profile ?></a>
-            </p>
-            <?php
-              }
-            ?>
-          </div>
-
-
-
-
-          <!-- network -->
-          <div>
-            <?php
-            if ( $current_user_admin_level>=1000 ) {
-              ?>
-              <div class="page-header">
-                <h2>ระบบลงทะเบียนครูเครือข่าย</h2>
-              </div>
-              <p>
-                สำหรับครูเครือข่ายที่ยังไม่ได้ลงทะเบียน
-                <br/><a
-                class="btn btn-primary btn-lg"
-                href="user_sign_up.php">
-                <span class="glyphicon glyphicon-edit"></span> ลงทะเบียนครูเครือข่าย</a>
-              </p>
-              <p>
-                สำหรับครูเครือข่ายที่ลงทะเบียนแล้ว สามารถเข้าสู่ระบบ<br/>เพื่อแก้ไขข้อมูล และส่งผลงานได้
-                <br/><a
-                class="btn btn-success btn-lg"
-                href="login.php">
-                <span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ</a>
-              </p>
-              <?php
-                } else if ( $current_user_admin_level==200 ) {
-              ?>
-              <div class="page-header">
-                <h2>ระบบลงทะเบียนครูเครือข่าย</h2>
-              </div>
-              <p>
-                สำหรับครูเครือข่ายที่ลงทะเบียนแล้ว สามารถแก้ไขข้อมูล และส่งผลงานได้
-                <br/><a
-                class="btn btn-success btn-lg"
-                href="profile_network.php">
-                <span class="glyphicon glyphicon-list"></span> <?php echo String::profile ?></a>
-              </p>
-              <?php
-            }
-            ?>
-          </div>
-
-          <!-- network_mobile -->
-          <div>
-            <?php
-            if ( $current_user_admin_level>=1000 ) {
-              ?>
-              <div class="page-header">
-                <h2>ระบบลงทะเบียนครูเครือข่าย mobile</h2>
-              </div>
-              <p>
-                สำหรับครูเครือข่ายที่ยังไม่ได้ลงทะเบียน
-                <br/><a
-                class="btn btn-primary btn-lg"
-                href="user_network_mobile_sign_up.php">
-                <span class="glyphicon glyphicon-edit"></span> ลงทะเบียนครูเครือข่าย mobile</a>
-              </p>
-              <p>
-                สำหรับครูเครือข่ายที่ลงทะเบียนแล้ว สามารถเข้าสู่ระบบ<br/>เพื่อแก้ไขข้อมูล และส่งผลงานได้
-                <br/><a
-                class="btn btn-success btn-lg"
-                href="login.php">
-                <span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ</a>
-              </p>
-              <?php
-            } else if ( $current_user_admin_level==250 ) {
-              ?>
-              <div class="page-header">
-                <h2>ระบบลงทะเบียนครูเครือข่าย mobile</h2>
-              </div>
-              <p>
-                สำหรับครูเครือข่ายที่ลงทะเบียนแล้ว สามารถแก้ไขข้อมูล และส่งผลงานได้
-                <br/><a
-                class="btn btn-success btn-lg"
-                href="profile_network_mobile.php">
-                <span class="glyphicon glyphicon-list"></span> <?php echo String::profile ?></a>
-              </p>
-              <?php
-            }
-            ?>
-          </div>
-
-
-
           <div class="page-header">
             <h1><?php echo String::system_schedule ?></h1>
           </div>
@@ -497,6 +511,21 @@
               class="btn btn-success btn-lg" >
               โรงเรียนที่ต้องการสมัครเข้าร่วมโครงการ<br>Google Apps for Education<br>สามารถสมัครได้ที่นี่
             </a>
+          </div>
+
+          <br/>
+
+          <div>
+            <div class="alert alert-success" role="alert">
+              <div class="page-header">
+                <h1>ถ่ายทอดสดพิธีเปิด!!!</h1>
+              </div>
+              <div>
+                <a href="http://www.sci.nu.ac.th/edunulive/">
+                  ท่านสามารถชมการถ่ายทอดสดพิธีเปิดได้ที่นี่
+                </a>
+              </div>
+            </div>
           </div>
 
         </div>

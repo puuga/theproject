@@ -5,6 +5,7 @@
 
   $username = $_POST["username"];
   $password = $_POST["password"];
+
   $sql = "SELECT * FROM user WHERE email = '$username' and password = '$password'" ;
   $result = mysqli_query($con, $sql);
   if (!$result) {
@@ -36,7 +37,7 @@
     die('Error: ' . mysqli_error($con));
   } else {
     if ( mysqli_num_rows($result) == 0 ) {
-      header( 'Location: login.php?message=Invalid email or password' );
+      //header( 'Location: login.php?message=Invalid email or password' );
       //http_redirect("login.php", array("message" => "Invalid username or password"));
     } else {
 
@@ -50,6 +51,7 @@
       }
 
       header( 'Location: profile_network.php' );
+      exit(0);
       //http_redirect('Location: index.php');
     }
   }
@@ -74,6 +76,7 @@
       }
 
       header( 'Location: profile_network_mobile.php' );
+      exit(0);
       //http_redirect('Location: index.php');
     }
   }

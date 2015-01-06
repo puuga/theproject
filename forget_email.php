@@ -32,6 +32,7 @@
         <?php
         if (!empty($_GET["person_id"])) {
           $person_id = $_GET["person_id"];
+
           $sql = "SELECT * FROM user WHERE person_id = '$person_id'" ;
           $result = mysqli_query($con, $sql);
           if (!$result) {
@@ -75,6 +76,29 @@
               //http_redirect('Location: index.php');
             }
           }
+
+          $sql = "SELECT * FROM user_network_mobile WHERE person_id = '$person_id'" ;
+          $result = mysqli_query($con, $sql);
+          if (!$result) {
+            die('Error2: ' . mysqli_error($con));
+          } else {
+            if ( mysqli_num_rows($result) == 0 ) {
+              //header( 'Location: login.php?message=Invalid email or password' );
+              //http_redirect("login.php", array("message" => "Invalid username or password"));
+            } else {
+
+              while($row = mysqli_fetch_array($result)) {
+                $auto_id = $row["auto_id"];
+                $person_id = $row["person_id"];
+                $email = $row["email"];
+              }
+
+              echo "Email ของท่านคือ ".$email;
+              exit(0);
+              //http_redirect('Location: index.php');
+            }
+          }
+
           echo "ไม่พบข้อมูลในระบบ";
         }
         ?>

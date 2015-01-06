@@ -85,6 +85,8 @@
               คู่มือลงทะเบียน ของครูเครือข่าย</a></li>
             <li><a href="https://docs.google.com/presentation/d/1MZYGsc9p9aWVClZ8U94A2po06Aun30gLKMI3SnMNAmo/edit?usp=sharing" target="_blank">
               คู่มือการส่งผลงาน ของครูเครือข่าย</a></li>
+            <li><a href="<?php echo String::manual_mobile ?>" target="_blank">
+              <?php echo String::manual_mobile_text ?></a></li>
           </ul>
         </li>
         <li>
@@ -107,6 +109,8 @@
                 }
                 if ( $current_user_admin_level == 200) {
                   echo '<li><a href="profile_network.php"><span class="glyphicon glyphicon-list"></span> '.String::profile.'</a></li>';
+                } else if ( $current_user_admin_level == 250) {
+                  echo '<li><a href="profile_network_mobile.php"><span class="glyphicon glyphicon-list"></span> '.String::profile.'</a></li>';
                 } else {
                   echo '<li><a href="profile.php"><span class="glyphicon glyphicon-list"></span> '.String::profile.'</a></li>';
                 }

@@ -33,7 +33,8 @@ needAdminLevel(250);
   un.belong_to,
   un.group,
   un.admin_level,
-  un.work
+  un.work,
+  un.course_id
   FROM user_network_mobile un
   WHERE un.person_id='$current_user_person_id'";
   $result = mysqli_query($con, $sql);
@@ -48,6 +49,7 @@ needAdminLevel(250);
     $user_data["group"] = $row['group'];
     $user_data["admin_level"] = $row['admin_level'];
     $user_data["work"] = $row['work'];
+    $user_data["course_id"] = $row['course_id'];
 
   }
 
@@ -106,6 +108,69 @@ needAdminLevel(250);
           <?php echo $user_data["work"]; ?> <br/>
           <a href="javascript:editUserWork('<?php echo $user_data["work"]; ?>')"
             class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไขผลงาน</a>
+        </p>
+      </div>
+    </div>
+
+    <br/>
+    <hr/>
+
+    <?php
+    if ( $user_data["course_id"]==0 ) {
+      ?>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 alert alert-danger" role="alert">
+          <ul>
+            <li>
+              ท่านยังไม่ได้เลือกรุ่นการอบรม
+            </li>
+          </ul>
+        </div>
+      </div>
+      <?php
+    } else {
+      $sql = "SELECT *
+      FROM course
+      WHERE auto_id=".$user_data["course_id"];
+      $result = mysqli_query($con, $sql);
+      while($row = mysqli_fetch_array($result)) {
+        $course_data["name"] = $row['name'];
+        $course_data["location"] = $row['location'];
+        $course_data["start_date"] = $row['start_date'];
+      }
+    }
+    ?>
+
+    <div class="row">
+      <div class="col-md-3">
+        <p class="text-right"><strong>รุ่นอบรม</strong></p>
+      </div>
+      <div class="col-md-9">
+        <p>
+          <?php echo $course_data["name"]; ?>
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <p class="text-right"><strong>สถานที่</strong></p>
+      </div>
+      <div class="col-md-9">
+        <p>
+          <?php echo $course_data["location"]; ?>
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <p class="text-right"><strong>ระยะเวลา</strong></p>
+      </div>
+      <div class="col-md-9">
+        <p>
+          <?php echo $course_data["start_date"]; ?>
         </p>
       </div>
     </div>
