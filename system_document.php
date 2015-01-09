@@ -164,6 +164,17 @@
                 </td>
               </tr>
 
+              <tr>
+                <td>สำหรับครู Coaching</td>
+                <td>
+                  <a
+                    class="btn btn-primary"
+                    href="<?php echo String::coaching_pretest ?>">
+                    <span class="glyphicon glyphicon-download"></span> link
+                  </a>
+                </td>
+              </tr>
+
 
             </tbody>
           </table>
@@ -232,6 +243,17 @@
                   <a
                     class="btn btn-primary"
                     href="https://docs.google.com/forms/d/19Y59ss27GIlslZhjGnmBJZ7UqpqzIbnlTfcWsHszmGY/viewform">
+                    <span class="glyphicon glyphicon-download"></span> link
+                  </a>
+                </td>
+              </tr>
+
+              <tr>
+                <td>สำหรับครู Coaching</td>
+                <td>
+                  <a
+                    class="btn btn-primary"
+                    href="<?php echo String::coaching_posttest ?>">
                     <span class="glyphicon glyphicon-download"></span> link
                   </a>
                 </td>

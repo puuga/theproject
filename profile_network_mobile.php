@@ -98,7 +98,7 @@ needAdminLevel(250);
       </div>
     </div>
 
-
+    <!--
     <div class="row">
       <div class="col-md-3">
         <p class="text-right"><strong>ผลงาน</strong></p>
@@ -111,6 +111,7 @@ needAdminLevel(250);
         </p>
       </div>
     </div>
+    -->
 
     <br/>
     <hr/>
@@ -176,6 +177,7 @@ needAdminLevel(250);
     </div>
 
     <br/>
+    <!--
     <hr/>
 
     <div class="row">
@@ -184,7 +186,9 @@ needAdminLevel(250);
       </div>
       <div class="col-md-9">
         <p>
-          ...
+          <a class="btn btn-info" href="<?php echo String::coaching_pretest ?>" role="button">
+            <span class="glyphicon glyphicon-check" aria-hidden="true"></span> Pre test
+          </a>
         </p>
       </div>
     </div>
@@ -195,10 +199,13 @@ needAdminLevel(250);
       </div>
       <div class="col-md-9">
         <p>
-          ...
+          <a class="btn btn-info" href="<?php echo String::coaching_posttest ?>" role="button">
+            <span class="glyphicon glyphicon-check" aria-hidden="true"></span> Post test
+          </a>
         </p>
       </div>
     </div>
+    -->
 
 
     <hr/>

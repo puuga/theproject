@@ -30,24 +30,83 @@
         return -1;
       }
 
-      function numberOfCompletedMentor($arr) {
+      function numberOfCompletedMentor($mentors) {
         $count = 0;
-        for ( $i=0; $i<count($arr); $i++ ) {
-          if ( count($arr[$i]->clients)>=7 ) {
+        for ( $i=0; $i<count($mentors); $i++ ) {
+          // if ( count($mentors[$i]->clients)>=7 ) {
+          //   $count++;
+          // }
+          if ( isCompletedMentor($mentors[$i]) ) {
             $count++;
           }
         }
         return $count;
       }
 
-      function numberOfIncompletedMentor($arr) {
+      function numberOfIncompletedMentor($mentors) {
         $count = 0;
-        for ( $i=0; $i<count($arr); $i++ ) {
-          if ( count($arr[$i]->clients)<7 ) {
+        for ( $i=0; $i<count($mentors); $i++ ) {
+          // if ( count($mentors[$i]->clients)<7 ) {
+          //   $count++;
+          // }
+          if ( !isCompletedMentor($mentors[$i]) ) {
             $count++;
           }
         }
         return $count;
+      }
+
+      function isCompletedMentor($mentor) {
+        if ( count($mentor->clients)<7 ) {
+          return false;
+        }
+
+        $count=0;
+        for ( $i=0; $i<count($mentor->clients); $i++ ) {
+          if ( (isClientHasWeb($mentor->clients[$i]) || isClientHasGoogleAccount($mentor->clients[$i])) ) {
+            $count++;
+          }
+        }
+        if ( $count>=7) {
+          return true;
+        }
+        return false;
+      }
+
+      function isClientHasWeb($client) {
+        if ( $client->web == "" ) {
+          return false;
+        }
+        return true;
+      }
+
+      function isClientHasGoogleAccount($client) {
+        if ( $client->googleDomain == ""
+          || $client->googleAccount == ""
+          || $client->googlePassword == ""
+          || $client->googleClassroomCode == "" ) {
+          return false;
+        }
+        return true;
+      }
+
+      function printWeb($client) {
+        if ( isClientHasWeb($client) ) {
+          echo "<a href='".$client->web."'>[ web ]</a> : ".$client->web;
+        } else {
+          echo "ยังไม่ส่งผลงาน Web";
+        }
+      }
+
+      function printGoogleAccount($client) {
+        if ( isClientHasGoogleAccount($client) ) {
+          echo "gDomain: ".$client->googleDomain.
+            ", gAccount: ".$client->googleAccount.
+            ", gPassword: ".$client->googlePassword.
+            ", gClassroomCode: ".$client->googleClassroomCode;
+        } else {
+          echo "ยังไม่ส่งผลงาน Classroom";
+        }
       }
 
       // //read mentors and clients
@@ -185,7 +244,8 @@
 
             <?php
               for ( $i=0; $i<count($mentors); $i++ ) {
-                if ( count($mentors[$i]->clients)>=7 ) {
+                // if ( count($mentors[$i]->clients)>=7 ) {
+                if ( isCompletedMentor($mentors[$i]) ) {
             ?>
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="data1Heading<?php echo $mentors[$i]->auto_id; ?>">
@@ -205,7 +265,8 @@
                     <li>
                       <?php echo $mentors[$i]->clients[$j]->firstname?>
                       <?php echo $mentors[$i]->clients[$j]->lastname?>
-                      <a href="<?php echo $mentors[$i]->clients[$j]->web==""?"#":$mentors[$i]->clients[$j]->web ?>">[ web ]</a>
+                      <?php printWeb($mentors[$i]->clients[$j]); ?> |
+                      <?php printGoogleAccount($mentors[$i]->clients[$j]); ?>
                     </li>
                     <?php
                       }
@@ -231,7 +292,8 @@
 
             <?php
               for ( $i=0; $i<count($mentors); $i++ ) {
-                if ( count($mentors[$i]->clients)<7 ) {
+                // if ( count($mentors[$i]->clients)<7 ) {
+                if ( !isCompletedMentor($mentors[$i]) ) {
             ?>
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="data2Heading<?php echo $mentors[$i]->auto_id; ?>">
@@ -251,7 +313,8 @@
                     <li>
                       <?php echo $mentors[$i]->clients[$j]->firstname?>
                       <?php echo $mentors[$i]->clients[$j]->lastname?>
-                      <a href="<?php echo $mentors[$i]->clients[$j]->web==""?"#":$mentors[$i]->clients[$j]->web ?>">[ web ]</a>
+                      <?php printWeb($mentors[$i]->clients[$j]); ?> |
+                      <?php printGoogleAccount($mentors[$i]->clients[$j]); ?>
                     </li>
                     <?php
                       }

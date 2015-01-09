@@ -47,9 +47,16 @@
       const schedule_level_date_3 = "https://drive.google.com/open?id=1WAU_6g6lD5NxESZCpy5yDWXgewcxK-vGS92_keKRGgw&authuser=0";
       const schedule_level_date_4 = "https://drive.google.com/open?id=1FAQQVQbradkS4L6h0kGjiKyOT50JAgN5-0zLKQSdWjY&authuser=0";
       const schedule_level_date_5 = "https://drive.google.com/open?id=1Ajmi99s1EYxSa_0gUzIzX_MrntEK6zZAu95E-TsyJO0&authuser=0";
-      const extend_network_mobile = "ขยายผลเครือข่าย Mobile";
+      const extend_network_mobile = "อบรมขยายผล Coaching";
       const manual_mobile = "https://drive.google.com/open?id=1ZJMxVlTOLVHH5LN16xhg52_LBcJlaXrPWL7mjMrt8MA&authuser=0";
-      const manual_mobile_text = "คู่มือการลงทะเบียนครูเครือข่าย mobile";
+      const manual_mobile_text = "คู่มือการลงทะเบียนอบรมขยายผล Coaching";
+      const manual_mobile_booking = "https://drive.google.com/open?id=1HVJO_cYxm4L0ievo69Uvz8Y7FNT6F54qyTHNVqOg7X0&authuser=0";
+      const manual_mobile_booking_text = "คู่มือจองรุ่นครู coaching";
+      const manual_mobile_send_work = "https://drive.google.com/open?id=1z8Iq-3CNmSiP4pFb4Mtsrp6KaaqoLtY5yVsgX_vRXow&authuser=0";
+      const manual_mobile_send_work_text = "คู่มือส่งผลงานครู coaching";
+      const coaching_pretest = "https://docs.google.com/forms/d/1YqHdLfBVEmnQk0yndXARkWLdxo2e9G2ZEQCy--dE5jA/viewform";
+      const coaching_posttest = "https://docs.google.com/forms/d/10-Zu8H60ghDyCaLEovMna9SnlLft8cYajEQxj0SaJ_A/viewform";
+      const schedule_level_date_6 = "https://drive.google.com/open?id=1BSBrYB7utk0m6qf76wDgOi4Qj1o0kB4OApdkPojd8Ww&authuser=0";
 
   }
 ?>

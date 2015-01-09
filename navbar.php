@@ -66,6 +66,8 @@
               สำหรับผู้อำนวยการโรงเรียน</a></li>
             <li><a href="<?php echo String::schedule_level_date_5; ?>">
               สำหรับครูแกนนำ</a></li>
+            <li><a href="<?php echo String::schedule_level_date_6; ?>">
+              สำหรับครู Coaching</a></li>
           </ul>
         </li>
         <li class="dropdown">

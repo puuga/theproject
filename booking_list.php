@@ -72,6 +72,8 @@
                 <th>ชื่อ</th>
                 <th>นามสกุล</th>
                 <th>สังกัด</th>
+                <th>Email</th>
+                <th>เบอร์โทร</th>
               </tr>
             </thead>
             <tbody>
@@ -94,6 +96,8 @@
                 <td><?php echo $row['firstname']; ?></td>
                 <td><?php echo $row['lastname']; ?></td>
                 <td><?php echo $row['belong_to']; ?></td>
+                <td><?php echo $row['email']; ?></td>
+                <td><?php echo $row['tel']; ?></td>
               </tr>
               <?php
                 }

@@ -190,6 +190,7 @@ code by siwawes wongcharoen
                 <option>ครูชำนาญการ (ครู ค.ศ. 2)</option>
                 <option>ครู (ครู ค.ศ. 1)</option>
                 <option>ครูผู้ช่วย</option>
+                <option>ครูอัตราจ้าง</option>
               </select>
             </div>
           </div>

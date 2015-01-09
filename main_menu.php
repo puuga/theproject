@@ -121,13 +121,13 @@
           ?>
           <div class="col-md-4">
             <div class="alert alert-info" role="alert">
-              <h1>ระบบลงทะเบียนครูเครือข่าย</h1>
+              <h1>ระบบลงทะเบียนครูเครือข่ายขยายผล <small>ขยายผลให้ครูเครือข่าย 7 คน</small></h1>
               <p>
                 สำหรับครูเครือข่ายที่ยังไม่ได้ลงทะเบียน
                 <br/><a
                 class="btn btn-primary btn-lg"
                 href="user_sign_up.php">
-                <span class="glyphicon glyphicon-edit"></span> ลงทะเบียนครูเครือข่าย</a>
+                <span class="glyphicon glyphicon-edit"></span> ลงทะเบียนครูเครือข่ายขยายผล</a>
               </p>
               <p>
                 สำหรับครูเครือข่ายที่ลงทะเบียนแล้ว สามารถเข้าสู่ระบบ<br/>เพื่อแก้ไขข้อมูล และส่งผลงานได้
@@ -143,7 +143,7 @@
           ?>
           <div class="col-md-12">
             <div class="alert alert-info" role="alert">
-              <h1>ระบบลงทะเบียนครูเครือข่าย</h1>
+              <h1>ระบบลงทะเบียนครูเครือข่ายขยายผล <small>ขยายผลให้ครูเครือข่าย 7 คน</small></h1>
               <p>
                 สำหรับครูเครือข่ายที่ลงทะเบียนแล้ว สามารถแก้ไขข้อมูล และส่งผลงานได้
                 <br/><a
@@ -163,13 +163,13 @@
           ?>
           <div class="col-md-4">
             <div class="alert alert-info" role="alert">
-              <h1>ระบบลงทะเบียนครูเครือข่าย mobile</h1>
+              <h1>ระบบลงทะเบียนอบรมขยายผล Coaching</h1>
               <p>
-                สำหรับครูเครือข่ายที่ยังไม่ได้ลงทะเบียน
+                อบรมตามโรงเรียนวันที่ 12-22 มกราคม 2558
                 <br/><a
                 class="btn btn-primary btn-lg"
                 href="user_network_mobile_sign_up.php">
-                <span class="glyphicon glyphicon-edit"></span> ลงทะเบียนครูเครือข่าย mobile</a>
+                <span class="glyphicon glyphicon-edit"></span> ลงทะเบียนอบรมขยายผล Coaching</a>
               </p>
               <p>
                 สำหรับครูเครือข่ายที่ลงทะเบียนแล้ว สามารถเข้าสู่ระบบ<br/>เพื่อแก้ไขข้อมูล และส่งผลงานได้
@@ -185,7 +185,7 @@
           ?>
           <div class="col-md-12">
             <div class="alert alert-info" role="alert">
-              <h1>ระบบลงทะเบียนครูเครือข่าย mobile</h1>
+              <h1>ระบบลงทะเบียนอบรมขยายผล Coaching</h1>
               <p>
                 สำหรับครูเครือข่ายที่ลงทะเบียนแล้ว สามารถแก้ไขข้อมูล และส่งผลงานได้
                 <br/><a
@@ -208,23 +208,45 @@
           <div class="row">
             <div class="col-md-12 alert alert-danger" role="alert">
               <div class="page-header">
-                <h1>ประกาศ ขณะนี้ท่านสามารถลงทะเบียนครูเครือข่าย mobile สำหรับอบรมครูขยายผล 8 จังหวัดภาคเหนือตอนล่าง
-                  (พิษณุโลก , อุตรดิตถ์ , เพชรบูรณ์ , พิจิตร , นครสวรรค์ , กำแพงเพชร , สุโขทัย , ตาก) ได้แล้ว
-                </h1>
+                <h2>ประกาศ ขณะนี้ท่านสามารถลงทะเบียนอบรมขยายผล Coaching สำหรับอบรมครูขยายผล 16 จังหวัดภาคเหนือได้แล้ว
+                </h2>
               </div>
               <div>
-                ขณะนี้ท่านสามารถลงทะเบียนครูเครือข่าย mobile สำหรับอบรมครูขยายผล 8 จังหวัดภาคเหนือตอนล่าง
-                (พิษณุโลก , อุตรดิตถ์ , เพชรบูรณ์ , พิจิตร , นครสวรรค์ , กำแพงเพชร , สุโขทัย , ตาก) ได้แล้ว<br/>
+                เนื้อหาที่ผู้เข้ารับการอบรมจะได้เรียนรู้ คือ Google Apps For Education หรือ Google App สำหรับการศึกษา
+                คือชุดของฟรีอีเมลจาก Google และเครื่องมือต่างๆ เป็นแบบระบบเปิดในการทำงานร่วมกัน เปิดกว้างสำหรับคุณครู และนักเรียน
+                โดยจะมีหัวข้อหลักๆ ดังนี้
+                <ul>
+                  <li>ไดร์ฟ (Google Drive) เก็บได้ครบ แบ่งปันได้ทุกอย่าง เข้าถึงไฟล์จากที่ใดก็ได้</li>
+                  <li>เอกสาร (Google Docs) เป็นเอกสารออนไลน์ที่สามารถเข้าถึงได้จากทุกที่ ทุกเวลา ทุกเครื่องมือ ซึ่งง่ายต่อการเข้าถึง</li>
+                  <li>ปฏิทิน (Google Calendar) ช่วยนักเรียนและคณาจารย์จัดการเวลาของตน กำหนดเวลาเรียนและการประชุมได้ง่ายดาย</li>
+                  <li>Google Sites คือเว็บไซต์ของ Google เป็นโปรแกรมออนไลน์ที่ทำให้การสร้างเว็บไซต์ง่ายขึ้นเหมือนกับการแก้ไขเอกสารธรรมดาๆ</li>
+                </ul>
                 <br/>
                 สำหรับครูที่เข้ารับการอบรม <br/>
-                1.กรุณานำคอมพิวเตอร์โน๊ตบุคส่วนตัว และอุปกรณ์พวกต่อ ของท่านมาใช้ในการอบรม <br/>
-                2.เตรียมไฟล์เอกสารเกี่ยวกับการสอน เช่น ตารางสอน ใบงาน แผนการจัดการเรียนรู้ ฯลฯ<br/>
+                <ol>
+                  <li>กรุณานำคอมพิวเตอร์โน๊ตบุคส่วนตัว และอุปกรณ์พวกต่อ ของท่านมาใช้ในการอบรม</li>
+                  <li>เตรียมไฟล์เอกสารเกี่ยวกับการสอน เช่น ตารางสอน ใบงาน แผนการจัดการเรียนรู้ ฯลฯ</li>
+                  <li>มีบัญชี Gmail เป็นของตัวเอง</li>
+                </ol>
                 <br/>
-                หมายเหตุ เปิดระบบลงทะเบียนเฉพาะจังหวัด พิษณุโลก และ อุตรดิตถ์ ก่อนเท่านั้น<br/>
-                <br/>
-                <a href="<?php echo String::manual_mobile ?>" class="alert-link" target="_blank">
-                  <?php echo String::manual_mobile_text ?>
-                </a>
+                <p>
+                  <a class="btn btn-danger" href="<?php echo String::manual_mobile ?>" role="button" target="_blank">
+                    <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+                    <?php echo String::manual_mobile_text ?>
+                  </a>
+                </p>
+                <p>
+                  <a class="btn btn-danger" href="<?php echo String::manual_mobile_booking ?>" role="button" target="_blank">
+                    <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+                    <?php echo String::manual_mobile_booking_text ?>
+                  </a>
+                </p>
+                <p>
+                  <a class="btn btn-danger" href="<?php echo String::manual_mobile_send_work ?>" role="button" target="_blank">
+                    <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+                    <?php echo String::manual_mobile_send_work_text ?>
+                  </a>
+                </p>
 
               </div>
             </div>
@@ -233,7 +255,7 @@
           <div class="row">
             <div class="col-md-12 alert alert-warning" role="alert">
               <div class="page-header">
-                <h1>ขอความร่วมมือตรวจสอบข้อมูลก่อนวันเดินทางเข้าอบรม</h1>
+                <h2>ขอความร่วมมือตรวจสอบข้อมูลก่อนวันเดินทางเข้าอบรม</h2>
               </div>
               <div>
                 ขอความร่วมมือตรวจสอบข้อมูลสถานที่อบรมและสถานที่พัก ก่อนวันเดินทางเข้าอบรม
@@ -246,7 +268,7 @@
           <div class="row">
             <div class="col-md-12 alert alert-warning" role="alert">
               <div class="page-header">
-                <h1>ประกาศ สำหรับผู้อำนวยการโรงเรียน และครูแกนนำ</h1>
+                <h2>ประกาศ สำหรับผู้อำนวยการโรงเรียน และครูแกนนำ</h2>
               </div>
               <div>
                 จากประเด็นปัญหาที่มีผู้ลงทะเบียนและเลือกรุ่นการอบรมทั้งในส่วนของผู้อำนวยการโรงเรียนและครูแกนนำ
@@ -281,7 +303,7 @@
             <div class="col-md-12 alert alert-warning" role="alert">
 
               <div class="page-header">
-                <h1><?php echo String::seminar_description ?></h1>
+                <h2><?php echo String::seminar_description ?></h2>
               </div>
               <div>
                 <ul>
@@ -503,6 +525,8 @@
               สำหรับผู้อำนวยการโรงเรียน</a>
             <a class="list-group-item" href="<?php echo String::schedule_level_date_5; ?>">
               สำหรับครูแกนนำ</a>
+            <a class="list-group-item" href="<?php echo String::schedule_level_date_6; ?>">
+              สำหรับครู Coaching</a>
           </div>
 
           <div>

@@ -149,12 +149,6 @@ code by siwawes wongcharoen
           <strong>กลุ่มสาระการเรียนรู้ :</strong>
           <div class="radio">
             <label>
-              <input type="radio" name="group" value="-" required>
-              เป็นผู้อำนวยการสำนักงานเขตการศึกษา, รองผู้อำนวยการสำนักงานเขตการศึกษา ,ศึกษานิเทศก์ หรือผู้อำนวยการโรงเรียน ให้เลือกตัวเลือกนี้
-            </label>
-          </div>
-          <div class="radio">
-            <label>
               <input type="radio" name="group" value="กลุ่มสาระการเรียนรู้วิทยาศาสตร์" >
               กลุ่มสาระการเรียนรู้วิทยาศาสตร์
             </label>
@@ -249,7 +243,7 @@ code by siwawes wongcharoen
       </div>
 
 
-
+      <!--
       <hr/>
 
       <div class="row">
@@ -285,6 +279,7 @@ code by siwawes wongcharoen
           </div>
         </div>
       </div>
+      -->
 
       <br/><br/>
 

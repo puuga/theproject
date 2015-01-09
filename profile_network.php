@@ -590,6 +590,9 @@
                 <div class="radio">
                   <label><input type="radio" name="title_option" id="title_option_10" value="150">ครูผู้ช่วย</label>
                 </div>
+                <div class="radio">
+                  <label><input type="radio" name="title_option" id="title_option_11" value="150">ครูอัตราจ้าง</label>
+                </div>
                 </form>
               </div>
             </div>
