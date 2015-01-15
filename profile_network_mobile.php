@@ -34,7 +34,8 @@ needAdminLevel(250);
   un.group,
   un.admin_level,
   un.work,
-  un.course_id
+  un.course_id,
+  un.head
   FROM user_network_mobile un
   WHERE un.person_id='$current_user_person_id'";
   $result = mysqli_query($con, $sql);
@@ -50,6 +51,7 @@ needAdminLevel(250);
     $user_data["admin_level"] = $row['admin_level'];
     $user_data["work"] = $row['work'];
     $user_data["course_id"] = $row['course_id'];
+    $user_data["head"] = $row['head'];
 
   }
 
@@ -61,7 +63,10 @@ needAdminLevel(250);
 
       <div class="row">
         <div class="col-md-9">
-          <h1><?php echo String::profile; ?></h1>
+          <h1>
+            <?php echo String::profile; ?>
+            <small>อบรม Coaching</small>
+          </h1>
         </div>
         <div class="col-md-3"><br/>
           <p class="text-right">
@@ -90,9 +95,9 @@ needAdminLevel(250);
         <p class="text-right"><strong>เว็บไซต์ผลงาน (Google Site)</strong></p>
       </div>
       <div class="col-md-9">
-        <a href="<?php echo UrlHelper::makeURL($user_data["web"]); ?>"><?php echo UrlHelper::makeURL($user_data["web"]); ?></a>
+        <a href="<?php echo $user_data["web"]; ?>"><?php echo $user_data["web"]; ?></a>
         <p>
-          <a href="javascript:editUserWeb('<?php echo UrlHelper::makeURL($user_data["web"]); ?>')"
+          <a href="javascript:editUserWeb('<?php echo $user_data["web"]; ?>')"
             class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไข <?php echo String::person_web ?></a>
         </p>
       </div>
@@ -446,6 +451,19 @@ needAdminLevel(250);
 
     <div class="row">
       <div class="col-md-3">
+        <p class="text-right"><strong>สำนักงานเขตพื้นที่การศึกษา</strong></p>
+      </div>
+      <div class="col-md-9">
+        <p>
+          <?php echo $user_data["head"]; ?><br/>
+          <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal_edit_head">
+            <span class="glyphicon glyphicon-edit"></span> แก้ไขสำนักงานเขตพื้นที่การศึกษา</button>
+          </p>
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="col-md-3">
         <p class="text-right"><strong>กลุ่มสาระการเรียนรู้</strong></p>
       </div>
       <div class="col-md-9">
@@ -537,6 +555,88 @@ needAdminLevel(250);
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
           <button type="button" class="btn btn-primary" onclick="editGroup()">บันทึกการแก้ไข</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal_edit_head Small modal -->
+  <div id="modal_edit_head" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">แก้ไขขนาดโรงเรียน</h4>
+        </div>
+        <div class="modal-body">
+          <div>
+            <form id="form_head_option">
+              <label for="head">สำนักงานเขตพื้นที่การศึกษา :</label>
+              <select class="form-control" id="head" name="head" required >
+
+                <option>กำแพงเพชร เขต 1</option>
+                <option>กำแพงเพชร เขต 2</option>
+                <option>เชียงราย เขต 1</option>
+                <option>เชียงราย เขต 2</option>
+                <option>เชียงราย เขต 3</option>
+                <option>เชียงราย เขต 4</option>
+                <option>เชียงใหม่ เขต 1</option>
+                <option>เชียงใหม่ เขต 2</option>
+                <option>เชียงใหม่ เขต 3</option>
+                <option>เชียงใหม่ เขต 4</option>
+                <option>เชียงใหม่ เขต 5</option>
+                <option>เชียงใหม่ เขต 6</option>
+                <option>ตาก เขต 1</option>
+                <option>ตาก เขต 2</option>
+                <option>นครสวรรค์ เขต 1</option>
+                <option>นครสวรรค์ เขต 2</option>
+                <option>นครสวรรค์ เขต 3</option>
+                <option>น่าน เขต 1</option>
+                <option>น่าน เขต 2</option>
+                <option>พะเยา เขต 1</option>
+                <option>พะเยา เขต 2</option>
+                <option>พิจิตร เขต 1</option>
+                <option>พิจิตร เขต 2</option>
+                <option>พิษณุโลก เขต 1</option>
+                <option>พิษณุโลก เขต 2</option>
+                <option>พิษณุโลก เขต 3</option>
+                <option>เพชรบูรณ์ เขต 1</option>
+                <option>เพชรบูรณ์ เขต 2</option>
+                <option>เพชรบูรณ์ เขต 3</option>
+                <option>แพร่ เขต 1</option>
+                <option>แพร่ เขต 2</option>
+                <option>แม่ฮ่องสอน เขต 1</option>
+                <option>แม่ฮ่องสอน เขต 2</option>
+                <option>ลำปาง เขต 1</option>
+                <option>ลำปาง เขต 2</option>
+                <option>ลำปาง เขต 3</option>
+                <option>ลำพูน เขต 1</option>
+                <option>ลำพูน เขต 2</option>
+                <option>สุโขทัย เขต 1</option>
+                <option>สุโขทัย เขต 2</option>
+                <option>อุตรดิตถ์ เขต 1</option>
+                <option>อุตรดิตถ์ เขต 2</option>
+                <option>สพม. เขต 34</option>
+                <option>สพม. เขต 35</option>
+                <option>สพม. เขต 36</option>
+                <option>สพม. เขต 37</option>
+                <option>สพม. เขต 38</option>
+                <option>สพม. เขต 39</option>
+                <option>สพม. เขต 40</option>
+                <option>สพม. เขต 41</option>
+                <option>สพม. เขต 42</option>
+
+
+              </select>
+              <p class="help-block">
+                สำนักงานเขตพื้นที่การศึกษาที่โรงเรียนของท่านสังกัด</br>
+              </p>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+          <button type="button" class="btn btn-primary" onclick="editHead()">บันทึกการแก้ไข</button>
         </div>
       </div>
     </div>

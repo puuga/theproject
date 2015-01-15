@@ -26,7 +26,7 @@
 
   <?php
     $course_id = $_GET["course_id"];
-    $sql = "SELECT prifix_name,firstname,lastname,title,belong_to,district,province,night,name,car_id,car_distance,cost1,cost2
+    $sql = "SELECT prifix_name,firstname,lastname,title,belong_to,head,district,province,night,name,car_id,car_distance,cost1,cost2
     FROM `user` u
     INNER JOIN transpot_all_view t ON u.auto_id = t.user_id
     WHERE `course_id` =$course_id";
@@ -38,6 +38,7 @@
       $data["lastname"] = $row["lastname"];
       $data["title"] = $row["title"];
       $data["belong_to"] = $row["belong_to"];
+      $data["head"] = $row["head"];
       $data["district"] = $row["district"];
       $data["province"] = $row["province"];
       $data["night"] = $row["night"];
@@ -70,6 +71,7 @@
               <th>lastname</th>
               <th>title</th>
               <th>belong_to</th>
+              <th>head</th>
               <th>district</th>
               <th>province</th>
               <th>night</th>
@@ -90,6 +92,7 @@
               <td><?php echo $data["lastname"]; ?></td>
               <td><?php echo $data["title"]; ?></td>
               <td><?php echo $data["belong_to"]; ?></td>
+              <td><?php echo $data["head"]; ?></td>
               <td><?php echo $data["district"]; ?></td>
               <td><?php echo $data["province"]; ?></td>
               <td><?php echo $data["night"]; ?></td>

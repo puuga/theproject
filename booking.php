@@ -66,7 +66,7 @@
 
       // course
       if ($mode=="mobile") {
-        $sql = "SELECT * FROM course_mobile_count_view";
+        $sql = "SELECT * FROM course_mobile_count_view order by name";
       } else {
         $sql = "SELECT * FROM course_count_view";
       }
@@ -113,6 +113,16 @@
           echo "<th>ระยะเวลา</th>";
           echo "<th>สถานที่อบรม</th>";
           echo "<th>สถานที่พัก</th>";
+          echo "<th>จำนวนผู้เข้าอบรม</th>";
+          echo "<th>&nbsp;</th>";
+          echo "<th>&nbsp;</th>";
+        }
+
+        function printTableHeader250() {
+          echo "<th>รุ่นการอบรม</th>";
+          echo "<th>ระยะเวลา</th>";
+          echo "<th>สถานที่อบรม</th>";
+          echo "<th>รายละเอียด</th>";
           echo "<th>จำนวนผู้เข้าอบรม</th>";
           echo "<th>&nbsp;</th>";
           echo "<th>&nbsp;</th>";
@@ -351,7 +361,7 @@
             <table class="table table-striped table-hover">
               <thead>
                 <tr class="info">
-                  <?php printTableHeader(); ?>
+                  <?php printTableHeader250(); ?>
                 </tr>
               </thead>
               <tbody>

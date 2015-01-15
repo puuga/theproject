@@ -175,9 +175,12 @@
                 สำหรับครูเครือข่ายที่ลงทะเบียนแล้ว สามารถเข้าสู่ระบบ<br/>เพื่อแก้ไขข้อมูล และส่งผลงานได้
                 <br/><a
                 class="btn btn-success btn-lg"
-                href="login.php">
+                href="login.php?mode=mobile">
                 <span class="glyphicon glyphicon-log-in"></span> เข้าสู่ระบบ</a>
               </p>
+              <h3>
+                ขอให้ผู้เข้าร่วมอบรมทุกท่านตรวจสอบสถานที่และวันเวลาอบรมเสมอ เนื่องจากยังมีการเปลี่ยนแปลงรายละเอียดอยู่
+              </h3>
             </div>
           </div>
           <?php
@@ -193,6 +196,9 @@
                 href="profile_network_mobile.php">
                 <span class="glyphicon glyphicon-list"></span> <?php echo String::profile ?></a>
               </p>
+              <h3>
+                ขอให้ผู้เข้าร่วมอบรมทุกท่านตรวจสอบสถานที่และวันเวลาอบรมเสมอ เนื่องจากยังมีการเปลี่ยนแปลงรายละเอียดอยู่
+              </h3>
             </div>
           </div>
           <?php
@@ -229,6 +235,12 @@
                   <li>มีบัญชี Gmail เป็นของตัวเอง</li>
                 </ol>
                 <br/>
+                <p>
+                  <a class="btn btn-danger" href="<?php echo String::schedule_level_date_6 ?>" role="button" target="_blank">
+                    <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+                    รายชื่อโรงเรียนที่เป็นศูนย์กลางในการอบรมขยายผล Coaching
+                  </a>
+                </p>
                 <p>
                   <a class="btn btn-danger" href="<?php echo String::manual_mobile ?>" role="button" target="_blank">
                     <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
@@ -528,6 +540,17 @@
             <a class="list-group-item" href="<?php echo String::schedule_level_date_6; ?>">
               สำหรับครู Coaching</a>
           </div>
+
+          <br/>
+
+          <div>
+            <a href="http://gg.gg/kru7people" target="_blank" class="btn btn-success btn-lg">
+              <span class="glyphicon glyphicon-file"></span>
+              แบบฟอร์มครูแกนนำ สำหรับส่งรายชื่อเครือข่าย
+            </a>
+          </div>
+
+          <br/>
 
           <div>
             <a href="https://docs.google.com/forms/d/16xAZb3yyLKkxZcXJDLOE_pBIOWTg_edrVpcUTB0BOFs/viewform"

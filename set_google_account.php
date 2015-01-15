@@ -6,7 +6,7 @@
   needAdminLevel(0);
 
   // read user -- edit
-  $sql = "SELECT auto_id FROM user WHERE admin_level=150 and (course_id=36 or course_id=37 or course_id=38 or course_id=39)";
+  $sql = "SELECT auto_id FROM user WHERE course_id=40 or course_id=41 or course_id=42 or course_id=43";
   $result = mysqli_query($con, $sql);
   while($row = mysqli_fetch_array($result)) {
     $user_ids[] = $row['auto_id'];
@@ -14,7 +14,7 @@
   echo "user have ".count($user_ids)."<br/>";
 
   // read google account
-  $sql = "SELECT * FROM google_account WHERE user_id=0 order by auto_id";
+  $sql = "SELECT * FROM google_account WHERE user_id=0 and (auto_id BETWEEN 1179 AND 1678) or (auto_id BETWEEN 4903 AND 5000) order by auto_id";
   $result = mysqli_query($con, $sql);
   while($row = mysqli_fetch_array($result)) {
     $google_accounts[] = $row['auto_id'];

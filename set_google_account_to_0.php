@@ -10,7 +10,7 @@
   // -- edit
   $sql = "SELECT u.auto_id
     FROM user u inner join google_account ga on u.auto_id=ga.user_id
-    WHERE (admin_level=110 or admin_level=120 or admin_level=130 or admin_level=140)";
+    WHERE (course_id=38 or course_id=39)";
   $result = mysqli_query($con, $sql);
   while($row = mysqli_fetch_array($result)) {
     $user_ids[] = $row['auto_id'];

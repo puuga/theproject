@@ -74,6 +74,7 @@
                 <th>สังกัด</th>
                 <th>Email</th>
                 <th>เบอร์โทร</th>
+                <?php echo $course_id>=47?"<th>web</th>":""; ?>
               </tr>
             </thead>
             <tbody>
@@ -98,6 +99,12 @@
                 <td><?php echo $row['belong_to']; ?></td>
                 <td><?php echo $row['email']; ?></td>
                 <td><?php echo $row['tel']; ?></td>
+                <?php
+                  if ( $course_id>=47 ) {
+                    $web = $row['web'];
+                    echo "<td><a href='$web' target='_blank'>$web</a></td>";
+                  }
+                ?>
               </tr>
               <?php
                 }

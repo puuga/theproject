@@ -27,13 +27,22 @@
             }
           ?>
         </div>
+        <?php
+        if( isset($_GET["mode"]) ) {
+          if ( $_GET["mode"]=="mobile") {
+            ?>
+            <input type="hidden" name="mode" value="mobile">
+            <?php
+          }
+        }
+        ?>
         <input type="text" name="username" class="form-control" placeholder="<?php echo String::person_email ?>" required autofocus>
         <input type="password" name="password" class="form-control" placeholder="<?php echo String::person_personal_id ?>" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo String::system_sign_in ?></button>
       </form>
 
       <div class="starter-template">
-        <a href="forget_email.php">ลืม Email</a><br/>
+        <a href="forget_email.php" class="btn btn-lg btn-danger" role="button">ลืม Email</a><br/>
         ในกรณีที่ท่านไม่สามารภเข้าสู่ระบบ หรือจำ Email ที่ท่านใช้ลงทะเบียนไม่ได้
       </div>
 

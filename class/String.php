@@ -56,7 +56,8 @@
       const manual_mobile_send_work_text = "คู่มือส่งผลงานครู coaching";
       const coaching_pretest = "https://docs.google.com/forms/d/1YqHdLfBVEmnQk0yndXARkWLdxo2e9G2ZEQCy--dE5jA/viewform";
       const coaching_posttest = "https://docs.google.com/forms/d/10-Zu8H60ghDyCaLEovMna9SnlLft8cYajEQxj0SaJ_A/viewform";
-      const schedule_level_date_6 = "https://drive.google.com/open?id=1BSBrYB7utk0m6qf76wDgOi4Qj1o0kB4OApdkPojd8Ww&authuser=0";
+      //const schedule_level_date_6 = "https://drive.google.com/open?id=1BSBrYB7utk0m6qf76wDgOi4Qj1o0kB4OApdkPojd8Ww&authuser=0";
+      const schedule_level_date_6 = "coaching_sch.php";
 
   }
 ?>

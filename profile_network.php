@@ -86,7 +86,10 @@
 
         <div class="row">
           <div class="col-md-9">
-            <h1><?php echo String::profile; ?></h1>
+            <h1>
+              <?php echo String::profile; ?>
+              <small>ครูขยายผล</small>
+            </h1>
           </div>
         </div>
       </div>
