@@ -111,9 +111,9 @@
           <p class="text-right"><strong>เว็บไซต์ผลงาน (Google Site)</strong></p>
         </div>
         <div class="col-md-9">
-          <a href="<?php echo UrlHelper::makeURL($user_data["web"]); ?>"><?php echo UrlHelper::makeURL($user_data["web"]); ?></a>
+          <a href="<?php echo $user_data["web"]; ?>"><?php echo $user_data["web"]; ?></a>
           <p>
-            <a href="javascript:editUserWeb('<?php echo UrlHelper::makeURL($user_data["web"]); ?>')"
+            <a href="javascript:editUserWeb('<?php echo $user_data["web"]; ?>')"
               class="btn btn-warning" role="button"><span class="glyphicon glyphicon-edit"></span> แก้ไข <?php echo String::person_web ?></a>
           </p>
         </div>

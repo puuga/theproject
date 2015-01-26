@@ -120,7 +120,7 @@
                 echo '<li class="divider"></li>';
                 echo '<li><a href="logout_process.php"><span class="glyphicon glyphicon-log-out"></span> '.String::system_sign_out.'</a></li>';
               } else {
-                echo '<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> '.String::system_sign_in.'</a></li>';
+                //echo '<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> '.String::system_sign_in.'</a></li>';
                 echo '<li class="divider"></li>';
                 //echo '<li><a href="user_sign_up.php"><span class="glyphicon glyphicon-edit"></span> '.String::system_sign_up.'</a></li>';
               }

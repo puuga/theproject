@@ -65,7 +65,7 @@
     die('Error: ' . mysqli_error($con));
   } else {
     if ( mysqli_num_rows($result) == 0 ) {
-      //header( 'Location: login.php?message=Invalid email or password' );
+      header( 'Location: login.php?message=Invalid email or password' );
       //http_redirect("login.php", array("message" => "Invalid username or password"));
     } else {
 
@@ -84,6 +84,7 @@
     }
   }
 
+  //echo $sql
 
 
 

@@ -168,7 +168,7 @@
         email AS email,
         person_id AS person_id
         from user
-        where admin_level = 150";
+        where admin_level = 150 and course_id<>0";
       $result = mysqli_query($con, $sql);
       $mentors = array();
       while($row = mysqli_fetch_array($result)) {
@@ -208,6 +208,42 @@
           $mentors[$index]->clients[] = $client;
         }
       }
+
+      //read attendee
+      $sql = "
+      (select distinct admin_level, count(auto_id) as count
+      from user
+      where course_id<>0
+      group by admin_level
+      order by admin_level)
+      union
+      (select distinct admin_level, count(auto_id) as count
+      from user_network
+      group by admin_level
+      order by admin_level)
+      union
+      (select distinct admin_level, count(auto_id) as count
+      from user_network
+      where web='' and google_account='' and google_classroom_code='' and google_domain=''
+      group by admin_level
+      order by admin_level)
+      union
+      (select distinct admin_level, count(id) as count
+      from user_network_mobile
+      group by admin_level
+      order by admin_level)
+      union
+      (select distinct admin_level, count(id) as count
+      from user_network_mobile
+      where web=''
+      group by admin_level
+      order by admin_level)";
+      $result = mysqli_query($con, $sql);
+      while($row = mysqli_fetch_array($result)) {
+        $attendee["admin_level"] = $row["admin_level"];
+        $attendee["count"] = $row["count"];
+        $attendees[] = $attendee;
+      }
     ?>
 
   </head>
@@ -223,6 +259,125 @@
     </div>
 
     <div class="container">
+
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr class="info">
+                <th>ข้อมูลสรุป</th>
+                <th>จำนวน</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  ผู้อำนวยการเขตพื้นที่การศึกษา
+                </td>
+                <td>
+                  <?php echo $attendees[0][count]; ?>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  รองผู้อำนวยการเขตพื้นที่การศึกษา
+                </td>
+                <td>
+                  <?php echo $attendees[1][count]; ?>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  ศึกษานิเทศก์
+                </td>
+                <td>
+                  <?php echo $attendees[2][count]; ?>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  ผู้อำนวยการโรงเรียน
+                </td>
+                <td>
+                  <?php echo $attendees[3][count]; ?>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  ครูแกนนำ
+                </td>
+                <td>
+                  <?php echo $attendees[4][count]; ?>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  ครูแกนนำ ที่ขยายผลสำเร็จ
+                </td>
+                <td>
+                  <?php echo numberOfCompletedMentor($mentors); ?>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  ครูแกนนำ ที่ขยายผลไม่สำเร็จ
+                </td>
+                <td>
+                  <?php echo numberOfIncompletedMentor($mentors); ?>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  ครูเครือข่าย
+                </td>
+                <td>
+                  <?php echo $attendees[5][count]; ?>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  ครูเครือข่าย ที่ส่งผลงาน
+                </td>
+                <td>
+                  <?php echo $attendees[5][count]-$attendees[6][count]; ?>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  ครูเครือข่าย ที่ไม่ส่งผลงาน
+                </td>
+                <td>
+                  <?php echo $attendees[6][count]; ?>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  ครูเครือข่าย Coaching
+                </td>
+                <td>
+                  <?php echo $attendees[7][count]; ?>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  ครูเครือข่าย Coaching ที่ส่งผลงาน
+                </td>
+                <td>
+                  <?php echo $attendees[7][count]-$attendees[8][count]; ?>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  ครูเครือข่าย Coaching ที่ไม่ส่งผลงาน
+                </td>
+                <td>
+                  <?php echo $attendees[8][count]; ?>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
       <div class="row">
         <div class="col-md-12">
